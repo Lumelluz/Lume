@@ -2,7 +2,7 @@ import styles from './Container.module.css';
 
 function Container({ children }) {
     return (
-    <section>
+    <section className={styles.container}>
         { children }
     </section>
     )
