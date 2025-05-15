@@ -1,23 +1,13 @@
-import styles from './Home.module.css';
-import SobreNos from '../../components/SobreNos';
-import CategoriasProdutos from '../../components/CategoriasProdutos';
-import ComeceAComprar from '../../components/ComeceAComprar';
-import Container from '../../components/Container';
+import ContainerInicial from '../../components/ContainerInicial';
+import ParceriasCarrosel from '../../components/ParceriasCarrosel';
 
 function Home() {
     return (
         <>
-        <Container>
-            <SobreNos />
-        </Container>
-
-        <Container>
-            <CategoriasProdutos />
-        </Container>
-        
-        <Container>
-            <ComeceAComprar/>
-        </Container>
+            <ContainerInicial />
+            <ParceriasCarrosel />
+            {/* <CategoriasProdutos /> */}
+            {/* <ComeceAComprar /> */}
         </>
     )
 }

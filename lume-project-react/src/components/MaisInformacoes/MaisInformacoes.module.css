@@ -1,0 +1,12 @@
+.container {
+    min-height: 55vh;
+    border: 1px solid red;
+    margin: 0 auto;
+    background-color: #2a0652ce;
+}
+
+.conteudo {
+    max-width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}

@@ -1,0 +1,21 @@
+.parcerias {
+    /* background-color: royalblue; */
+    border: 1px solid red;
+    text-align: center;
+}
+
+.parcerias > h2 {
+    font-size: 70px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+}
+
+.parcerias h3 {
+    text-align: left;
+}
+
+.parceriasCarrosel {
+    display: flex;
+    gap: 40px;
+    /* background-color: rgba(111, 29, 29, 0.401) */
+}

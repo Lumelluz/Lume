@@ -1,21 +1,13 @@
 import styles from './Header.module.css';
-import instagramIcon from '../../assets/icons/instagramIcon.svg';
-import carrinhoIcon from '../../assets/icons/carrinhoIcon.svg';
-import sinoIcon from '../../assets/icons/sinoIcon.svg';
-import duvidaIcon from '../../assets/icons/duvidaIcon.svg';
 import globoIcon from '../../assets/icons/globoIcon.svg';
-import perfilIcon from '../../assets/icons/perfilIcon.svg';
-import logoLume from '../../assets/icons/logoLume.svg';
-import logoLumeNova from '../../assets/icons/logoLumeNova.svg';
-import logoLumeSemVagalume from '../../assets/icons/logoLumeSemVagalume.svg';
-import gifVagalume from '../../assets/icons/gifVagalume.gif';
-import menuHamburger from '../../assets/icons/menuHamburger.svg';
+import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import lupaIcon from '../../assets/icons/lupaIcon.svg';
-import darkModeIcon from '../../assets/icons/darkModeIcon.svg';
-import bolaPontilhada from '../../assets/icons/bolaPontilhada.svg';
 import { Link } from 'react-router-dom';
+import engrenagem from '../../assets/icons/engrenagem.svg';
 
-function Header() {
+function Header({isLoggedIn, userName}) {
+
+
     return (
         <header className={styles.header}>
             <ul className={styles.headerList}>
@@ -35,16 +27,24 @@ function Header() {
                             <li>Contato</li>
                             <li>Vender</li>
                             <li>Sobre</li>
-                            <img src={globoIcon} alt="" />
+                            <img src={engrenagem} alt="" />
                         </ul>
                     </nav>
                 </div>
                 <div className={styles.clubeComLoginRegistro}>
                     <li className={`${styles.headerListItens}`}><Link className={styles.headerListItens3}>Clube de assinatura Lume+</Link></li>
-                    <div className={styles.loginRegistro}>
-                        <li>Login</li>
-                        <li>Registro</li>
-                    </div>
+                    {!isLoggedIn ? (
+                        <div className={styles.loginRegistro}>
+                            {console.log(isLoggedIn)}
+                            <li>Login</li>
+                            <li>Registro</li>
+                        </div>
+                    ) : (
+                        <div className={styles.loginRegistro}>
+                            <li><Link>Acessar Perfil </Link> <img src={globoIcon} alt="" /></li>
+                        </div>
+                    )}
+
                 </div>
             </ul>
 

@@ -1,0 +1,110 @@
+.sectionQueAgrupaTodosOsElementos {
+    /* min-height: 35vh; */
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.containerEsquerda {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 70px;
+    padding-top: 40px;
+}
+
+.containerEsquerda h1 {
+    font-size: 55px;
+    filter: drop-shadow(0px 4px 5px #5C00BF);
+}
+
+.containerEsquerda p {
+    font-size: 35px;   
+}
+
+.comeceAComprar{
+    text-align: center;
+    background-color: rgba(112, 52, 177, 0.90);
+    text-decoration: none;
+    padding: 20px 15px;
+    border-radius: 10px;
+    background: #3771C8;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    font-size: 20px;
+}
+
+.containerEsquerdaTextoComBotao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.containerDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.containerDireita h2 {
+    font-size: 40px;
+}
+
+.containerDireitaTituloComProdutos {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.containerDireitaSetasCarrousel {
+    display: flex;
+    gap: 20px;   
+}
+
+.containerDireitaProdutosCarrosel {
+    display: flex;
+    gap: 30px;
+    background-color: rgba(112, 52, 177, 0.90);
+    border-radius: 40px;
+    padding: 20px 30px;
+    border: 1px solid white;
+    filter: drop-shadow(0px 4px 21px #000000);
+}
+
+.containerDireitaProdutosCarroselItem {
+    position: relative;
+    /* background-color: yellow; */
+    /* padding: 150px 0 0 0; */
+    /* border-radius: 20px; */
+    text-align: center;
+}
+
+.containerDireitaProdutosCarroselItem img {
+    width: 110px;
+}
+
+.containerDireitaSetasCarrousel > img{
+    width: 20px;
+}
+
+.containerDireitaProdutosCarroselItem figcaption {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.43);
+    padding: 10px 0;
+    margin-bottom: 8px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.containerDireitaBannersCarrosel {
+    background-color: rgba(128, 128, 128, 0.28);
+    padding: 20px;
+    border-radius: 35px;
+}
+
+.containerDireitaBannersCarrosel img {
+    width: 500px;
+}

@@ -1,6 +1,6 @@
 .header {
     /* border: 1px solid red; */
-    margin-top: 2.4rem;
+    padding-block: 2.4rem;
 }
 
 /* width: clamp(min, preferred, max); */
@@ -17,11 +17,6 @@
 .headerListItens {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
-
-.headerListItens1 img {
-    width: 170px;
 }
 
 .headerListItens2 {
@@ -52,7 +47,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .headerListItens3 {
@@ -71,19 +66,20 @@
 }
 
 .loginRegistro li {
-    background-color: blue;
+    background-color: rgba(255, 255, 255, 0.33);
     border-radius: 70px;
     padding: 2px 22px 5px 22px;
     font-size: 19px;
 }
 
 .logo {
-    max-width: 30vw;
+    max-width: 11vw;
+    padding-bottom: 10px;
     /* min-width: 100px; */
 }
 
 .nav {
-    padding-top: 20px;
+    margin-top: 25px;
 }
 
 .nav ul {
@@ -91,7 +87,7 @@
     align-items: center;
     gap: 40px;
     list-style: none;
-    background-color: blue;
+    background-color: rgba(255, 255, 255, 0.33);;
     border-radius: 41px;
     padding: 5px 24px 8px 80px;
     font-size: 20px;
