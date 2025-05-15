@@ -1,14 +1,13 @@
-import styles from './Home.module.css';
-import SobreNos from '../../components/SobreNos';
-import CategoriasProdutos from '../../components/CategoriasProdutos';
-import ComeceAComprar from '../../components/ComeceAComprar';
+import ContainerInicial from '../../components/ContainerInicial';
+import ParceriasCarrosel from '../../components/ParceriasCarrosel';
 
 function Home() {
     return (
-        <> 
-            <SobreNos />
-            <CategoriasProdutos />
-            <ComeceAComprar/>
+        <>
+            <ContainerInicial />
+            <ParceriasCarrosel />
+            {/* <CategoriasProdutos /> */}
+            {/* <ComeceAComprar /> */}
         </>
     )
 }

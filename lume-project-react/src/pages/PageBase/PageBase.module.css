@@ -1,0 +1,16 @@
+main {
+    border: 1px solid green;
+    min-height: 55vh;
+    max-width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.backgroundImage {
+    background-image: url(../../assets/img/fundoLume.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    background-size: 100% 100%;
+}
