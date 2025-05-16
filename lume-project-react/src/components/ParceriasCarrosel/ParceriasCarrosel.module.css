@@ -1,13 +1,17 @@
 .parcerias {
     /* background-color: royalblue; */
+    display: flex;
+    flex-direction: column;
     border: 1px solid red;
     text-align: center;
+    align-items: center;
 }
 
 .parcerias > h2 {
-    font-size: 70px;
+    font-size: 50px;
     border-bottom: 1px solid white;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
 .parcerias h3 {
@@ -15,7 +19,69 @@
 }
 
 .parceriasCarrosel {
+    position: relative;
+    display: flex;
+    gap: 100px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 40px; 
+    padding: 25px;
+}
+
+.parceriasCarroselComSetas {
+    display: flex;
+    gap: 20px;
+}
+
+.parceriasCarroselComSetas > img {
+    width: 20px;
+    cursor: pointer;
+}
+
+.vagalumeCarrosel {
+    position: absolute;
+    width: 60px;
+    left: 0;
+    top: 0
+}
+
+.parceriasCarroselEsquerda img:nth-child(2){
+    width: 180px;
+}
+
+.parceriasCarroselComTexto {
     display: flex;
     gap: 40px;
-    /* background-color: rgba(111, 29, 29, 0.401) */
+    align-items: center;
+    font-size: 35px;
+}
+
+.parceriasCarroselDireita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center;
+    gap: 10px;
+}
+
+.parceriasCarroselDireitaImagens {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.parceriasCarroselDireitaImagens img {
+    width: 120px;
+}
+
+.botaoSaibaMais {
+    background-color: #1B4799;
+    text-decoration: none;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
 }
