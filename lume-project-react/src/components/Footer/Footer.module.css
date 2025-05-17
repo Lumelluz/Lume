@@ -1,10 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 .container {
     min-height: 20vh;
     background-color: #180032;
+    height: 310px;
 }
 
 .conteudo {
     max-width: 100%;
     max-width: 1500px;
     margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}  
+
+.container ul {
+    list-style: none
+}
+
+.container a {
+    text-decoration: none;
+}
+
+.columOne {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.columOneLogo {
+    width: 178px;
+    height: 112px;
+}
+
+h3 {
+    font-family: "Jost", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.columTwo li, .columTree li, .columFour li {    
+    margin-top: 35px;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.imgInstagram, .imgLinkdln, .imgGitHub {
+    width: 24px;
+}
+
+.redesSociais {
+    display: flex;
+    gap: 10px;
+}
+
+.suaLuz {
+    margin-top: 10px;
+}
+
+.sigaNos {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.conjuntoColum {
+    display: flex;
+    margin-top: 40px;
+    gap: 80px;
+}
+
+.contornoIcons {
+    background-color:#fff;
+    width: 320px;
+    height: 0.3px;
+    margin-top: 5px;
 }
