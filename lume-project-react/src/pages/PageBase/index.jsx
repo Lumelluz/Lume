@@ -18,8 +18,9 @@ function PageBase() {
 
     return (
         <>
+
         <div className={styles.backgroundImage}>
-            <Header isLoggedIn={isLoggedIn} userName={userName}/>
+            {location.pathname !== '/login' && <Header/> }
             <main>
                 <Outlet />
             </main>
