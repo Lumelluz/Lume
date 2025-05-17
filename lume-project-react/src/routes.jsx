@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageBase from "./pages/PageBase";
 import Home from "./pages/Home";
 import TelaLogin from "./pages/TelaLogin";
+import SobreNos from "./pages/SobreNos";
 
 function AppRoutes() {
     return (
@@ -10,6 +11,7 @@ function AppRoutes() {
                 <Route path="/" element={<PageBase />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<TelaLogin />} />
+                    <Route path="/SobreNos" element={<SobreNos />} />
 
                 </Route>
             </Routes>
