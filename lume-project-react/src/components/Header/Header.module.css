@@ -26,13 +26,13 @@
 .headerListItens2 input {
     border: none;
     border-radius: 77px;
+    padding: 12px;
     outline: none;
-    padding: 0.7rem 11rem 0.7rem 3rem;
     box-shadow: 0 2px 0px var(--gray);
     font-size: 1rem;
-    transition: box-shadow 0.3s ease;
     width: 100%;
-    font-size: 1.0625rem;
+    font-size: 16px;
+    color: black;
 }
 
 .headerListItens2 img:nth-child(2){
