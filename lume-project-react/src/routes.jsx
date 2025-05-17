@@ -11,7 +11,7 @@ function AppRoutes() {
                 <Route path="/" element={<PageBase />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<TelaLogin />} />
-                    <Route path="/SobreNos" element={<SobreNos />} />
+                    <Route path="/sobreNos" element={<SobreNos />} />
 
                 </Route>
             </Routes>
