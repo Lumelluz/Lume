@@ -2,11 +2,26 @@
     min-height: 55vh;
     border: 1px solid red;
     margin: 0 auto;
-    background-color: #2a0652ce;
+    background-color: #512E74;
 }
 
 .conteudo {
     max-width: 100%;
     max-width: 1500px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partePrincipal div{
+    display: flex;
+    background-color: rgb(78, 84, 82);
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sub{
+    font-size: 35px;
 }
