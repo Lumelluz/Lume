@@ -1,6 +1,6 @@
 .sectionQueAgrupaTodosOsElementos {
-    /* min-height: 35vh; */
-    /* border: 1px solid red; */
+    min-height: 35vh;
+    border: 1px solid red;
     display: flex;
     justify-content: space-evenly;
 }
@@ -8,21 +8,20 @@
 .containerEsquerda {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     gap: 70px;
     padding-top: 40px;
 }
 
 .containerEsquerda h1 {
-    font-size: 55px;
+    font-size: 3.8vw;
     filter: drop-shadow(0px 4px 5px #5C00BF);
 }
 
 .containerEsquerda p {
-    font-size: 35px;   
+    font-size: 35px;
 }
 
-.comeceAComprar{
+.comeceAComprar {
     text-align: center;
     background-color: rgba(112, 52, 177, 0.90);
     text-decoration: none;
@@ -44,7 +43,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 35px;
 }
 
 .containerDireita h2 {
@@ -60,7 +59,7 @@
 
 .containerDireitaSetasCarrousel {
     display: flex;
-    gap: 20px;   
+    gap: 20px;
 }
 
 .containerDireitaProdutosCarrosel {
@@ -71,13 +70,15 @@
     padding: 15px;
     border: 1px solid white;
     filter: drop-shadow(0px 4px 21px #000000);
+    transition: all 1.0s ease;
+
 }
 
 .containerDireitaProdutosCarroselItem img {
     width: 110px;
 }
 
-.containerDireitaSetasCarrousel > img{
+.containerDireitaSetasCarrousel>img {
     width: 20px;
 }
 
@@ -89,4 +90,75 @@
 
 .containerDireitaBannersCarrosel img {
     width: 500px;
+}
+
+@media (max-width: 1220px) {
+    .sectionQueAgrupaTodosOsElementos {
+        all: unset;
+    }
+
+    .containerEsquerda {
+        all: unset;
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerEsquerdaTextoComBotao {
+        display: none;
+    }
+
+    .titulo {
+        padding: 50px 0;
+        border-bottom: #3771C8 5px solid;
+        margin-bottom: 50px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .containerEsquerda h1 {
+        font-size: 53px;
+    }
+
+    .containerDireitaTituloComProdutos {
+        text-align: center;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerDireitaTituloComProdutos h2 {
+        text-align: left;
+        padding-left: 2rem;
+    }
+}
+
+@media (max-width: 756px) {
+    .titulo {
+        font-size: 7vw !important;
+    }
+
+    .containerDireitaProdutosCarrosel {
+        display: flex;
+        gap: 10px;
+        background-color: rgba(115, 0, 238, 0);
+        border-radius: 40px;
+        /* padding: 15px 40px; */
+        /* filter: drop-shadow(0px 4px 21px #000000); */
+        /* all: unset; */
+        /* display: flex; */
+        border: none;
+        flex-shrink: 0;
+        transition: all 1.0s ease;
+    }
+
+    .containerDireitaBannersCarrosel {
+        background-color: rgba(128, 128, 128, 0.28);
+        /* padding: 20px; */
+        border-radius: 35px;
+        width: 73vw;
+    }
+
+    .containerDireitaBannersCarrosel img {
+        width: 100%;
+    }
 }
