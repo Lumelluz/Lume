@@ -38,7 +38,7 @@
     align-items: center;
 }
 
-.produtosItems figcaption div p:nth-child(2) {
+.porcentagemOff p:nth-child(2) {
     font-size: 13px;
     font-weight: 100;
     color: rgb(117, 255, 48);
@@ -54,4 +54,9 @@
 .porcentagemOff {
     display: flex;
     gap: 20px;
+}
+
+.porcentagemOff p:nth-child(1) {
+    font-size: 16px;
+
 }
