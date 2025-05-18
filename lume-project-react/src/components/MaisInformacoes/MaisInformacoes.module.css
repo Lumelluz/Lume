@@ -1,8 +1,17 @@
 .container {
-    min-height: 55vh;
+    /* min-height: 55vh; */
+    padding-bottom: 50px;
     border: 1px solid red;
     margin: 0 auto;
     background-color: #512E74;
+    text-align: center;
+}
+
+.container > h2 {
+    margin: 25px;
+    font-size: 55px;
+    border-bottom: 1px solid white;
+    display: inline-block;
 }
 
 .conteudo {
@@ -10,18 +19,62 @@
     max-width: 1500px;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    /* gap: 350px; */
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.partePrincipal div{
+.cadastrarEmpresa {
     display: flex;
-    background-color: rgb(78, 84, 82);
+    flex-direction: column;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-around;
+    gap: 30px;
 }
 
-.sub{
+.cadastrarEmpresa h2 {
+    font-size: 55px;
+    font-weight: 100;
+}
+
+.linkCadastrar {
+    text-align: center;
+    background-color: rgba(112, 52, 177, 0.90);
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 10px;
+    background: #3771C8;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    font-size: 25px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.containerDireitaMaisInfo {
+    display: flex;
+    gap: 100px;
+    background-color: #472968;
+    filter: drop-shadow(0px -1px 20px #7A2ECB);
+    border-radius: 54px;
+    padding: 30px;
+    text-align: left;
+}
+
+.containerDireitaMaisInfo h2 {
     font-size: 35px;
+}
+
+.info1, .info2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info1 img, .info2 img {
+    height: 250px;
+}
+
+.info1Texto, .info2Texto {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }

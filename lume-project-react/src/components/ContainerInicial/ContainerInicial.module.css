@@ -12,8 +12,8 @@
     padding-top: 40px;
 }
 
-.containerEsquerda h1 {
-    font-size: 3.8vw;
+.titulo {
+    font-size: 4rem;
     filter: drop-shadow(0px 4px 5px #5C00BF);
 }
 
@@ -29,6 +29,7 @@
     border-radius: 10px;
     background: #3771C8;
     background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    border: 1px solid #fff;
     font-size: 20px;
 }
 

@@ -47,7 +47,6 @@ function ContainerInicial() {
                     <Link className={styles.comeceAComprar}>Comece a Comprar</Link>
                 </div>
             </div>
-            {/* <div className={styles.produtosEParcerias}> */}
             <div className={styles.containerDireita}>
                 <div className={styles.containerDireitaTituloComProdutos}>
                     <h2>Alguns de nossos produtos</h2>
