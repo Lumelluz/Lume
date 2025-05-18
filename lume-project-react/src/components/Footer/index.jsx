@@ -10,8 +10,10 @@ function Footer() {
         <section className={styles.container}>
             <div className={styles.conteudo}>
                 <div className={styles.columOne}>
-                    <img src={logoLumeNova} alt="logoLume" className={styles.columOneLogo} />
+                    <div className={styles.columOneLogo}>
+                    <img src={logoLumeNova} alt="logoLume" />
                     <p className={styles.suaLuz}>Sua luz faz a diferença</p>
+                    </div>
                     <p className={styles.sigaNos}>Siga-nos</p>
                     <div className={styles.redesSociais}>
                         <a href="https://www.instagram.com/lumelluz/" target="_blank">
@@ -37,7 +39,7 @@ function Footer() {
                             </ul>
                         </nav>
                     </div>
-                    <div className={styles.columTree}>
+                    <div className={styles.columThree}>
                         <h3>Suporte</h3>
                         <nav>
                             <ul>
@@ -58,7 +60,9 @@ function Footer() {
                         </nav>
                     </div>
                 </div>
+                
             </div>
+                <p className={styles.copyright}>Todos os direitos reservados &copy; - 2025</p>
         </section>
     )
 }

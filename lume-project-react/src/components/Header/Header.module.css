@@ -35,7 +35,7 @@
     color: black;
 }
 
-.headerListItens2 img:nth-child(2){
+.headerListItens2 img:nth-child(2) {
     position: absolute;
     right: 23px;
     width: 24px;
@@ -67,7 +67,7 @@
     text-decoration: none;
 }
 
-.loginRegistro  {
+.loginRegistro {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -102,7 +102,8 @@
     align-items: center;
     gap: 40px;
     list-style: none;
-    background-color: rgba(255, 255, 255, 0.33);;
+    background-color: rgba(255, 255, 255, 0.33);
+    ;
     border-radius: 41px;
     padding: 5px 1.8vw 8px 5.5vw;
     font-size: 20px;
@@ -141,6 +142,7 @@
     .clubeComLoginRegistro {
         display: none;
     }
+
     .clubeComLoginRegistroMobile {
         display: block;
         cursor: pointer;
@@ -151,9 +153,11 @@
     .nav {
         display: none;
     }
+
     .headerList {
         gap: 3vw;
     }
+
     .headerListItens2 {
         width: 70vw;
     }
@@ -161,18 +165,20 @@
     .headerListItens2 input {
         padding: 2vw;
     }
-    
+
     .logo {
         display: none;
     }
+
     .menuHamburguerMobile {
         display: block;
         cursor: pointer;
     }
 
-    .headerListItens2 img:nth-child(2){
+    .headerListItens2 img:nth-child(2) {
         right: 15px;
     }
+
     .header {
         background-color: rgba(217, 217, 217, 0.20);
 
@@ -181,14 +187,11 @@
 
 @media (max-width: 530px) {
     .headerListItens2 input {
-        font-size: 13px;
+        font-size: 2.5vw;
         padding: 2.5vw;
     }
-    
-}
 
-@media (max-width: 430px) {
-   .headerListItens2 input {
-        font-size: 11px;
+    .headerListItens2 img:nth-child(2) {
+        width: 5vw;
     }
 }

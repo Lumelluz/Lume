@@ -17,8 +17,10 @@ function ParceriasCarrosel() {
         <div className={styles.parceriasCarrosel}>
           <div className={styles.parceriasCarroselComTexto}>
             <div className={styles.parceriasCarroselEsquerda}>
+              <div className={styles.vagalumeAbsolute}>
               <img src={vagalumeSpriteLuminoso} alt="vagalume" className={styles.vagalumeCarrosel} />
               <img src={aguaNaCaixa} alt="logoDaParceira" />
+              </div>
             </div>
             <div className={styles.containerParceiroMobile}>
               <h3>A melhor opção<br />para beber<br />

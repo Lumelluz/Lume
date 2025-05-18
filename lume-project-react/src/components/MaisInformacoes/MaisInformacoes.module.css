@@ -1,7 +1,7 @@
 .container {
     /* min-height: 55vh; */
     padding-bottom: 50px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 0 auto;
     background-color: #512E74;
     text-align: center;
@@ -9,7 +9,7 @@
 
 .container>h2 {
     margin: 25px;
-    font-size: 55px;
+    font-size: 45px;
     border-bottom: 1px solid white;
     display: inline-block;
 }
@@ -84,6 +84,14 @@
     gap: 30px;
 }
 
+.info2Texto h2 {
+    font-weight: 200;
+}
+
+.lumeNome {
+    color: #C990FA;
+}
+
 .cadastrarEmpresaMobile {
     display: none;
 }
@@ -145,5 +153,33 @@
     .cadastrarEmpresaMobile h2 {
         font-size: 40px;
     }
+}
 
+@media (max-width: 620px) {
+
+    .container > h2 {
+        font-size: 5.5vw;
+    }
+
+    .info1 img, .info2 img {
+        height: 40vw;
+    }
+
+    .info1Texto h2, .info2Texto h2 {
+        /* gap: 10px; */
+        font-size: 5.5vw;
+    }
+
+    .info1Texto p, .info2Texto p {
+        font-size: 2.5vw;
+    }
+
+    .cadastrarEmpresaMobile h2 {
+        font-size: 6vw;
+    }
+
+    .linkCadastrar {
+        padding: 3vw 9vw;
+        font-size: 4vw;
+    }
 }

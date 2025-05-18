@@ -1,6 +1,6 @@
 .sectionQueAgrupaTodosOsElementos {
     /* min-height: 35vh; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: space-evenly;
 }
@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
+    gap: 30px;
 }
 
 .containerDireita h2 {
@@ -87,6 +87,7 @@
     background-color: rgba(128, 128, 128, 0.28);
     padding: 20px;
     border-radius: 35px;
+    margin-bottom: 30px;
 }
 
 .containerDireitaBannersCarrosel img {
@@ -122,7 +123,6 @@
 
     .containerDireitaTituloComProdutos {
         text-align: center;
-        padding-bottom: 20px;
         display: flex;
         flex-direction: column;
     }
@@ -138,6 +138,15 @@
 }
 
 @media (max-width: 756px) {
+
+    .containerDireitaTituloComProdutos h2 {
+        font-size: 6vw;
+    }
+
+    .containerDireitaSetasCarrousel>img {
+        display: none;
+    }
+
     .titulo {
         font-size: 7vw !important;
     }
@@ -147,13 +156,12 @@
         gap: 10px;
         background-color: rgba(115, 0, 238, 0);
         border-radius: 40px;
-        /* padding: 15px 40px; */
-        /* filter: drop-shadow(0px 4px 21px #000000); */
-        /* all: unset; */
-        /* display: flex; */
         border: none;
-        flex-shrink: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
         transition: all 1.0s ease;
+        /* overflow: hidden; PENSAR SOBRE!!!*/
     }
 
     .containerDireitaBannersCarrosel {
@@ -161,9 +169,11 @@
         /* padding: 20px; */
         border-radius: 35px;
         width: 73vw;
+        padding: 12px;
     }
 
     .containerDireitaBannersCarrosel img {
         width: 100%;
+        border-radius: 20px;
     }
 }

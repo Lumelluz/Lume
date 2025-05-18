@@ -2,7 +2,7 @@
     /* background-color: royalblue; */
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     text-align: center;
     align-items: center;
     /* margin: 60px 0; */
@@ -22,7 +22,6 @@
 }
 
 .parceriasCarrosel {
-    position: relative;
     display: flex;
     gap: 100px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -32,6 +31,18 @@
     border-radius: 40px;
     padding: 25px;
 }
+
+.vagalumeAbsolute {
+    position: relative;
+}
+
+.vagalumeCarrosel {
+    position: absolute;
+    width: 60px;
+    left: -25px;
+    top: -25px;
+}
+
 
 .parceriasCarroselComSetas {
     display: flex;
@@ -43,12 +54,6 @@
     cursor: pointer;
 }
 
-.vagalumeCarrosel {
-    position: absolute;
-    width: 60px;
-    left: 0;
-    top: 0
-}
 
 .parceriasCarroselEsquerda img:nth-child(2) {
     width: 180px;
@@ -94,13 +99,26 @@
     gap: 40px;
 }
 
+
+
 @media (max-width: 1220px) {
     .parceriasCarrosel {
+        position: relative;
+        display: flex;
         gap: 20px;
+        /* padding: 2.5vw 2.5vw 2.5vw 2.5vw; */
+    }
+
+    .containerParceiroMobile>h3 {
+        font-size: 3vw;
     }
 
     .parceriasCarroselDireitaImagens img {
-        width: 100px;
+        width: 10vw;
+    }
+
+    .parcerias>h2 {
+        font-size: 4vw;
     }
 }
 
@@ -109,7 +127,11 @@
     .parceriasCarroselComTexto {
         all: unset;
         display: flex;
-        gap: 30px;
+        gap: 15px;
+    }
+
+    .parcerias>h2 {
+        font-size: 40px;
     }
 
     .parceriasCarroselDireitaImagens {
@@ -121,5 +143,48 @@
         flex-direction: column;
         align-items: start;
         gap: 15px;
+    }
+
+    .containerParceiroMobile h3 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 620px) {
+    .parcerias>h2 {
+        margin-bottom: 10px;
+        font-size: 5.5vw;
+    }
+
+    .vagalumeCarrosel {
+        width: 10.5vw;
+    }
+
+    .parceriasCarroselEsquerda img:nth-child(2) {
+        width: 25vw;
+    }
+
+    .containerParceiroMobile h3 {
+        font-size: 3.5vw;
+    }
+
+    .parceriasCarroselComSetas>img:nth-child(1) {
+        width: 14px;
+    }
+
+    .parceriasCarroselComSetas>img:nth-child(3) {
+        width: 14px;
+    }
+
+    .botaoSaibaMais {
+        padding: 1.25vw 3.25vw;
+        font-size: 2.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .vagalumeCarrosel {
+        left: -5.5vw;
+        top: -5vw;
     }
 }
