@@ -1,16 +1,14 @@
 .produtosItems {
     background-color: rgba(0, 0, 0, 0.28);
-    padding: 1vw 0vw 0vw 0vw;
-    border-radius: 35px;
+    padding: 14px 0 0 0;
+    border-radius: 15px;
     /* text-align: center; */
+
 }
 
 .produtosItems img {
     width: 110px;
     height: 120px;
-    /* height: 100%; */
-    /* border-radius: 20px; */
-    /* filter: drop-shadow(0px 4px 21px #000000); */
 }
 
 .produtosItems figcaption {
@@ -18,7 +16,6 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    /* background-color: rgba(0, 0, 0, 0.43); */
     padding: 20px 12px 20px 12px;
     border-radius: 20px;
 }
@@ -61,13 +58,77 @@
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {}
+
+@media (max-width: 620px) {
+
+    .produtosItems img {
+        width: 18vw;
+        height: 19vw;
+    }
+
     .produtosItems figcaption h2 {
-        font-size: 12px;
+        font-size: 2.2vw;
         font-weight: 100;
-        /* white-space: normal;
-        overflow-wrap: break-word;
-        word-wrap: break-word; */
         max-width: 170px;
     }
+
+    .produtosItems figcaption>p {
+        font-size: 2.1vw;
+        font-weight: 100;
+    }
+
+    .porcentagemOff p:nth-child(1) {
+        font-size: 3.3vw;
+    }
+
+    .porcentagemOff p:nth-child(2) {
+        font-size: 2.vw;
+        font-weight: 100;
+        color: rgb(117, 255, 48);
+    }
+
+    .produtosItems figcaption {
+        padding: 3vw;
+    }
 }
+
+@media (max-width: 400px) {
+
+    .produtosItems figcaption h2 {
+        font-size: 3vw;
+        font-weight: 100;
+        max-width: 170px;
+    }
+
+    .produtosItems figcaption>p {
+        font-size: 2.7vw;
+        font-weight: 100;
+    }
+
+    .porcentagemOff p:nth-child(1) {
+        font-size: 3.5vw;
+    }
+
+    .porcentagemOff p:nth-child(2) {
+        font-size: 3vw;
+        font-weight: 100;
+        color: rgb(117, 255, 48);
+    }
+
+
+    .produtosItems img {
+        width: 20vw;
+        height: 21vw;
+    }
+
+    .produtosItems {
+        /* padding: 2vw; */
+        width: 100%;
+        max-width: 43vw;
+    }
+}
+
+/* white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word; */
