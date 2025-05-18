@@ -1,5 +1,5 @@
 .sectionQueAgrupaTodosOsElementos {
-    min-height: 35vh;
+    /* min-height: 35vh; */
     border: 1px solid red;
     display: flex;
     justify-content: space-evenly;
@@ -129,7 +129,11 @@
 
     .containerDireitaTituloComProdutos h2 {
         text-align: left;
-        padding-left: 2rem;
+
+    }
+
+    .containerDireitaTituloComProdutos>h2 {
+        padding-left: 7vw;
     }
 }
 

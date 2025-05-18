@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.container > h2 {
+.container>h2 {
     margin: 25px;
     font-size: 55px;
     border-bottom: 1px solid white;
@@ -24,14 +24,16 @@
     align-items: center;
 }
 
-.cadastrarEmpresa {
+.cadastrarEmpresa,
+.cadastrarEmpresaMobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
 }
 
-.cadastrarEmpresa h2 {
+.cadastrarEmpresa h2,
+.cadastrarEmpresaMobile h2 {
     font-size: 55px;
     font-weight: 100;
 }
@@ -63,18 +65,85 @@
     font-size: 35px;
 }
 
-.info1, .info2 {
+.info1,
+.info2 {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.info1 img, .info2 img {
+.info1 img,
+.info2 img {
     height: 250px;
 }
 
-.info1Texto, .info2Texto {
+.info1Texto,
+.info2Texto {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+.cadastrarEmpresaMobile {
+    display: none;
+}
+
+
+.fundoDegrade {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    background: #523472;
+    background: -webkit-linear-gradient(360deg, rgba(82, 52, 114, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: -moz-linear-gradient(360deg, rgba(82, 52, 114, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(360deg, rgba(82, 52, 114, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#523472", endColorstr="#000000", GradientType=0);
+}
+
+@media (max-width: 1380px) {
+
+    .conteudo {
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .containerDireitaMaisInfo {
+        /* flex-direction: column; */
+        gap: 6vw;
+        background-color: #472968;
+        filter: drop-shadow(0px -1px 20px #7A2ECB);
+        border-radius: 54px;
+        padding: 30px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 1070px) {
+    .containerDireitaMaisInfo {
+        flex-direction: column;
+        border-radius: 20px;
+        gap: 30px;
+        padding: 5%;
+
+    }
+
+    .cadastrarEmpresa {
+        display: none;
+    }
+
+    .cadastrarEmpresaMobile {
+        display: block;
+        display: flex;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .cadastrarEmpresaMobile h2 {
+        font-size: 40px;
+    }
+
 }

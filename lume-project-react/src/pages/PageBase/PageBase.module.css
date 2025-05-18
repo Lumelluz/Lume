@@ -1,6 +1,12 @@
+body {
+    /* background-color: rgb(55, 79, 10); */
+    background: #000000;
+background: linear-gradient(360deg, #008296 0%, #180032 100%);
+}
+
 main {
     border: 1px solid green;
-    min-height: 55vh;
+    /* min-height: 55vh; */
     max-width: 100%;
     max-width: 1500px;
     margin: 0 auto;

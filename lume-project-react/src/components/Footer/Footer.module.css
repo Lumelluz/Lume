@@ -7,15 +7,11 @@
 }
 
 .conteudo {
-    max-width: 100%;
     max-width: 1500px;
     margin: 0 auto;
-}
-
-.container {
     display: flex;
     justify-content: space-around;
-}  
+}
 
 .container ul {
     list-style: none
