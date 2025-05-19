@@ -14,8 +14,10 @@ function AppRoutes() {
                 <Route path="/" element={<PageBase />}>
                     <Route path="/" element={<Home />} />                   
                     <Route path="/login" element={<TelaLogin />} />
-                    <Route path="/loginpassword" element ={<LoginSenha />} />
-
+                    <Route path="/loginPassword" element ={<LoginSenha />} />
+                    <Route path="/sobreNos" element={<SobreNos />} />
+                    <Route path="/cadastrarEmpresa" element={<CadastrarEmpresa />} />
+                    <Route path="/checkoutPagamento" element={<CheckOutPagamento />} />
                 </Route>
             </Routes>
         </BrowserRouter>
