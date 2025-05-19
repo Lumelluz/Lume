@@ -3,6 +3,7 @@ import PageBase from "./pages/PageBase";
 import Home from "./pages/Home";
 import TelaLogin from "./pages/TelaLogin";
 import LoginSenha from "./pages/LoginSenha";
+import CheckOutPagamento from "./pages/CheckOutPagamento";
 import SobreNos from "./pages/SobreNos";
 import CadastrarEmpresa from "./pages/CadastrarEmpresa"
 
