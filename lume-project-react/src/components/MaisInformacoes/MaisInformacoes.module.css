@@ -45,6 +45,12 @@
     font-size: 20px;
     border: 1px solid #fff;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.linkCadastrar:hover {
+    transform: scale(1.05);
 }
 
 .containerDireitaMaisInfo {

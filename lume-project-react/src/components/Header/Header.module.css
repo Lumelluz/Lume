@@ -64,6 +64,7 @@
     padding: 6.4px 20px;
     font-size: 13.6px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .loginRegistro {
