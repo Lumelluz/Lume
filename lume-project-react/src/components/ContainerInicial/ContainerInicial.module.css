@@ -1,110 +1,172 @@
 .sectionQueAgrupaTodosOsElementos {
-    /* min-height: 35vh; */
-    /* border: 1px solid red; */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 50px;
 }
 
 .containerEsquerda {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    gap: 70px;
-    padding-top: 40px;
+    gap: 56px;
+    padding-top: 32px;
 }
 
-.containerEsquerda h1 {
-    font-size: 55px;
-    filter: drop-shadow(0px 4px 5px #5C00BF);
+.titulo {
+    font-size: 3.2rem;
+    filter: drop-shadow(0px 3.2px 4px #5C00BF);
 }
 
 .containerEsquerda p {
-    font-size: 35px;   
+    font-size: 28px;
 }
 
-.comeceAComprar{
+.comeceAComprar {
     text-align: center;
     background-color: rgba(112, 52, 177, 0.90);
     text-decoration: none;
-    padding: 20px 15px;
-    border-radius: 10px;
-    background: #3771C8;
+    padding: 16px 12px;
+    border-radius: 8px;
     background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
-    font-size: 20px;
+    border: 0.8px solid #fff;
+    font-size: 16px;
 }
 
 .containerEsquerdaTextoComBotao {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
 }
 
 .containerDireita {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+    gap: 24px;
 }
 
 .containerDireita h2 {
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .containerDireitaTituloComProdutos {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .containerDireitaSetasCarrousel {
     display: flex;
-    gap: 20px;   
+    gap: 16px;
 }
 
 .containerDireitaProdutosCarrosel {
     display: flex;
-    gap: 30px;
+    gap: 8px;
     background-color: rgba(112, 52, 177, 0.90);
-    border-radius: 40px;
-    padding: 20px 30px;
-    border: 1px solid white;
-    filter: drop-shadow(0px 4px 21px #000000);
-}
-
-.containerDireitaProdutosCarroselItem {
-    position: relative;
-    /* background-color: yellow; */
-    /* padding: 150px 0 0 0; */
-    /* border-radius: 20px; */
-    text-align: center;
+    border-radius: 32px;
+    padding: 12px;
+    border: 0.8px solid white;
+    filter: drop-shadow(0px 3.2px 16.8px #000000);
+    transition: all 1.0s ease;
 }
 
 .containerDireitaProdutosCarroselItem img {
-    width: 110px;
+    width: 88px;
 }
 
-.containerDireitaSetasCarrousel > img{
-    width: 20px;
-}
-
-.containerDireitaProdutosCarroselItem figcaption {
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.43);
-    padding: 10px 0;
-    margin-bottom: 8px;
-    width: 100%;
-    border-radius: 20px;
+.containerDireitaSetasCarrousel>img {
+    width: 16px;
 }
 
 .containerDireitaBannersCarrosel {
     background-color: rgba(128, 128, 128, 0.28);
-    padding: 20px;
-    border-radius: 35px;
+    padding: 16px;
+    border-radius: 28px;
+    margin-bottom: 24px;
 }
 
 .containerDireitaBannersCarrosel img {
-    width: 500px;
+    width: 400px;
+}
+
+@media (max-width: 1220px) {
+    .sectionQueAgrupaTodosOsElementos {
+        all: unset;
+    }
+
+    .containerEsquerda {
+        all: unset;
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerEsquerdaTextoComBotao {
+        display: none;
+    }
+
+    .titulo {
+        padding: 25px 0;
+        border-bottom: #3771C8 4px solid;
+        margin-bottom: 40px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .containerEsquerda h1 {
+        font-size: 42.4px;
+    }
+
+    .containerDireitaTituloComProdutos {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerDireitaTituloComProdutos h2 {
+        text-align: left;
+    }
+
+    .containerDireitaTituloComProdutos>h2 {
+        padding-left: 5.6vw;
+    }
+}
+
+@media (max-width: 756px) {
+    .containerDireitaTituloComProdutos h2 {
+        font-size: 4.8vw;
+    }
+
+    .containerDireitaSetasCarrousel>img {
+        display: none;
+    }
+
+    .titulo {
+        font-size: 5.6vw !important;
+    }
+
+    .containerDireitaProdutosCarrosel {
+        display: flex;
+        gap: 8px;
+        background-color: rgba(115, 0, 238, 0);
+        border-radius: 32px;
+        border: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        transition: all 1.0s ease;
+    }
+
+    .containerDireitaBannersCarrosel {
+        background-color: rgba(128, 128, 128, 0.28);
+        width: 58.4vw;
+        padding: 9.6px;
+        border-radius: 28px;
+    }
+
+    .containerDireitaBannersCarrosel img {
+        width: 100%;
+        border-radius: 16px;
+    }
 }
