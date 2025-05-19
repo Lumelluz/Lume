@@ -11,8 +11,9 @@ function PageBase() {
     const [userName, setUserName] = useState('Usuário');
 
 
-    // se a const for false não exibira a função (header, footer, mais informações)
-    const shouldShowHeaderAndFooterOnHome = location.pathname === '/';
+    // se algum endpoint for false, não exibirá tal componente (header, footer, mais informações)
+    const shouldShowHeader = (location.pathname === '/') || (location.pathname.toLowerCase() === '/sobrenos');
+    const shouldShowFooter = (location.pathname === '/') || (location.pathname.toLowerCase() === '/sobrenos');
     const shouldShowMaisInformacoes = location.pathname === '/';
 
     // const [profilePicture, setProfilePicture] = useState(null);
