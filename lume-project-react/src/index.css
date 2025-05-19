@@ -6,6 +6,7 @@
   margin: 0;
   box-sizing: border-box;
   color: rgb(255, 255, 255);
+  cursor: url(../public/vagalumeCursor.svg) 10 10, auto;
 }
 
 :root {
