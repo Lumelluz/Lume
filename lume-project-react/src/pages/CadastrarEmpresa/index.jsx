@@ -4,6 +4,7 @@ import styles from '../CadastrarEmpresa/CadastrarEmpresa.module.css'
 function CadastrarEmpresa() {
     return (
         <section className={styles.section_bg}>
+            <p className>oi mundo</p>
             <div className={styles.container}>
 
                 {/* <!-- Logo --> */}
