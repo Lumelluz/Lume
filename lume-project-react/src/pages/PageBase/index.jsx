@@ -12,10 +12,7 @@ function PageBase() {
 
 
     // se a const for false não exibira a função (header, footer, mais informações)
-    const shouldShowFooter = location.pathname !== '/login' 
-    && location.pathname !== '/loginpassword';
-    const shouldShowHeader = location.pathname !== '/login'
-    && location.pathname !== '/loginpassword';
+    const shouldShowHeaderAndFooterOnHome = location.pathname === '/';
     const shouldShowMaisInformacoes = location.pathname === '/';
 
     // const [profilePicture, setProfilePicture] = useState(null);
@@ -28,12 +25,12 @@ function PageBase() {
     return (
         <>
         <div className={styles.backgroundImage}>
-            {shouldShowHeader && <Header/>}
+            {shouldShowHeaderAndFooterOnHome && <Header />}
             <main>
                 <Outlet />
             </main>
             {shouldShowMaisInformacoes && <MaisInformacoes/>}
-            {shouldShowFooter && <Footer/>}
+            {shouldShowHeaderAndFooterOnHome && <Footer/>}
         </div>
         </>
     )
