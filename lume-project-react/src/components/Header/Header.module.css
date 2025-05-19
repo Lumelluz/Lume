@@ -1,6 +1,6 @@
 .header {
     /* border: 1px solid red; */
-    padding-block: 2.4rem;
+    padding-block: 1.92rem;
 }
 
 /* width: clamp(min, preferred, max); */
@@ -9,7 +9,7 @@
     /* width: 100%; */
     display: flex;
     align-items: center;
-    gap: 2vw;
+    gap: 1.6vw;
     justify-content: center;
     list-style: none;
 }
@@ -25,20 +25,19 @@
 
 .headerListItens2 input {
     border: none;
-    border-radius: 77px;
-    padding: 12px;
+    border-radius: 61.6px;
+    padding: 9.6px;
     outline: none;
-    box-shadow: 0 2px 0px var(--gray);
-    font-size: 1rem;
+    box-shadow: 0 1.6px 0px var(--gray);
+    font-size: 12.8px;
     width: 100%;
-    font-size: 16px;
     color: black;
 }
 
 .headerListItens2 img:nth-child(2) {
     position: absolute;
-    right: 23px;
-    width: 24px;
+    right: 18.4px;
+    width: 19.2px;
     /* height: 20px; */
     cursor: pointer;
 }
@@ -47,7 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
 .clubeComLoginRegistroMobile {
@@ -55,58 +54,57 @@
 }
 
 .clubeComLoginRegistroMobile img {
-    width: 7vw;
+    width: 5.6vw;
 }
 
 .headerListItens3 {
     color: rgb(255, 255, 255);
     background-color: #7709A3;
-    border-radius: 50px;
-    padding: 8px 25px;
-    font-size: 17px;
+    border-radius: 40px;
+    padding: 6.4px 20px;
+    font-size: 13.6px;
     text-decoration: none;
 }
 
 .loginRegistro {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
 }
 
 .loginRegistro li {
     background-color: rgba(255, 255, 255, 0.33);
-    border-radius: 70px;
-    padding: 2px 22px 5px 22px;
-    font-size: 19px;
+    border-radius: 56px;
+    padding: 1.6px 17.6px 4px 17.6px;
+    font-size: 15.2px;
     cursor: pointer;
 }
 
 .logo {
-    max-width: 11vw;
-    padding-bottom: 10px;
+    max-width: 8.8vw;
+    padding-bottom: 8px;
     /* min-width: 100px; */
     cursor: pointer;
 }
 
 .menuHamburguerMobile {
     display: none;
-    width: 8vw;
+    width: 6.4vw;
 }
 
 .nav {
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .nav ul {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
     list-style: none;
     background-color: rgba(255, 255, 255, 0.33);
-    ;
-    border-radius: 41px;
-    padding: 5px 1.8vw 8px 5.5vw;
-    font-size: 20px;
+    border-radius: 32.8px;
+    padding: 4px 1.44vw 6.4px 4.4vw;
+    font-size: 16px;
 }
 
 .nav ul li {
@@ -118,7 +116,7 @@
 }
 
 .navComSearch ul img {
-    width: 25px;
+    width: 20px;
 }
 
 .navList {
@@ -127,15 +125,15 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    gap: 7px;
+    gap: 5.6px;
 }
 
 .navList2 {
-    gap: 15px;
+    gap: 12px;
 }
 
 .bolaPontilhada {
-    margin-top: -10px;
+    margin-top: -8px;
 }
 
 @media (max-width: 1220px) {
@@ -155,15 +153,15 @@
     }
 
     .headerList {
-        gap: 3vw;
+        gap: 2.4vw;
     }
 
     .headerListItens2 {
-        width: 70vw;
+        width: 56vw;
     }
 
     .headerListItens2 input {
-        padding: 2vw;
+        padding: 1.6vw;
     }
 
     .logo {
@@ -176,22 +174,21 @@
     }
 
     .headerListItens2 img:nth-child(2) {
-        right: 15px;
+        right: 12px;
     }
 
     .header {
         background-color: rgba(217, 217, 217, 0.20);
-
     }
 }
 
 @media (max-width: 530px) {
     .headerListItens2 input {
-        font-size: 2.5vw;
-        padding: 2.5vw;
+        font-size: 2vw;
+        padding: 2vw;
     }
 
     .headerListItens2 img:nth-child(2) {
-        width: 5vw;
+        width: 4vw;
     }
 }

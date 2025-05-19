@@ -1,32 +1,31 @@
 .produtosItems {
     background-color: rgba(0, 0, 0, 0.28);
-    padding: 14px 0 0 0;
-    border-radius: 15px;
-    /* text-align: center; */
-
+    padding: 11.2px 0 0 0;
+    border-radius: 12px;
 }
 
 .produtosItems img {
-    width: 110px;
-    height: 120px;
+    width: 88px;
+    height: 96px;
 }
 
 .produtosItems figcaption {
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 20px 12px 20px 12px;
-    border-radius: 20px;
+    gap: 4px;
+    padding: 16px 9.6px 16px 9.6px;
+    border-radius: 16px;
 }
 
 .produtosItems figcaption h2 {
-    font-size: 10px;
+    font-size: 11px;
+    max-width: 125px;
     font-weight: 100;
 }
 
-.produtosItems figcaption>p {
-    font-size: 11px;
+.produtosItems figcaption > p {
+    font-size: 8.8px;
     font-weight: 100;
 }
 
@@ -36,99 +35,96 @@
 }
 
 .porcentagemOff p:nth-child(2) {
-    font-size: 13px;
+    font-size: 10.4px;
     font-weight: 100;
     color: rgb(117, 255, 48);
 }
 
-
 .produtosItems figcaption p del {
-    margin: 0px 5px;
+    margin: 0px 4px;
     color: rgb(163, 155, 155);
     text-decoration-color: black;
 }
 
 .porcentagemOff {
     display: flex;
-    gap: 20px;
+    gap: 16px;
 }
 
 .porcentagemOff p:nth-child(1) {
-    font-size: 16px;
-
+    font-size: 12.8px;
 }
 
-@media (max-width: 768px) {}
+.produtosItems:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
+/* Responsivo 620px */
 @media (max-width: 620px) {
 
     .produtosItems img {
-        width: 18vw;
-        height: 19vw;
+        width: 14.4vw;
+        height: 15.2vw;
     }
 
     .produtosItems figcaption h2 {
-        font-size: 2.2vw;
+        font-size: 1.76vw;
         font-weight: 100;
-        max-width: 170px;
+        max-width: 136px;
     }
 
-    .produtosItems figcaption>p {
-        font-size: 2.1vw;
+    .produtosItems figcaption > p {
+        font-size: 1.68vw;
         font-weight: 100;
     }
 
     .porcentagemOff p:nth-child(1) {
-        font-size: 3.3vw;
+        font-size: 2.64vw;
     }
 
     .porcentagemOff p:nth-child(2) {
-        font-size: 2.vw;
         font-weight: 100;
         color: rgb(117, 255, 48);
     }
 
     .produtosItems figcaption {
-        padding: 3vw;
+        padding: 2.4vw;
     }
 }
 
+/* Responsivo 400px */
 @media (max-width: 400px) {
 
     .produtosItems figcaption h2 {
-        font-size: 3vw;
+        font-size: 2.4vw;
         font-weight: 100;
-        max-width: 170px;
+        max-width: 136px;
     }
 
-    .produtosItems figcaption>p {
-        font-size: 2.7vw;
+    .produtosItems figcaption > p {
+        font-size: 2.16vw;
         font-weight: 100;
     }
 
     .porcentagemOff p:nth-child(1) {
-        font-size: 3.5vw;
+        font-size: 2.8vw;
     }
 
     .porcentagemOff p:nth-child(2) {
-        font-size: 3vw;
+        font-size: 2.4vw;
         font-weight: 100;
         color: rgb(117, 255, 48);
     }
 
-
     .produtosItems img {
-        width: 20vw;
-        height: 21vw;
+        width: 16vw;
+        height: 16.8vw;
     }
 
     .produtosItems {
-        /* padding: 2vw; */
         width: 100%;
-        max-width: 43vw;
+        max-width: 34.4vw;
     }
 }
-
-/* white-space: normal;
-        overflow-wrap: break-word;
-        word-wrap: break-word; */
