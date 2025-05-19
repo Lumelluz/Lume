@@ -11,28 +11,32 @@ import setaDireita from '../../assets/icons/setaDireita.svg';
 function ParceriasCarrosel() {
   return (
     <section className={styles.parcerias}>
-      <h2>Nossos parceiro</h2>
+      <h2>Nossos parceiros</h2>
       <div className={styles.parceriasCarroselComSetas}>
         <img src={setaEsquerda} alt="" />
-      <div className={styles.parceriasCarrosel}>
-        <div className={styles.parceriasCarroselComTexto}>
-        <div className={styles.parceriasCarroselEsquerda}>
-          <img src={vagalumeSpriteLuminoso} alt="vagalume" className={styles.vagalumeCarrosel}/>
-          <img src={aguaNaCaixa} alt="logoDaParceira" />
-        </div>
-        <h3>A melhor opção<br />para beber<br />
-          água</h3>
+        <div className={styles.parceriasCarrosel}>
+          <div className={styles.parceriasCarroselComTexto}>
+            <div className={styles.parceriasCarroselEsquerda}>
+              <div className={styles.vagalumeAbsolute}>
+              <img src={vagalumeSpriteLuminoso} alt="vagalume" className={styles.vagalumeCarrosel} />
+              <img src={aguaNaCaixa} alt="logoDaParceira" />
+              </div>
+            </div>
+            <div className={styles.containerParceiroMobile}>
+              <h3>A melhor opção<br />para beber<br />
+                água</h3>
+              <div className={styles.parceriasCarroselDireita}>
+                <div className={styles.parceriasCarroselDireitaImagens}>
+                  <img src={agua1} alt="imagem1" />
+                  <img src={agua2} alt="imagem2" />
+                  <img src={agua3} alt="imagem3" />
+                </div>
+                <Link className={styles.botaoSaibaMais}>Saiba mais</Link>
+              </div>
+            </div>
           </div>
-        <div className={styles.parceriasCarroselDireita}>
-          <div className={styles.parceriasCarroselDireitaImagens}>
-            <img src={agua1} alt="imagem1" />
-            <img src={agua2} alt="imagem2" />
-            <img src={agua3} alt="imagem3" />
-          </div>
-          <Link className={styles.botaoSaibaMais}>Saiba mais</Link>
         </div>
-      </div>
-      <img src={setaDireita} alt="" />
+        <img src={setaDireita} alt="" />
       </div>
     </section>
   )

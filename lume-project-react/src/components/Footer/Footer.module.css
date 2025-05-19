@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .container {
-    min-height: 20vh;
+    min-height: 16vh;
     background-color: #180032;
-    height: 310px;
+    height: 248px;
 }
 
 .conteudo {
-    max-width: 100%;
-    max-width: 1500px;
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-.container {
     display: flex;
     justify-content: space-around;
-}  
+}
 
 .container ul {
-    list-style: none
+    list-style: none;
 }
 
 .container a {
@@ -28,55 +24,136 @@
 .columOne {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-.columOneLogo {
-    width: 178px;
-    height: 112px;
+    margin-top: 16px;
+    font-size: 16px;
 }
 
 h3 {
     font-family: "Jost", sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.columTwo li, .columTree li, .columFour li {    
-    margin-top: 35px;
+.columTwo li,
+.columThree li,
+.columFour li {
+    margin-top: 28px;
     font-weight: 100;
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.imgInstagram, .imgLinkdln, .imgGitHub {
-    width: 24px;
+.imgInstagram,
+.imgLinkdln,
+.imgGitHub {
+    width: 19.2px;
 }
 
 .redesSociais {
     display: flex;
-    gap: 10px;
-}
-
-.suaLuz {
-    margin-top: 10px;
+    gap: 8px;
 }
 
 .sigaNos {
     font-weight: bold;
-    margin-top: 15px;
-    margin-bottom: 5px;
+    padding-top: 12px;
+    padding-bottom: 4px;
 }
 
 .conjuntoColum {
     display: flex;
-    margin-top: 40px;
-    gap: 80px;
+    padding-top: 32px;
+    gap: 64px;
 }
 
 .contornoIcons {
-    background-color:#fff;
-    width: 320px;
-    height: 0.3px;
-    margin-top: 5px;
+    background-color: #fff;
+    width: 256px;
+    height: 0.24px;
+    padding-top: 4px;
+}
+
+.copyright {
+    text-align: center;
+    padding-block: 2rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+
+@media (max-width: 1220px) {
+
+    .conteudo {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .columOne {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .sigaNos,
+    .contornoIcons {
+        display: none;
+    }
+
+    .columOneLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .redesSociais {
+        align-items: end;
+        gap: 4vw;
+        border-bottom: 2.4px solid #fff;
+    }
+
+    .columOneLogo img {
+        width: 16vw;
+    }
+
+    .imgGitHub,
+    .imgInstagram,
+    .imgLinkdln {
+        width: 32px;
+    }
+
+    .conjuntoColum {
+        gap: 6.4vw;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .columTwo h3,
+    .columThree h3,
+    .columFour h3 {
+        font-size: 2vw;
+    }
+
+    .imgGitHub,
+    .imgInstagram,
+    .imgLinkdln {
+        width: 4.8vw;
+    }
+
+    .columTwo li,
+    .columThree li,
+    .columFour li {
+        margin-top: 4vw;
+        font-weight: 100;
+        font-size: 2vw;
+    }
+
+    .copyright {
+        font-size: 2.2vw;
+    }
+
+    .columOneLogo p {
+        font-size: 1.84vw;
+    }
 }

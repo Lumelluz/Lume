@@ -4,21 +4,23 @@ import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import lupaIcon from '../../assets/icons/lupaIcon.svg';
 import { Link } from 'react-router-dom';
 import engrenagem from '../../assets/icons/engrenagem.svg';
+import perfilIconBranco from '../../assets/icons/perfilIconBranco.svg';
+import menuHamburguerBranco from '../../assets/icons/menuHamburguerBranco.svg';
 
 function Header({isLoggedIn, userName}) {
-
 
     return (
         <header className={styles.header}>
             <ul className={styles.headerList}>
                 <li className={`${styles.headerListItens} ${styles.headerListItens1}`}>
-                    <img src={logoLumeNova} alt="Logo Lume" className={styles.logo} />
+                    <img src={logoLumeNova} alt="Logo da Lume" className={styles.logo} />
+                    <img src={menuHamburguerBranco} alt="Menu de opções" className={styles.menuHamburguerMobile}/>
                 </li>
                 <div className={styles.navComSearch}>
-                    <li className={`${styles.headerListItens} ${styles.headerListItens2}`}>
+                    <div className={`${styles.headerListItens} ${styles.headerListItens2}`}>
                         <input type="text" placeholder="Pesquisar produtos, categorias, marcas..." />
                         <img src={lupaIcon} alt="" />
-                    </li>
+                    </div>
                     <nav className={styles.nav}>
                         <ul>
                             <li>Categorias</li>
@@ -32,7 +34,7 @@ function Header({isLoggedIn, userName}) {
                     </nav>
                 </div>
                 <div className={styles.clubeComLoginRegistro}>
-                    <li className={`${styles.headerListItens}`}><Link className={styles.headerListItens3}>Clube de assinatura Lume+</Link></li>
+                    <div className={`${styles.headerListItens}`}><Link className={styles.headerListItens3}>Clube de assinatura Lume+</Link></div>
                     {!isLoggedIn ? (
                         <div className={styles.loginRegistro}>
                             {console.log(isLoggedIn)}
@@ -44,7 +46,9 @@ function Header({isLoggedIn, userName}) {
                             <li><Link>Acessar Perfil </Link> <img src={globoIcon} alt="" /></li>
                         </div>
                     )}
-
+                </div>
+                <div className={styles.clubeComLoginRegistroMobile}>
+                    <img src={perfilIconBranco}/>
                 </div>
             </ul>
 

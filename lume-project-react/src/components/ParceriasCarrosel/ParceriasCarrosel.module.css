@@ -1,87 +1,178 @@
 .parcerias {
-    /* background-color: royalblue; */
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
     text-align: center;
     align-items: center;
 }
 
-.parcerias > h2 {
-    font-size: 50px;
+.parcerias>h2 {
+    font-size: 40px;
     border-bottom: 1px solid white;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .parcerias h3 {
     text-align: left;
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .parceriasCarrosel {
-    position: relative;
     display: flex;
-    gap: 100px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-color: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
+    gap: 80px;
+    filter: drop-shadow(0px 3.2px 3.2px rgba(0, 0, 0, 0.25));
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 40px; 
-    padding: 25px;
+    border-radius: 32px;
+    padding: 20px;
 }
 
-.parceriasCarroselComSetas {
-    display: flex;
-    gap: 20px;
-}
-
-.parceriasCarroselComSetas > img {
-    width: 20px;
-    cursor: pointer;
+.vagalumeAbsolute {
+    position: relative;
 }
 
 .vagalumeCarrosel {
     position: absolute;
-    width: 60px;
-    left: 0;
-    top: 0
+    width: 48px;
+    left: -20px;
+    top: -20px;
 }
 
-.parceriasCarroselEsquerda img:nth-child(2){
-    width: 180px;
+.parceriasCarroselComSetas {
+    display: flex;
+    gap: 16px;
+}
+
+.parceriasCarroselComSetas>img {
+    width: 16px;
+    cursor: pointer;
+}
+
+.parceriasCarroselEsquerda img:nth-child(2) {
+    width: 144px;
 }
 
 .parceriasCarroselComTexto {
     display: flex;
-    gap: 40px;
+    gap: 32px;
     align-items: center;
-    font-size: 35px;
+    font-size: 28px;
 }
 
 .parceriasCarroselDireita {
     display: flex;
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .parceriasCarroselDireitaImagens {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
 }
 
 .parceriasCarroselDireitaImagens img {
-    width: 120px;
+    width: 96px;
 }
 
 .botaoSaibaMais {
     background-color: #1B4799;
     text-decoration: none;
     border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-size: 15px;
+    padding: 9.6px 24px;
+    border-radius: 4px;
+    font-size: 12px;
     cursor: pointer;
+}
+
+.containerParceiroMobile {
+    display: flex;
+    gap: 32px;
+}
+
+@media (max-width: 1220px) {
+    .parceriasCarrosel {
+        position: relative;
+        display: flex;
+        gap: 16px;
+    }
+
+    .containerParceiroMobile>h3 {
+        font-size: 2.4vw;
+    }
+
+    .parceriasCarroselDireitaImagens img {
+        width: 8vw;
+    }
+
+    .parcerias>h2 {
+        font-size: 3.2vw;
+    }
+}
+
+@media (max-width: 975px) {
+    .parceriasCarroselComTexto {
+        all: unset;
+        display: flex;
+        gap: 12px;
+    }
+
+    .parcerias>h2 {
+        font-size: 32px;
+    }
+
+    .parceriasCarroselDireitaImagens {
+        display: none;
+    }
+
+    .containerParceiroMobile {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+    }
+
+    .containerParceiroMobile h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 620px) {
+    .parcerias>h2 {
+        margin-bottom: 8px;
+        font-size: 4.4vw;
+    }
+
+    .vagalumeCarrosel {
+        width: 8.4vw;
+    }
+
+    .parceriasCarroselEsquerda img:nth-child(2) {
+        width: 20vw;
+    }
+
+    .containerParceiroMobile h3 {
+        font-size: 2.8vw;
+    }
+
+    .parceriasCarroselComSetas>img:nth-child(1),
+    .parceriasCarroselComSetas>img:nth-child(3) {
+        width: 11.2px;
+    }
+
+    .botaoSaibaMais {
+        padding: 1vw 2.6vw;
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .vagalumeCarrosel {
+        left: -4.4vw;
+        top: -4vw;
+    }
 }

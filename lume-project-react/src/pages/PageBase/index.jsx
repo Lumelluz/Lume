@@ -22,16 +22,16 @@ function PageBase() {
         setUserName('Lucas');
     }
 
-    return (
+    return ( // nao na div backgroundImage
         <>
-        <div className={styles.backgroundImage}>
-            {shouldShowHeaderAndFooterOnHome && <Header />}
-            <main>
-                <Outlet />
-            </main>
-            {shouldShowMaisInformacoes && <MaisInformacoes/>}
-            {shouldShowHeaderAndFooterOnHome && <Footer/>}
-        </div>
+            <div className={styles.backgroundImage}>
+                {shouldShowHeader && <Header />}
+                <main>
+                    <Outlet />
+                </main>
+            </div>
+            {shouldShowMaisInformacoes && <MaisInformacoes />}
+            {shouldShowFooter && <Footer />}
         </>
     )
 }
