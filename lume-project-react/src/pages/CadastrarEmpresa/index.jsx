@@ -20,7 +20,6 @@ function CadastrarEmpresa() {
                 {/* <!-- Formulário --> */}
                 <div className={styles.form_wrapper}>
                     <h2 className={styles.form_title}>Dados da Empresa</h2>
-
                     <form className={styles.form}>
                         <input type="text" placeholder="Razão Social*" className={styles.input_field} />
                         <input type="text" placeholder="Nome Fantasia*" className={styles.input_field} />
