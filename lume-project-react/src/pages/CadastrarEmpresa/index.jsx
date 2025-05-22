@@ -1,45 +1,87 @@
-import logoLumeNova from '../../assets/img/logoLumeNova.svg'
-import styles from '../CadastrarEmpresa/CadastrarEmpresa.module.css'
+import ContainerCadastrarEmpresa from '../../components/ContainerCadastrarEmpresa';
+import styles from '../CadastrarEmpresa/CadastrarEmpresa.module.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const etapas = [
+  [
+    { placeholder: 'Razão Social*', name: 'razaoSocial' },
+    { placeholder: 'Nome Fantasia*', name: 'nomeFantasia' },
+    { placeholder: 'CNPJ*', name: 'cnpj' },
+    { placeholder: 'Endereço Comercial*', name: 'enderecoComercial' },
+    { placeholder: 'Site ou Redes Sociais', name: 'siteRedes' },
+  ],
+  [
+    { placeholder: 'Nome Completo', name: 'nomeCompleto' },
+    { placeholder: 'Cargo', name: 'cargo' },
+    { placeholder: 'E-mail Corporativo', name: 'emailCorporativo' },
+    { placeholder: 'Telefone/WhatsApp', name: 'telefoneWhatsApp' },
+  ],
+  [
+    { placeholder: 'Certificações Ambientais', name: 'certificacoesAmbientais' },
+    { placeholder: 'Origem dos Materiais', name: 'origemDosMateriais' },
+    { placeholder: 'Compromissos com Sustentabilidade', name: 'compromissoSustentabilidade' },
+    { placeholder: 'Informações adicionais', name: 'informacoesAdicionais' },
+  ],
+];
+
+const titulos = [
+  'Dados da Empresa',
+  'Dados do Representante',
+  'Compromisso Ambiental'
+];
 
 function CadastrarEmpresa() {
-    return (
-        <section className={styles.section_bg}>
-            <div className={styles.container}>
+  const [animando, setAnimando] = useState(false);
+  const [etapaAtual, setEtapaAtual] = useState(0);
+  const [dadosCadastro, setDadosCadastro] = useState({});
+  const navigate = useNavigate();
 
-                {/* <!-- Logo --> */}
-                <div className={styles.logo}>
-                    <img src={logoLumeNova} alt="Logo Lume" className={styles.logo_img} />
-                </div>
+  // Função que controla animação com callback para evitar repetição
+  const executarComAnimacao = (callback) => {
+    setAnimando(true);
+    setTimeout(() => {
+      callback();
+      setAnimando(false);
+    }, 300);
+  };
 
-                {/* <!-- Título principal --> */}
-                <h1 className={styles.title}>
-                    Cadastre sua empresa na <span className={styles.highlight}>Lume</span>
-                </h1>
+  const handleAvancar = (dadosEtapa) => {
+    executarComAnimacao(() => {
+      const dadosAtualizados = { ...dadosCadastro, ...dadosEtapa };
+      setDadosCadastro(dadosAtualizados);
 
-                {/* <!-- Formulário --> */}
-                <div className={styles.form_wrapper}>
-                    <h2 className={styles.form_title}>Dados da Empresa</h2>
+      if (etapaAtual < etapas.length - 1) {
+        setEtapaAtual((prev) => prev + 1);
+      } else {
+        console.log('Cadastro completo:', dadosAtualizados);
+        alert('Cadastro finalizado com sucesso!');
+        navigate('/'); // Navegação segura com React Router
+      }
+    });
+  };
 
-                    <form className={styles.form}>
-                        <input type="text" placeholder="Razão Social*" className={styles.input_field} />
-                        <input type="text" placeholder="Nome Fantasia*" className={styles.input_field} />
-                        <input type="text" placeholder="CNPJ*" className={styles.input_field} />
-                        <input type="text" placeholder="Endereço Comercial*" className={styles.input_field} />
-                        <input type="text" placeholder="Site ou Redes Sociais" className={styles.input_field} />
+  const handleVoltar = () => {
+    executarComAnimacao(() => {
+      if (etapaAtual > 0) {
+        setEtapaAtual((prev) => prev - 1);
+      } else {
+        navigate(-1); // Navega para trás na história do React Router
+      }
+    });
+  };
 
-                        <button type="submit" className={styles.btn_submit}>
-                            Avançar
-                            <svg xmlns="http://www.w3.org/2000/svg" className={styles.btn_icon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </section>
-
-    )
+  return (
+    <div className={`${styles.fadeContainer} ${animando ? styles.fadeOut : styles.fadeIn}`}>
+      <ContainerCadastrarEmpresa
+        campos={etapas[etapaAtual]}
+        dadosIniciais={dadosCadastro}
+        onAvancar={handleAvancar}
+        onVoltar={handleVoltar}
+        titulo={titulos[etapaAtual]}
+      />
+    </div>
+  );
 }
 
-export default CadastrarEmpresa
+export default CadastrarEmpresa;
