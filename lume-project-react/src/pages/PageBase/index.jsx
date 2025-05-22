@@ -1,40 +1,37 @@
-import { Outlet } from 'react-router-dom';
+// src/pages/PageBase/PageBase.jsx
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import styles from './PageBase.module.css';
-import { useState } from 'react';
 import MaisInformacoes from '../../components/MaisInformacoes';
+import styles from './PageBase.module.css';
 
 function PageBase() {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [userName, setUserName] = useState('Usuário');
+  const location = useLocation();
+  const currentPath = location.pathname.toLowerCase();
+
+  const showHeaderRoutes = ['/', '/sobre-nos'];
+  const showFooterRoutes = ['/', '/sobre-nos', '/login'];
+
+  const shouldShowHeader = showHeaderRoutes.includes(currentPath);
+  const shouldShowFooter = showFooterRoutes.includes(currentPath);
+
+  const shouldShowMaisInformacoes = currentPath === '/';
 
 
-    // se algum endpoint for false, não exibirá tal componente (header, footer, mais informações)
-    const shouldShowHeader = (location.pathname === '/') || (location.pathname.toLowerCase() === '/sobrenos');
-    const shouldShowFooter = (location.pathname === '/') || (location.pathname.toLowerCase() === '/sobrenos');
-    const shouldShowMaisInformacoes = location.pathname === '/';
+  return (
+    <>
+      <div className={styles.backgroundImage}>
+        {shouldShowHeader && <Header />}
+        <main>
+          <Outlet />
+        </main>
+      </div>
 
-    // const [profilePicture, setProfilePicture] = useState(null);
-
-    const headerLogin = () => {
-        setIsLoggedIn(true);
-        setUserName('Lucas');
-    }
-
-    return ( // nao na div backgroundImage
-        <>
-            <div className={styles.backgroundImage}>
-                {shouldShowHeader && <Header />}
-                <main>
-                    <Outlet />
-                </main>
-            </div>
-            {shouldShowMaisInformacoes && <MaisInformacoes />}
-            {shouldShowFooter && <Footer />}
-        </>
-    )
+      {shouldShowMaisInformacoes && <MaisInformacoes />}
+      {shouldShowFooter && <Footer />}
+    </>
+  );
 }
 
 export default PageBase;

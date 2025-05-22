@@ -6,8 +6,6 @@ function Home() {
         <>
             <ContainerInicial />
             <ParceriasCarrosel />
-            {/* <CategoriasProdutos /> */}
-            {/* <ComeceAComprar /> */}
         </>
     )
 }

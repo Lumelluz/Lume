@@ -1,0 +1,100 @@
+.faq_container {
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  color: #eee;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 0 15px rgba(200, 132, 252, 0.3);
+}
+
+.title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #c084fc;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(140, 80, 180, 0.5);
+}
+
+.faq_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.faq_column h2 {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #c084fc;
+  font-weight: 600;
+  text-shadow: 0 0 5px #b573f4aa;
+}
+
+.faq_column p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.faq_column ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.2rem;
+}
+
+.faq_column ul li {
+  margin-bottom: 0.6rem;
+  padding-left: 1.2em;
+  position: relative;
+  font-size: 1rem;
+  color: #eee;
+}
+
+.faq_column ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #c084fc;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1;
+  top: 0;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 480px) {
+  .faq_container {
+    padding: 20px 15px;
+    max-width: 95%;
+  }
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  .faq_column h2 {
+    font-size: 1.1rem;
+  }
+  .faq_column ul li {
+    font-size: 0.95rem;
+    padding-left: 1em;
+  }
+}
+
+@media (max-width: 320px) {
+  .faq_container {
+    padding: 15px 10px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .faq_column h2 {
+    font-size: 1rem;
+  }
+  .faq_column p,
+  .faq_column ul li {
+    font-size: 0.85rem;
+  }
+}

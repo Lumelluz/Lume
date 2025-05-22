@@ -1,17 +1,17 @@
 .header {
-    /* border: 1px solid red; */
-    padding-block: 1.92rem;
+    padding-block: 1rem;
 }
 
-/* width: clamp(min, preferred, max); */
-
 .headerList {
-    /* width: 100%; */
     display: flex;
     align-items: center;
-    gap: 1.6vw;
     justify-content: center;
+    gap: 1.6vw;
     list-style: none;
+    padding: 0;
+    /* garantir sem padding default da ul */
+    margin: 0;
+    /* garantir sem margin default da ul */
 }
 
 .headerListItens {
@@ -26,19 +26,48 @@
 .headerListItens2 input {
     border: none;
     border-radius: 61.6px;
-    padding: 9.6px;
+    padding: 9.6px 48px 9.6px 16px;
+    /* espaço direito para botão */
     outline: none;
-    box-shadow: 0 1.6px 0px var(--gray);
+    box-shadow: 0 1.6px 0 var(--gray, #ccc);
     font-size: 12.8px;
     width: 100%;
     color: black;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.headerListItens2 button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerListItens2 button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Logo */
+.logo {
+    max-width: 8.8vw;
+    padding-bottom: 8px;
+    cursor: pointer;
 }
 
 .headerListItens2 img:nth-child(2) {
     position: absolute;
     right: 18.4px;
     width: 19.2px;
-    /* height: 20px; */
     cursor: pointer;
 }
 
@@ -58,7 +87,7 @@
 }
 
 .headerListItens3 {
-    color: rgb(255, 255, 255);
+    color: white;
     background-color: #7709A3;
     border-radius: 40px;
     padding: 6.4px 20px;
@@ -73,10 +102,10 @@
     gap: 16px;
 }
 
-.loginRegistro li {
+.loginRegistroLink {
     background-color: rgba(255, 255, 255, 0.33);
     border-radius: 56px;
-    padding: 1.6px 17.6px 4px 17.6px;
+    padding: 1.6px 17.6px 4px;
     font-size: 15.2px;
     cursor: pointer;
 }
@@ -84,7 +113,6 @@
 .logo {
     max-width: 8.8vw;
     padding-bottom: 8px;
-    /* min-width: 100px; */
     cursor: pointer;
 }
 
@@ -108,11 +136,17 @@
     font-size: 16px;
 }
 
-.nav ul li {
+.nav ul li,
+.nav ul img {
     cursor: pointer;
 }
 
-.nav ul img {
+.nav ul li button {
+    display: flex;
+}
+
+.linkNavigation {
+    display: flex;
     cursor: pointer;
 }
 
@@ -122,11 +156,11 @@
 
 .navList {
     display: flex;
-    list-style: none;
     align-items: center;
+    gap: 5.6px;
+    list-style: none;
     padding: 0;
     margin: 0;
-    gap: 5.6px;
 }
 
 .navList2 {
@@ -137,13 +171,17 @@
     margin-top: -8px;
 }
 
+/* Responsividade */
+
 @media (max-width: 1220px) {
     .clubeComLoginRegistro {
         display: none;
     }
 
     .clubeComLoginRegistroMobile {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
     }
 }
@@ -159,6 +197,7 @@
 
     .headerListItens2 {
         width: 56vw;
+        display: flex;
     }
 
     .headerListItens2 input {
@@ -179,9 +218,21 @@
     }
 
     .header {
-        background-color: rgba(217, 217, 217, 0.20);
+        background-color: rgba(217, 217, 217, 0.2);
     }
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 
 @media (max-width: 530px) {
     .headerListItens2 input {

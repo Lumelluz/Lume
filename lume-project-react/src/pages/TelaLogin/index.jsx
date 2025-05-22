@@ -1,30 +1,31 @@
+import ContainerLogin from '../../components/ContainerLogin'
+import ContainerLoginSenha from '../../components/ContainerLoginSenha'
+import { useState } from 'react'
 import styles from '../TelaLogin/TelaLogin.module.css'
-import logoLumeNova from '../../assets/img/logoLumeNova.svg'
-import logoGoogle from '../../assets/img/logoGoogle.png'
 
-function TelaLogin () {
-    return (
-    <div className={styles.loginPrincipal}>
-      <img src={logoLumeNova} alt="logo lume" className={styles.imgLogoLume}/>
-      <div className={styles.loginInitial}>
-        <section className={styles.oneLine}>
-          <h1>Faça o seu <span className={styles.loginSpan}>login</span></h1>
-          <form>
-            <label htmlFor="email"> <span className={styles.emailSpan}>E-mail:</span></label>
-            <div className={styles.inputEmail}>
-              <input type="email" placeholder='' id='userEmail' name='email' />
-            </div>
-            <button type="submit" className={styles.buttonStyle}>Iniciar sessão</button>
-          </form>
-          <div className={styles.lineDivision}></div>
-          <div className={styles.twoLine}>
-            <span className={styles.createAccont}><span className={styles.styleAccont}>Criar</span> conta</span>
-            <span>ou</span>
-            <button className={styles.loginGoogle}> <img src={logoGoogle} alt="logo Google" className={styles.imgLogoGoogle} />Fazer login com google</button>
-          </div>
-        </section>
-      </div>
+function TelaLogin() {
+  const [mostrarSenha, setMostrarSenha] = useState(false) // controla qual componente mostrar
+  const [animando, setAnimando] = useState(false)         // controla animação de fade
+  const [email, setEmail] = useState('')                  // guarda o email digitado
+
+  // Função para alternar entre as telas com animação
+  const handleTrocar = () => {
+    setAnimando(true) // inicia animação fade out
+    setTimeout(() => {
+      setMostrarSenha(prev => !prev) // troca o componente mostrado
+      setAnimando(false)              // volta para fade in
+    }, 300) // tempo igual ao transition do CSS (0.3s)
+  }
+
+  return (
+    <div className={`${styles.fadeContainer} ${animando ? styles.fadeOut : styles.fadeIn}`}>
+      {mostrarSenha ? (
+        <ContainerLoginSenha email={email} onVoltar={handleTrocar} />
+      ) : (
+        <ContainerLogin email={email} setEmail={setEmail} onAvancar={handleTrocar} />
+      )}
     </div>
-    )
+  )
 }
+
 export default TelaLogin
