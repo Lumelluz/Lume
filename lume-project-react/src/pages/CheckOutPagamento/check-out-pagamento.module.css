@@ -1,3 +1,112 @@
-.formaPagamentoInitial{
-    font-family: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;700&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.headerOne {
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+.containerIniital{
+    min-height: 100vh; 
+}
+
+main {
+    display: flex;
+    min-width: 100vw;
+}
+
+.divisionOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}  
+
+.divisionTwo {
+    background-color: rgba(0, 255, 255, 0.234);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.PagamentoPix {
+    border: 1px solid #ffff;
+    margin: 10px;
+}
+
+.methodDebito {
+    border: 1px solid #ffff;
+    margin: 10px;
+}  
+
+.containerPagament {
+    border: 1px solid #ffff;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cardDebito{
+    padding-top: 10px;
+    align-items: center;
+    padding-left: 12px;
+}
+
+.cardMastercard {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    border: 1px solid #ffff;
+}
+
+.imgMaster{
+    margin-top: 9px;
+}
+
+.cardVisa {
+    align-items: center;
+    display: flex;
+    margin: 10px;
+    border: 1px solid #ffff;
+}
+
+.adicionarCard {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ffff;
+    margin: 10px;
+}
+
+.PagamentoPix, .methodDebito{
+    height: 50px;
+    align-items: center;
+    display: flex;
+     
+} 
+
+.PagamentoPix, .methodDebito, .containerPagament {
+    font-size: 20px;
+    width: 550px;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+.PagamentoPix, .methodDebito {
+    padding-left: 27px;
+}
+
+.cardMastercard, .cardVisa, .adicionarCard {
+    gap: 20px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 15px;
+}
+
+
+.grupButton {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
