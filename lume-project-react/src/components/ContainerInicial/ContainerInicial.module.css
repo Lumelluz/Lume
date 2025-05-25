@@ -131,17 +131,13 @@
     }
 
     .containerDireitaTituloComProdutos h2 {
-        text-align: left;
-    }
-
-    .containerDireitaTituloComProdutos>h2 {
-        padding-left: 5.6vw;
+        text-align: center;
     }
 }
 
 @media (max-width: 756px) {
     .containerDireitaTituloComProdutos h2 {
-        font-size: 4.8vw;
+        font-size: 22px;
     }
 
     .containerDireitaSetasCarrousel>img {
@@ -174,5 +170,17 @@
     .containerDireitaBannersCarrosel img {
         width: 100%;
         border-radius: 16px;
+    }
+}
+
+@media (max-width: 670px) {
+    .containerDireitaBannersCarrosel {
+        width: 385px;
+    }
+}
+
+@media (max-width: 400px) {
+    .containerDireitaBannersCarrosel {
+        width: 95vw;
     }
 }

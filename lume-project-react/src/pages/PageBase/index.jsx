@@ -4,19 +4,42 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MaisInformacoes from '../../components/MaisInformacoes';
 import styles from './PageBase.module.css';
+import BotoesNavegacao from '../../components/BotoesNavegacao';
+import { useState, useEffect } from 'react';
 
 function PageBase() {
 
   const location = useLocation();
   const currentPath = location.pathname.toLowerCase();
 
-  const showHeaderRoutes = ['/', '/sobre-nos'];
-  const showFooterRoutes = ['/', '/sobre-nos', '/login'];
+  const showHeaderRoutes = ['/', '/sobre-nos', '/produtos'];
+  const showFooterRoutes = ['/', '/sobre-nos', '/login', '/produtos'];
 
   const shouldShowHeader = showHeaderRoutes.includes(currentPath);
   const shouldShowFooter = showFooterRoutes.includes(currentPath);
 
   const shouldShowMaisInformacoes = currentPath === '/';
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1030px)');
+
+    const handleScreenChange = (e) => {
+      setIsMobile(e.matches);
+    };
+
+    // Adiciona listener
+    mediaQuery.addEventListener('change', handleScreenChange);
+
+    // Verifica no carregamento inicial
+    setIsMobile(mediaQuery.matches);
+
+    // Limpeza
+    return () => {
+      mediaQuery.removeEventListener('change', handleScreenChange);
+    };
+  }, []);
 
 
   return (
@@ -25,6 +48,7 @@ function PageBase() {
         {shouldShowHeader && <Header />}
         <main>
           <Outlet />
+          {isMobile && <BotoesNavegacao />}
         </main>
       </div>
 

@@ -3,7 +3,9 @@ import styles from './ProdutosItems.module.css';
 function ProdutosItems({ imagemProduto, nomeProduto, deDescontoPor, preco, off, parcelas }) {
   return (
     <figure className={styles.produtosItems}>
-      <img src={imagemProduto} alt={nomeProduto} /> {/* Melhor descritivo no alt */}
+      <div className={styles.containerImagem}>
+        <img src={imagemProduto} alt={nomeProduto} /> {/* Melhor descritivo no alt */}
+      </div>
       <figcaption>
         <h2>{nomeProduto}</h2>
         <p>de <del>R$ {deDescontoPor}</del> por</p>

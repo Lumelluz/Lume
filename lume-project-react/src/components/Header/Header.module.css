@@ -236,11 +236,11 @@
 
 @media (max-width: 530px) {
     .headerListItens2 input {
-        font-size: 2vw;
+        font-size: 2.30vw;
         padding: 2vw;
     }
 
-    .headerListItens2 img:nth-child(2) {
+    .headerListItens2 button img {
         width: 4vw;
     }
 }
