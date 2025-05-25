@@ -7,6 +7,7 @@ import SobreNos from "./pages/SobreNos";
 import CadastrarEmpresa from "./pages/CadastrarEmpresa"
 import FaleConosco from "./pages/FaleConosco";
 import PerguntasFrequentes from "./pages/PerguntasFrequentes";
+import Produtos from "./pages/Produtos";
 
 function AppRoutes() {
     return (
@@ -20,6 +21,7 @@ function AppRoutes() {
                     <Route path="/checkout-pagamento" element={<CheckOutPagamento />} />
                     <Route path="/fale-conosco" element={<FaleConosco />} />
                     <Route path="/perguntas-frequentes" element={<PerguntasFrequentes />} />
+                    <Route path="/produtos" element={<Produtos />} />
 
                 </Route>
             </Routes>

@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom';
 import styles from './ParceriasCarrosel.module.css';
 import aguaNaCaixa from '../../assets/img/aguaNaCaixa.png';
 import vagalumeSpriteLuminoso from '../../assets/img/vagalumeSpriteLuminoso.png';
-import agua1 from '../../assets/img/agua1.png';
-import agua2 from '../../assets/img/agua2.png';
-import agua3 from '../../assets/img/agua3.png';
+import vagalumeLaranja from '../../assets/img/vagalumeLaranja.png'
+import globoLaranja from '../../assets/img/globoLaranja.png'
+import reciclagemLaranja from '../../assets/img/reciclagemLaranja.png'
 import setaEsquerda from '../../assets/icons/setaEsquerda.svg';
 import setaDireita from '../../assets/icons/setaDireita.svg';
+import logoLumeNova from '../../assets/img/logoLumeNova.svg'
 
 function ParceriasCarrosel() {
   return (
@@ -24,28 +25,19 @@ function ParceriasCarrosel() {
         <div className={styles.parceriasCarrosel}>
           <div className={styles.parceriasCarroselComTexto}>
             <div className={styles.parceriasCarroselEsquerda}>
-              <div className={styles.vagalumeAbsolute}>
-                <img
-                  src={vagalumeSpriteLuminoso}
-                  alt="Vagalume brilhando"
-                  className={styles.vagalumeCarrosel}
-                />
-                <img src={aguaNaCaixa} alt="Logo da parceira Água na Caixa" />
-              </div>
+                <img src={logoLumeNova} alt="Logo da parceira Água na Caixa" />
             </div>
             <div className={styles.containerParceiroMobile}>
               <h3 className={styles.parceiroTitulo}>
-                A melhor opção
+                Conheça mais
                 <br />
-                para beber
-                <br />
-                água
+                sobre a Lume!
               </h3>
               <div className={styles.parceriasCarroselDireita}>
                 <div className={styles.parceriasCarroselDireitaImagens}>
-                  <img src={agua1} alt="Produto Água 1" />
-                  <img src={agua2} alt="Produto Água 2" />
-                  <img src={agua3} alt="Produto Água 3" />
+                  <img src={vagalumeLaranja} alt="Produto Água 1" />
+                  <img src={globoLaranja} alt="Produto Água 2" />
+                  <img src={reciclagemLaranja} alt="Produto Água 3" />
                 </div>
                 <Link to="#" className={styles.botaoSaibaMais}>
                   Saiba mais

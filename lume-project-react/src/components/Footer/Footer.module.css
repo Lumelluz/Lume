@@ -46,6 +46,7 @@ h3 {
 .imgLinkdln,
 .imgGitHub {
     width: 19.2px;
+    cursor: pointer;
 }
 
 .redesSociais {
@@ -129,31 +130,50 @@ h3 {
 
 @media (max-width: 700px) {
 
+    .columOneLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .columOneLogo img {
+        width: 120px;
+    }
+
+    .conjuntoColum {
+        display: flex;
+        flex-direction: column;
+        /* width: 90%; */
+        padding-top: 32px;
+        gap: 64px;
+    }
+
     .columTwo h3,
     .columThree h3,
     .columFour h3 {
-        font-size: 2vw;
+        font-size: 40px;
     }
 
     .imgGitHub,
     .imgInstagram,
     .imgLinkdln {
-        width: 4.8vw;
+        width: 30px;
     }
 
     .columTwo li,
     .columThree li,
     .columFour li {
-        margin-top: 4vw;
+        margin-top: 30px;
         font-weight: 100;
-        font-size: 2vw;
+        font-size: 17px;
     }
 
     .copyright {
-        font-size: 2.2vw;
+        font-size: 15px;
     }
 
     .columOneLogo p {
-        font-size: 1.84vw;
+        font-size: 15px;
     }
 }

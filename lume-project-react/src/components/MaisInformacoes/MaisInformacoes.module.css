@@ -148,23 +148,23 @@
 
 @media (max-width: 620px) {
     .container > h2 {
-        font-size: 4.4vw;
+        font-size: 25px;
     }
 
     .info1 img, .info2 img {
-        height: 32vw;
+        height: 160px;
     }
 
     .info1Texto h2, .info2Texto h2 {
-        font-size: 4.4vw;
+        font-size: 18px;
     }
 
     .info1Texto p, .info2Texto p {
-        font-size: 2vw;
+        font-size: 11px;
     }
 
     .cadastrarEmpresaMobile h2 {
-        font-size: 4.8vw;
+        font-size: 25px;
     }
 
     .linkCadastrar {
