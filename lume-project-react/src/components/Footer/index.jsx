@@ -22,7 +22,7 @@ function Footer() {
                         <a href="https://www.linkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
                             <img src={logoLinkdln} alt="LinkedIn Lume Luz" className={styles.imgLinkdln} />
                         </a>
-                        <a href="https://github.com/Lumelluz/Lume" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Lumelluz" target="_blank" rel="noopener noreferrer">
                             <img src={logoGitHub} alt="GitHub Lume Luz" className={styles.imgGitHub} />
                         </a>
                     </div>

@@ -11,7 +11,7 @@ function Navigation() {
                 <li><Link to="/cupons" className={styles.linkNavigation}>Cupons</Link></li>
                 <li><Link to="/contato" className={styles.linkNavigation}>Contato</Link></li>
                 <li><Link to="/vender" className={styles.linkNavigation}>Vender</Link></li>
-                <li><Link to="/sobre" className={styles.linkNavigation}>Sobre</Link></li>
+                <li><Link to="/sobre-nos" className={styles.linkNavigation}>Sobre</Link></li>
                 <li>
                     <button aria-label="Configurações">
                         <img src={engrenagem} alt="Ícone de engrenagem" />

@@ -17,7 +17,7 @@ function MaisInformacoes() {
             <h2>
               Cadastre sua<br />empresa!
             </h2>
-            <Link className={styles.linkCadastrar}>Cadastrar</Link>
+            <Link to="/cadastrar-empresa" className={styles.linkCadastrar}>Cadastrar</Link>
           </div>
 
           <div className={styles.containerDireitaMaisInfo}>
@@ -49,7 +49,7 @@ function MaisInformacoes() {
               <h2>
                 Cadastre sua<br />empresa!
               </h2>
-              <Link className={styles.linkCadastrar}>Cadastrar</Link>
+              <Link to="/cadastrar-empresa" className={styles.linkCadastrar}>Cadastar</Link>
             </div>
 
           </div>
