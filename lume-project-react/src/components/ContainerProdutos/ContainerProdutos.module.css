@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.container option {
+    background-color: rgb(33, 44, 163);
+}

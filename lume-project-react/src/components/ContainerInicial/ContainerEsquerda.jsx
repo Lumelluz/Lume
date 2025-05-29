@@ -9,7 +9,7 @@ function ContainerEsquerda({ isMobile }) {
       </h1>
       <div className={styles.containerEsquerdaTextoComBotao}>
         <p>Diversos brindes ao<br />adquirir pontos em<br />nosso marketplace!</p>
-        <Link className={styles.comeceAComprar} to="/shop">
+        <Link to="/produtos" className={styles.comeceAComprar}>
           Comece a Comprar
         </Link>
       </div>

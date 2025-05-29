@@ -10,9 +10,9 @@ function SearchBar() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Redireciona para /buscar?q=pesquisa
+        // Redireciona para /produtos?q=pesquisa
         if (pesquisa.trim() !== '') {
-            navigate(`/buscar?q=${encodeURIComponent(pesquisa)}`);
+            navigate(`/produtos?q=${encodeURIComponent(pesquisa)}`);
         } else {
             alert('Por favor, insira um termo de busca.');
         }

@@ -1,6 +1,7 @@
 import styles from './ContainerLogin.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import logoGoogle from '../../assets/img/logoGoogle.png';
+import { Link } from 'react-router-dom';
 
 export default function ContainerLogin({ email, setEmail, onAvancar }) {
     const handleSubmit = (e) => {
@@ -14,12 +15,12 @@ export default function ContainerLogin({ email, setEmail, onAvancar }) {
 
     return (
         <section className={styles.loginPrincipal} aria-label="Área de login">
-            <img
+            <Link to="/"><img
                 src={logoLumeNova}
                 alt="Logo Lume"
                 className={styles.imgLogoLume}
                 aria-hidden="true"
-            />
+            /></Link>
             <div className={styles.loginInitial}>
                 <div className={styles.oneLine}>
                     <h1>
