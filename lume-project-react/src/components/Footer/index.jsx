@@ -33,7 +33,7 @@ function Footer() {
                         <h3>Sobre nós</h3>
                         <nav>
                             <ul>
-                                <li><Link to="/quem-somos">Quem somos</Link></li>
+                                <li><Link to="/sobre-nos">Quem somos</Link></li>
                                 <li><Link to="/nossa-missao">Nossa missão</Link></li>
                                 <li><Link to="/parcerias">Parcerias</Link></li>
                             </ul>
