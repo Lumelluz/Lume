@@ -1,6 +1,6 @@
 import styles from './ProdutoEspecifico.module.css';
 import imagemProdutoEspecifico1 from '../../assets/img/imagemProdutoEspecifico1.png'
-import imagemProdutoEspecifico2 from '../../assets/img/imagemProdutoEspecifico1.png'
+import imagemProdutoEspecifico2 from '../../assets/img/imagemProdutoEspecifico2.png'
 import imagemProdutoEspecificoGrande from '../../assets/img/imagemProdutoEspecificoGrande.png'
 import produtosImg from '../../assets/img/ProdutosItemsCompletosImg.png' 
 
