@@ -51,6 +51,7 @@
 
 .linkCadastrar:hover {
     transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .containerDireitaMaisInfo {
@@ -147,19 +148,22 @@
 }
 
 @media (max-width: 620px) {
-    .container > h2 {
+    .container>h2 {
         font-size: 25px;
     }
 
-    .info1 img, .info2 img {
+    .info1 img,
+    .info2 img {
         height: 160px;
     }
 
-    .info1Texto h2, .info2Texto h2 {
+    .info1Texto h2,
+    .info2Texto h2 {
         font-size: 18px;
     }
 
-    .info1Texto p, .info2Texto p {
+    .info1Texto p,
+    .info2Texto p {
         font-size: 11px;
     }
 

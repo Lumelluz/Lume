@@ -1,24 +1,19 @@
-/* Reset básico para controlar box-sizing */
-* {
-    box-sizing: border-box;
-}
-
 .secaoAgrupaFotos {
-    max-width: 1400px;
+    max-width: 85%;
     margin: 0 auto 60px auto;
-    padding: 0 15px;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* espaçamento consistente entre cards */
+    gap: 15px;
 }
 
 .cardIntegrantes {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 0; /* removido margin negativo */
+    margin-bottom: 0;
     padding: 10px 0;
-    gap: 20px; /* espaço entre imagem e texto */
+    gap: 20px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     transition: background-color 0.3s ease;
@@ -76,8 +71,6 @@
     margin: 0;
     text-shadow: 1px 1px 3px #ff00f2;
 }
-
-/* Responsivo */
 
 @media screen and (max-width: 900px) {
     .secaoAgrupaFotos {

@@ -1,5 +1,5 @@
-body {
-    background: linear-gradient(360deg, #008296 0%, #180032 100%);
+html {
+    background-color: var(--page-bg);
 }
 
 main {
@@ -13,6 +13,6 @@ main {
     background-image: url(../../assets/img/fundoLume.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover; /* Melhor que 100% 100%, evita distorção */
+    background-size: cover;
     width: 100%;
 }
