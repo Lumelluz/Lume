@@ -1,0 +1,169 @@
+/* Arquivo: ProdutosItemsCompletos2.module.css (VERSÃO FINAL COMBINADA) */
+
+/* As variáveis de cor devem estar no seu arquivo global (ex: index.css)
+   para funcionar corretamente em toda a aplicação. */
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  width: 100%;
+  /* ALTURA FIXA: A imagem sempre terá 200px de altura, evitando escalar. */
+  height: 200px;
+  flex-shrink: 0;
+  background-color: var(--image-placeholder-bg);
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  /* OBJECT-FIT: Garante que a imagem cubra a área sem distorcer. */
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.infoContainer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1; 
+}
+
+.companyName {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+.productName {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+  /* Dando um espaço mínimo para o nome não empurrar o resto do conteúdo */
+  min-height: 3.2rem;
+}
+
+.sellerInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.verifiedIcon {
+  background-color: var(--verified-bg);
+  color: var(--verified-check);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.ratingInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratingValue {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.stars {
+  color: var(--star-color);
+  font-size: 1.1rem;
+}
+
+.priceInfo {
+  /* A ausência de 'margin-top: auto' aqui é INTENCIONAL.
+     Isso garante que este bloco de preço se alinhe no topo,
+     logo após o conteúdo acima dele. */
+  padding-top: 0.75rem; 
+}
+
+.originalPrice {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0 0 2px 0;
+}
+
+.currentPrice {
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.discountBadge {
+  background-color: var(--accent-green);
+  color: var(--card-bg);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.installments {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.specialDiscount {
+  color: var(--accent-blue);
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.extraInfo {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin-top: 8px;
+}
+
+.extraInfo p {
+  margin: 4px 0;
+}
+
+.shipping {
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+.benefits {
+  color: var(--text-secondary);
+}

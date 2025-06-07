@@ -11,11 +11,7 @@ function SearchBar() {
         e.preventDefault();
 
         // Redireciona para /produtos?q=pesquisa
-        if (pesquisa.trim() !== '') {
             navigate(`/produtos?q=${encodeURIComponent(pesquisa)}`);
-        } else {
-            alert('Por favor, insira um termo de busca.');
-        }
     };
 
     return (

@@ -1,4 +1,3 @@
-// src/pages/PageBase/PageBase.jsx
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -12,8 +11,8 @@ function PageBase() {
   const location = useLocation();
   const currentPath = location.pathname.toLowerCase();
 
-  const showHeaderRoutes = ['/', '/sobre-nos', '/produtos'];
-  const showFooterRoutes = ['/', '/sobre-nos', '/login', '/produtos'];
+  const showHeaderRoutes = ['/', '/sobre-nos', '/produtos', '/produto-especifico'];
+  const showFooterRoutes = ['/', '/sobre-nos', '/login', '/produtos', '/produto-especifico'];
 
   const shouldShowHeader = showHeaderRoutes.includes(currentPath);
   const shouldShowFooter = showFooterRoutes.includes(currentPath);
@@ -29,13 +28,10 @@ function PageBase() {
       setIsMobile(e.matches);
     };
 
-    // Adiciona listener
     mediaQuery.addEventListener('change', handleScreenChange);
 
-    // Verifica no carregamento inicial
     setIsMobile(mediaQuery.matches);
 
-    // Limpeza
     return () => {
       mediaQuery.removeEventListener('change', handleScreenChange);
     };

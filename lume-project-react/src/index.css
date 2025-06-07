@@ -27,6 +27,31 @@
   --soft-gray: #DDD9D3;
   --gradient: linear-gradient(90deg, #FAF3FF 0%, #DDD9D3 50%, #CCCCCC 100%);
  
+  --card-bg: #111d4a; 
+  --image-placeholder-bg: #3c5aa6;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #a0a0c0;
+  --accent-blue: #63a4ff;
+  --accent-green: #32d194;
+  --star-color: #00a6ff;
+  --verified-bg: #ffffff;
+  --verified-check: #0077b6;
+
+  --background-color: #1a1a2e;
+  --card-background-color: #2e2e4d;
+  --primary-accent-color: #9d4edd;
+  --secondary-accent-color: #e0aaff;
+  --text-color-primary: #f0f0f0;
+  --text-color-secondary: #c7c7c7;
+  --border-color: #4a4a6a;
+  --star-color: #00a6ff;
+  --success-color: #4caf50;
+  
+  --page-bg: #0b0f2b;
+  --container-bg: #1a1a2e;
+  --border-color: #4a4a6a;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

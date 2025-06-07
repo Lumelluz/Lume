@@ -1,10 +1,52 @@
+/* Arquivo: ContainerProdutos.module.css (VERSÃO FINAL COMBINADA) */
+
 .container {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 50px;
+  width: 100%;
 }
 
-.container option {
-    background-color: rgb(33, 44, 163);
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header p {
+  color: #c7c7c7;
+  margin: 0;
+}
+
+.header select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #2e2e4d;
+  color: #f0f0f0;
+  border: 1px solid #4a4a6a;
+  font-size: 0.9rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+.header select option {
+  background-color: #111d4a;
+  color: #f0f0f0;
+}
+
+/* ... outros estilos do arquivo (.container, .header, etc.) ... */
+
+.gridProdutos {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, 260px);
+
+  /* ▼▼▼ A LINHA QUE FALTAVA PARA CENTRALIZAR OS CARDS ▼▼▼ */
+  /* justify-content: center; */
 }

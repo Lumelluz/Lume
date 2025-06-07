@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import ScrollToTopLink from '../ScrollToTopLink'; 
+import React from 'react';
 import styles from './Footer.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import logoInstagram from '../../assets/img/logoInstagram.png';
@@ -19,8 +20,8 @@ function Footer() {
                         <a href="https://www.instagram.com/lumelluz/" target="_blank" rel="noopener noreferrer">
                             <img src={logoInstagram} alt="Instagram Lume Luz" className={styles.imgInstagram} />
                         </a>
-                        <a href="https://www.linkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
-                            <img src={logoLinkdln} alt="LinkedIn Lume Luz" className={styles.imgLinkdln} />
+                        <a href="https://www.ScrollToTopLinkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
+                            <img src={logoLinkdln} alt="ScrollToTopLinkedIn Lume Luz" className={styles.imgLinkdln} />
                         </a>
                         <a href="https://github.com/Lumelluz" target="_blank" rel="noopener noreferrer">
                             <img src={logoGitHub} alt="GitHub Lume Luz" className={styles.imgGitHub} />
@@ -33,9 +34,9 @@ function Footer() {
                         <h3>Sobre nós</h3>
                         <nav>
                             <ul>
-                                <li><Link to="/quem-somos">Quem somos</Link></li>
-                                <li><Link to="/nossa-missao">Nossa missão</Link></li>
-                                <li><Link to="/parcerias">Parcerias</Link></li>
+                                <li><ScrollToTopLink to="/sobre-nos">Quem somos</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/nossa-missao">Nossa missão</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/parcerias">Parcerias</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -43,9 +44,9 @@ function Footer() {
                         <h3>Suporte</h3>
                         <nav>
                             <ul>
-                                <li><Link to="/perguntas-frequentes">Perguntas frequentes</Link></li>
-                                <li><Link to="/contato">Fale conosco</Link></li>
-                                <li><Link to="/politicas-privacidade">Políticas de privacidade</Link></li>
+                                <li><ScrollToTopLink to="/perguntas-frequentes">Perguntas frequentes</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/fale-conosco">Fale conosco</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/politicas-privacidade">Políticas de privacidade</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -53,9 +54,9 @@ function Footer() {
                         <h3>Para empresa</h3>
                         <nav>
                             <ul>
-                                <li><Link to="/seja-parceiro">Seja um parceiro</Link></li>
-                                <li><Link to="/beneficios-lume">Benefícios da Lume</Link></li>
-                                <li><Link to="/suporte-marcas">Suporte para marcas</Link></li>
+                                <li><ScrollToTopLink to="/seja-parceiro">Seja um parceiro</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/beneficios-lume">Benefícios da Lume</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/suporte-marcas">Suporte para marcas</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>

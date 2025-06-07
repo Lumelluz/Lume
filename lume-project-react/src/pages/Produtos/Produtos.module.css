@@ -1,6 +1,103 @@
-.container {
-    margin-top: 60px;
+.conteudoPagina {
+    width: 100%;
+    max-width: 1250px;
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: space-evenly;
-    min-height: 105vh;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+}
+.containerFiltrosDesktop {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.btnAbrirFiltrosMobile {
+    display: none;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-blue, #63a4ff);
+    color: var(--text-primary, white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+}
+
+@media (max-width: 992px) {
+    .conteudoPagina {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .containerFiltrosDesktop {
+        display: none;
+    }
+
+    .btnAbrirFiltrosMobile {
+        display: block;
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, background-color 0.3s ease,visibility 0s linear 0.3s;
+}
+
+.modalOverlay.open {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition-delay: 0s;
+}
+
+.modalContent {
+    background: rgba(26, 26, 46, 0.8);
+    padding: 25px 20px 20px 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+    color: var(--text-primary, white);
+    backdrop-filter: blur(10px);
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modalOverlay.open .modalContent {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-primary, white);
+    line-height: 1;
+}
+
+.noScroll {
+    overflow: hidden;
 }

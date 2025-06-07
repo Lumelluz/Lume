@@ -1,5 +1,5 @@
 import styles from './ContainerInicial.module.css';
-import { Link } from 'react-router-dom';
+import ScrollToTopLink from '../ScrollToTopLink'
 
 function ContainerEsquerda({ isMobile }) {
   return (
@@ -9,9 +9,9 @@ function ContainerEsquerda({ isMobile }) {
       </h1>
       <div className={styles.containerEsquerdaTextoComBotao}>
         <p>Diversos brindes ao<br />adquirir pontos em<br />nosso marketplace!</p>
-        <Link to="/produtos" className={styles.comeceAComprar}>
+        <ScrollToTopLink to="/produtos" className={styles.comeceAComprar}>
           Comece a Comprar
-        </Link>
+        </ScrollToTopLink>
       </div>
     </div>
   );

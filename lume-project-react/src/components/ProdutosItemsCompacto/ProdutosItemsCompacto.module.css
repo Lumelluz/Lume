@@ -1,0 +1,148 @@
+/* Arquivo: ProdutoItemCompacto.module.css (Modificado para incluir imagem) */
+
+.cardCompacto {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra um pouco mais sutil */
+  display: flex;
+  flex-direction: column;
+  /* A largura será definida pelo .produtoCarrosselItem no ContainerInicial.module.css */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cardCompacto:hover {
+  transform: translateY(-3px);
+}
+
+/* ▼▼▼ ESTILOS PARA A IMAGEM ▼▼▼ */
+.imageContainer {
+  width: 100%;
+  height: 120px;
+  /* Altura para a imagem no card compacto, ajuste conforme necessário */
+  flex-shrink: 0;
+  background-color: var(--image-placeholder-bg);
+  overflow: hidden;
+  /* Garante que a imagem não vaze */
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Para a imagem cobrir sem distorcer */
+  text-align: left;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  /* Menor para o placeholder */
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+/* ▲▲▲ FIM DOS ESTILOS DA IMAGEM ▲▲▲ */
+
+
+.infoContainer {
+  padding: 0.6rem;
+  /* Padding um pouco menor */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  /* Espaço interno menor */
+  flex-grow: 1;
+  /* Para ocupar espaço vertical */
+  justify-content: space-between;
+  /* Ajuda a espaçar nome e preço */
+}
+
+.productName {
+  font-size: 0.85rem;
+  /* Fonte um pouco menor */
+  font-weight: 600;
+  margin: 0 0 0.1rem 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.2rem;
+  /* Ajustado para 2 linhas com a nova fonte */
+}
+
+.priceInfo {
+  /* O justify-content no .infoContainer deve alinhar isso */
+}
+
+.originalPrice {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  margin: 0 0 1px 0;
+  line-height: 1;
+  text-align: left;
+}
+
+.currentPrice {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.discountBadge {
+  background-color: var(--accent-green);
+  color: var(--card-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
+.installments {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  text-align: left;
+}
+
+@media (max-width: 671px) {
+  .cardCompacto {
+    width: 90%;
+    transform: translateX(5%);
+  }
+}
+
+@media (max-width: 565px) {
+  .cardCompacto {
+    width: 100%;
+    transform: translateX(0%);
+  }
+}
+
+@media (max-width: 486px) {
+  .cardCompacto {
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 350px) {
+  .cardCompacto {
+    width: 100%;
+    transform: translateX(0%);
+  }
+}

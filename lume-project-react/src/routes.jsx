@@ -8,6 +8,7 @@ import CadastrarEmpresa from "./pages/CadastrarEmpresa"
 import FaleConosco from "./pages/FaleConosco";
 import PerguntasFrequentes from "./pages/PerguntasFrequentes";
 import Produtos from "./pages/Produtos";
+import ProdutoEspecifico from "./pages/ProdutoEspecifico";
 
 function AppRoutes() {
     return (
@@ -22,7 +23,7 @@ function AppRoutes() {
                     <Route path="/fale-conosco" element={<FaleConosco />} />
                     <Route path="/perguntas-frequentes" element={<PerguntasFrequentes />} />
                     <Route path="/produtos" element={<Produtos />} />
-
+                    <Route path="/produto-especifico" element={<ProdutoEspecifico />} />
                 </Route>
             </Routes>
         </BrowserRouter>
