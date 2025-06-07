@@ -4,9 +4,9 @@
 }
 
 .secaoAgrupaFotos {
-    max-width: 1400px;
+    max-width: 85%;
     margin: 0 auto 60px auto;
-    padding: 0 15px;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
     gap: 15px; /* espaçamento consistente entre cards */

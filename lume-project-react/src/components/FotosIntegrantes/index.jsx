@@ -10,7 +10,7 @@ import Gustavo from '../../assets/img/Gustavo.png';
 import Lucas from '../../assets/img/Lucas.png';
 
 const integrantes = [
-    { src: Nicolas, nome: "Nicolas Euflauzino", funcao: "Desenvolvedor Full-Stack | Product Owner", descricao: "Nicolas é responsável pelo produto e desenvolvimento full-stack." },
+    { src: Nicolas, nome: "Nicolas Euflauzino", funcao: "Desenvolvedor Full-Stack | Product Owner", descricao: "Nicolas é responsável pelo produto e desenvolvimento full-stack."},
     { src: Murilo, nome: "Murilo Macedo", funcao: "Desenvolvedor Full-Stack | Scrum Master", descricao: "Murilo lidera a equipe como Scrum Master e desenvolve full-stack." },
     { src: Guilherme, nome: "Guilherme Marcilio", funcao: "Desenvolvedor Full-Stack | UI/UX Designer", descricao: "Guilherme atua em design e desenvolvimento full-stack." },
     { src: Gustavo, nome: "Gustavo Mandu", funcao: "Desenvolvedor Full-Stack | UI/UX Designer", descricao: "Gustavo contribui com design de interfaces e desenvolvimento." },
