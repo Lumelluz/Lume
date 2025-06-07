@@ -1,8 +1,3 @@
-/* Arquivo: ProdutosItemsCompletos2.module.css (VERSÃO FINAL COMBINADA) */
-
-/* As variáveis de cor devem estar no seu arquivo global (ex: index.css)
-   para funcionar corretamente em toda a aplicação. */
-
 .card {
   background: var(--card-bg);
   border-radius: 12px;
@@ -22,7 +17,6 @@
 
 .imageContainer {
   width: 100%;
-  /* ALTURA FIXA: A imagem sempre terá 200px de altura, evitando escalar. */
   height: 200px;
   flex-shrink: 0;
   background-color: var(--image-placeholder-bg);
@@ -31,7 +25,6 @@
 .productImage {
   width: 100%;
   height: 100%;
-  /* OBJECT-FIT: Garante que a imagem cubra a área sem distorcer. */
   object-fit: cover;
 }
 
@@ -64,7 +57,6 @@
   font-weight: 600;
   margin: 0;
   line-height: 1.4;
-  /* Dando um espaço mínimo para o nome não empurrar o resto do conteúdo */
   min-height: 3.2rem;
 }
 
@@ -106,9 +98,6 @@
 }
 
 .priceInfo {
-  /* A ausência de 'margin-top: auto' aqui é INTENCIONAL.
-     Isso garante que este bloco de preço se alinhe no topo,
-     logo após o conteúdo acima dele. */
   padding-top: 0.75rem; 
 }
 
