@@ -1,6 +1,3 @@
-// Arquivo: ProdutoItemCompacto.jsx (Modificado para incluir imagem)
-
-import React from 'react';
 import styles from './ProdutosItemsCompacto.module.css';
 
 const ProdutosItemsCompacto = ({ product }) => {
@@ -9,8 +6,8 @@ const ProdutosItemsCompacto = ({ product }) => {
   }
 
   const {
-    imageUrl, // <-- NOVA PROP
-    imageAlt = 'Imagem do Produto', // <-- NOVA PROP com fallback
+    imageUrl,
+    imageAlt = 'Imagem do Produto', // fallback 'Imagem do Produto'
     productName,
     originalPrice,
     currentPrice = 0,
@@ -22,18 +19,15 @@ const ProdutosItemsCompacto = ({ product }) => {
 
   return (
     <article className={styles.cardCompacto}>
-      {/* ▼▼▼ NOVA SEÇÃO DA IMAGEM ▼▼▼ */}
       <div className={styles.imageContainer}>
         {imageUrl ? (
           <img src={imageUrl} alt={imageAlt} className={styles.productImage} />
         ) : (
           <div className={styles.imagePlaceholder}>
-            <span>Img</span> {/* Texto mais curto para placeholder pequeno */}
+            <span>Img</span>
           </div>
         )}
       </div>
-      {/* ▲▲▲ FIM DA SEÇÃO DA IMAGEM ▲▲▲ */}
-
       <div className={styles.infoContainer}>
         <h3 className={styles.productName}>{productName}</h3>
         
