@@ -14,7 +14,7 @@ import logoLumeNova from '../../assets/img/logoLumeNova.svg'
 function CheckOutPagamento () {
     return (
             <section className={styles.containerIniital}>
-                <main>
+                <div className={styles.secundContainer}>
                     <div className={styles.containerGlobal}>
 
                     <div className={styles.divisionOne}>
@@ -96,7 +96,7 @@ function CheckOutPagamento () {
                             </div>
                         </div>
                     </div>
-                </main>
+                </div>
             </section>
     )
 }
