@@ -1,5 +1,3 @@
-// Arquivo: ContainerProdutos.jsx
-
 import styles from './ContainerProdutos.module.css';
 import ProdutosItemsCompletos2 from '../../components/ProdutosItemsCompletos2/';
 
@@ -8,7 +6,6 @@ function ContainerProdutos({ ordenacao, setOrdenacao, produtosFiltrados }) {
     <section className={styles.container}>
       <div className={styles.header}>
         <p>{produtosFiltrados.length} produtos encontrados</p>
-        {/* ATUALIZAÇÃO: Adicionei todas as novas opções de ordenação aqui */}
         <select onChange={e => setOrdenacao(e.target.value)} value={ordenacao}>
           <option value="relevancia">Mais relevantes</option>
           <option value="menor-preco">Menor preço</option>
@@ -24,10 +21,6 @@ function ContainerProdutos({ ordenacao, setOrdenacao, produtosFiltrados }) {
       </div>
 
       <div className={styles.gridProdutos}>
-        {/* CORREÇÃO CRÍTICA: 
-          Usamos .map() para percorrer o array 'produtosFiltrados'.
-          Para cada 'produto' no array, criamos um componente <ProdutosItemsCompletos2>.
-        */}
         {produtosFiltrados.map(produto => (
           <ProdutosItemsCompletos2 key={produto.id} product={produto} />
         ))}

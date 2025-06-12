@@ -8,7 +8,7 @@ function ModalIntegrante({ open, onClose, nome, descricao }) {
         >
             <div
               className={styles.modalContent}
-              onClick={e => e.stopPropagation()} // impede o clique dentro do modal fechar
+              onClick={e => e.stopPropagation()}
             >
                 <button className={styles.closeButton} onClick={onClose}>×</button>
                 <h2>{nome}</h2>

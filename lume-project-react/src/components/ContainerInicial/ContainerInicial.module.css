@@ -1,6 +1,3 @@
-/* Arquivo: ContainerInicial.module.css (VERSÃO COM CARROSSEL DE SLIDE E FUNDO ROXO) */
-
-/* --- Estilos Gerais da Seção e Container Esquerdo (Mantidos) --- */
 .sectionQueAgrupaTodosOsElementos {
   display: flex;
   justify-content: center;
@@ -8,13 +5,9 @@
   padding: 0 20px;
   box-sizing: border-box;
   align-items: flex-start;
-  /* Adicionado para alinhar no topo */
-  max-width: 1150px;
+  max-width: 1155px;
   margin: 0 auto;
-  /* Para centralizar a seção se ela tiver max-width */
 }
-
-
 
 .containerEsquerda {
   display: flex;
@@ -47,7 +40,6 @@
 
 .comeceAComprar:hover {
   transform: scale(1.05);
-  opacity: 0.9;
 }
 
 .containerEsquerdaTextoComBotao {
@@ -57,15 +49,13 @@
   gap: 32px;
 }
 
-/* --- Estilos do Container Direita --- */
 .containerDireita {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   width: 100%;
-  /* O max-width aqui pode ser mais genérico, pois o carrosselWrapperCompleto pode ter o seu */
-  /* max-width: 900px; */
+  max-width: 900px;
 }
 
 .containerDireita h2 {
@@ -80,27 +70,20 @@
   width: 100%;
 }
 
-/* --- ESTILOS DO CARROSSEL FUNCIONAL COM SLIDE --- */
-
 .carrosselWrapperCompleto {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
   width: 100%;
-  /* A largura máxima do carrossel será controlada pelo Outer e pelos itens */
 }
 
 .containerDireitaSetasCarrousel {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
-  /* Espaço entre setas e o Outer */
   width: 100%;
-  /* Exemplo: Se o Outer tiver 800px + setas/gaps, o wrapper pode ter ~900px */
-  max-width: 900px;
-  /* Largura máxima para o conjunto setas + carrossel */
 }
 
 .btnSetaCarrossel {
@@ -125,75 +108,40 @@
   height: auto;
 }
 
-/* Container externo que define a "janela" visível do carrossel */
 .containerDireitaProdutosCarroselOuter {
-  flex-grow: 1;
   overflow: hidden;
-  /* ESSENCIAL */
-  position: relative;
-
   background-color: rgba(112, 52, 177, 0.90);
-  /* Seu estilo */
   border-radius: 32px;
-  /* Seu estilo */
   padding: 12px;
-  /* Seu estilo */
   border: 0.8px solid white;
-  /* Seu estilo */
   filter: drop-shadow(0px 3.2px 16.8px #000000);
-  /* Seu estilo */
-  box-sizing: border-box;
-
-  /* A LARGURA DO OUTER É DINÂMICA E CONTROLADA PELO PAI OU MAX-WIDTH
-     O JS VAI FAZER OS ITENS INTERNOS SE AJUSTAREM PARA CABER 'itensPorVez' AQUI DENTRO.
-     Vamos remover width fixo daqui e deixar o flex-grow e o pai (.containerDireitaSetasCarrousel) controlarem.
-  */
-  height: auto;
-  /* Altura baseada no conteúdo do card */
+  transition: width 0.4s ease-in-out;
 }
 
-/* Container interno que contém TODOS os itens e se move horizontalmente. */
-/* width e transform são aplicados via inline style pelo JavaScript */
-.containerDireitaProdutosCarroselInner {
-  /* display: flex; width; transform; SÃO APLICADOS VIA INLINE STYLE PELO JS */
-  /* A transition é aplicada via JS na função de animação */
-  opacity: 1;
-  /* Estado inicial */
-}
-
-/* Cada item individual do carrossel (o wrapper do card ProdutosItemsCompacto) */
 .produtoCarrosselItem {
   box-sizing: border-box;
-  /* A LARGURA É VIA INLINE STYLE NO JSX */
-  padding: 0 4px;
-  /* Espaçamento VISUAL entre os cards */
+  width: 170px;
   flex-shrink: 0;
-  /* Para não encolher dentro do flex do Inner */
-  /* Para garantir que o CARD INTERNO (ProdutoItemCompacto) tenha um tamanho base */
-  /* Se o ProdutoItemCompacto tem seu próprio max-width, isso pode não ser necessário,
-     mas se quisermos forçar um tamanho aqui: */
-  /* min-width: 180px; */
-  /* Exemplo de largura mínima para cada card */
 }
 
 .btnVerMaisProdutos {
-  text-align: center;
-  text-decoration: none;
-  padding: 8px 20px;
-  border-radius: 8px;
+  display: block;
+  padding: 10px 20px;
   background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+  color: white;
   border: 0.8px solid #fff;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: 0.5s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .btnVerMaisProdutos:hover {
-  transform: scale(1.05);
   opacity: 0.9;
+  transform: scale(1.05);
 }
 
-/* Estilos do Banner */
 .containerDireitaBannersCarrosel {
   background-color: rgba(128, 128, 128, 0.28);
   padding: 16px;
@@ -210,84 +158,41 @@
   border-radius: 12px;
 }
 
+/* LARGURA FIXA DE UM CARD = 170px */
+/* ESPAÇAMENTO ENTRE CARDS = 8px */
 
-/* --- MEDIA QUERIES --- */
+.containerDireitaProdutosCarroselOuter {
+  width: calc(170px * 4 + 8px * 4 + 170px * 0.25); /* 680 + 32 + 42.5 = 754.5px */
+}
+
+@media (max-width: 900px) {
+  .containerDireitaProdutosCarroselOuter {
+    width: calc(170px * 3 + 8px * 3 + 170px * 0.25); /* 510 + 24 + 42.5 = 576.5px */
+  }
+}
+
+@media (max-width: 700px) {
+  .containerDireitaProdutosCarroselOuter {
+    width: calc(170px * 2 + 8px * 2 + 170px * 0.25); /* 340 + 16 + 42.5 = 398.5px */
+  }
+}
 
 @media (max-width: 1220px) {
-  .sectionQueAgrupaTodosOsElementos {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 0 1rem;
-  }
-
-  .containerEsquerda {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 16px;
-    gap: 30px;
-  }
-
-  .containerEsquerdaTextoComBotao {
-    display: none;
-  }
-
-  .titulo {
-    padding: 25px 0;
-    border-bottom: #3771C8 4px solid;
-    margin-bottom: 40px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .containerEsquerda h1 {
-    font-size: 42.4px;
-  }
-
-  .containerDireita {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  /* Em telas médias, o carrossel de slide ainda pode funcionar,
-     ou você pode querer que os itens "se soltem".
-     A lógica JS com isMobileView e itensPorVez pode controlar isso. */
+  .sectionQueAgrupaTodosOsElementos { flex-direction: column; align-items: center; gap: 30px; padding: 0 1rem; }
+  .containerEsquerda { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding-top: 16px; gap: 30px; }
+  .containerEsquerdaTextoComBotao { display: none; }
+  .titulo { padding: 25px 0; border-bottom: #3771C8 4px solid; margin-bottom: 40px; width: 100%; text-align: center; }
+  .containerEsquerda h1 { font-size: 42.4px; }
+  .containerDireita { max-width: 100%; padding: 0; }
 }
 
 @media (max-width: 756px) {
-  .containerDireitaTituloComProdutos h2 {
-    font-size: 22px;
-  }
-
-  .titulo {
-    font-size: 5.6vw !important;
-  }
-
-  /* Comportamento MOBILE: Produtos "Soltos" - classe .mobileGrid será aplicada via JS
-     ao .containerDireitaProdutosCarroselOuter */
-  /* Se quiser esconder sempre no mobile, mesmo que o slide de 1 item ainda funcione: */
-  /*
-  .containerDireitaSetasCarrousel .btnSetaCarrossel {
-      display: none;
-  }
-  */
-
-  .containerDireitaBannersCarrosel {
-    width: 90vw;
-    max-width: 385px;
-    padding: 9.6px;
-  }
+  .containerDireitaTituloComProdutos h2 { font-size: 22px; }
+  .titulo { font-size: 5.6vw !important; }
+  .containerDireitaBannersCarrosel { width: 90vw; max-width: 385px; padding: 9.6px; }
 }
 
 @media (max-width: 400px) {
-  .containerDireitaBannersCarrosel {
-    width: 95vw;
-  }
-
-  .titulo {
-    font-size: 7vw !important;
-  }
+  .containerDireitaBannersCarrosel { width: 95vw; }
+  .titulo { font-size: 7vw !important; }
 }

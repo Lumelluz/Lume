@@ -3,7 +3,6 @@
 .container {
     min-height: 16vh;
     background-color: #180032;
-    height: 248px;
 }
 
 .conteudo {
@@ -145,7 +144,6 @@ h3 {
     .conjuntoColum {
         display: flex;
         flex-direction: column;
-        /* width: 90%; */
         padding-top: 32px;
         gap: 64px;
     }

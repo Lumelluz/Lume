@@ -23,7 +23,7 @@ function AppRoutes() {
                     <Route path="/fale-conosco" element={<FaleConosco />} />
                     <Route path="/perguntas-frequentes" element={<PerguntasFrequentes />} />
                     <Route path="/produtos" element={<Produtos />} />
-                    <Route path="/produto-especifico" element={<ProdutoEspecifico />} />
+                    <Route path='/produto-especifico/:productId' element={<ProdutoEspecifico />} />
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -4,17 +4,16 @@ import { useState } from 'react'
 import styles from '../TelaLogin/TelaLogin.module.css'
 
 function TelaLogin() {
-  const [mostrarSenha, setMostrarSenha] = useState(false) // controla qual componente mostrar
-  const [animando, setAnimando] = useState(false)         // controla animação de fade
-  const [email, setEmail] = useState('')                  // guarda o email digitado
+  const [mostrarSenha, setMostrarSenha] = useState(false)
+  const [animando, setAnimando] = useState(false)
+  const [email, setEmail] = useState('')
 
-  // Função para alternar entre as telas com animação
   const handleTrocar = () => {
-    setAnimando(true) // inicia animação fade out
+    setAnimando(true)
     setTimeout(() => {
-      setMostrarSenha(prev => !prev) // troca o componente mostrado
-      setAnimando(false)              // volta para fade in
-    }, 300) // tempo igual ao transition do CSS (0.3s)
+      setMostrarSenha(prev => !prev)
+      setAnimando(false)
+    }, 300) // tempo igual ao transition do CSS
   }
 
   return (

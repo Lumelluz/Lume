@@ -4,7 +4,7 @@ function ProdutosItems({ imagemProduto, nomeProduto, deDescontoPor, preco, off, 
   return (
     <figure className={styles.produtosItems}>
       <div className={styles.containerImagem}>
-        <img src={imagemProduto} alt={nomeProduto} /> {/* Melhor descritivo no alt */}
+        <img src={imagemProduto} alt={nomeProduto} />
       </div>
       <figcaption>
         <h2>{nomeProduto}</h2>

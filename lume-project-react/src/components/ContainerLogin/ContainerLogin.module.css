@@ -34,7 +34,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* garante centralização de tudo */
 }
 
 .oneLine {
@@ -68,19 +67,15 @@ form {
 .inputEmail {
     width: 100%;
     max-width: 250px;
-    /* igual ao input */
     display: flex;
     flex-direction: column;
-    /* label em cima, input embaixo */
     gap: 5px;
-    /* espaço entre eles */
 }
 
 .emailLabel {
     font-size: 13px;
     font-weight: 100;
     color: white;
-    /* ou qualquer outra cor */
 }
 
 .inputEmail input {
@@ -102,7 +97,6 @@ form {
     display: block;
     width: 100%;
     text-align: left;
-    /* ← agora alinha à esquerda */
 }
 
 
@@ -160,7 +154,6 @@ form {
     justify-content: center;
     align-items: center;
     width: 250px;
-    /* Mantendo fixo como antes */
     height: 30px;
     border-radius: 8px;
     margin-top: 10px;
@@ -184,14 +177,10 @@ form {
         top: 10px;
         left: 10px;
         width: 80px;
-        /* reduzida */
     }
 }
 
-/* ✅ Responsivo para telas pequenas até 480px */
 @media (max-width: 480px) {
-
-
     .loginInitial {
         width: 90%;
         padding: 15px;
@@ -224,7 +213,6 @@ form {
 
     .loginGoogle {
         width: 250px;
-        /* mantido */
         font-size: 13px;
     }
 

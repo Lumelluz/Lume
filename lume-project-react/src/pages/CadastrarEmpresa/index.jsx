@@ -37,7 +37,6 @@ function CadastrarEmpresa() {
   const [dadosCadastro, setDadosCadastro] = useState({});
   const navigate = useNavigate();
 
-  // Função que controla animação com callback para evitar repetição
   const executarComAnimacao = (callback) => {
     setAnimando(true);
     setTimeout(() => {
@@ -56,7 +55,7 @@ function CadastrarEmpresa() {
       } else {
         console.log('Cadastro completo:', dadosAtualizados);
         alert('Cadastro finalizado com sucesso!');
-        navigate('/'); // Navegação segura com React Router
+        navigate('/');
       }
     });
   };
@@ -66,7 +65,7 @@ function CadastrarEmpresa() {
       if (etapaAtual > 0) {
         setEtapaAtual((prev) => prev - 1);
       } else {
-        navigate(-1); // Navega para trás na história do React Router
+        navigate(-1);
       }
     });
   };

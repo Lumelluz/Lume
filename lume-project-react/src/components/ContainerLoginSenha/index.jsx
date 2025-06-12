@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from '../ContainerLoginSenha/ContainerLoginSenha.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import logoGoogle from '../../assets/img/logoGoogle.png';

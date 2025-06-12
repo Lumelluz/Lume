@@ -9,9 +9,7 @@ function SearchBar() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Redireciona para /produtos?q=pesquisa
-            navigate(`/produtos?q=${encodeURIComponent(pesquisa)}`);
+        navigate(`/produtos?q=${encodeURIComponent(pesquisa)}`);
     };
 
     return (

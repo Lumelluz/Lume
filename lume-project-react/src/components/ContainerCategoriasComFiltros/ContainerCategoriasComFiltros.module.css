@@ -5,9 +5,7 @@
   color: var(--text-secondary, #e0e0e0);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   height: 100%;
-  /* Para ocupar a altura no modo sidebar */
   overflow-y: auto;
-  /* Scroll se o conteúdo for maior */
 }
 
 .modalView {
@@ -16,9 +14,7 @@
   border-radius: 0;
   box-shadow: none;
   height: auto;
-  /* Altura automática no modal */
   overflow-y: visible;
-  /* O scroll é gerenciado pelo modalContent */
 }
 
 .resultadoPara {
@@ -54,7 +50,6 @@
 .grupoCategoria button:hover,
 .listaPreco button:hover,
 .grupoCategoria button.ativo,
-/* Estilo para filtro ativo */
 .listaPreco button.ativo {
   color: var(--accent-blue, #63a4ff);
   font-weight: 500;
@@ -63,20 +58,14 @@
 .categoriaPrincipalTitulo {
   font-size: 1.05rem;
   font-weight: 600;
-  /* Títulos são geralmente mais pesados */
   color: var(--text-primary, white);
   margin-bottom: 8px;
-  /* Espaço abaixo do título antes das subcategorias */
   padding: 8px 0;
-  /* Alinhamento vertical similar aos itens clicáveis */
   cursor: default;
-  /* Garante que não apareça o cursor de clique */
-  /* Remova quaisquer transições ou efeitos de hover específicos aqui, se houver */
 }
 
 .itemCategoriaPrincipal {
   font-size: 1.05rem !important;
-  /* Destaca a categoria principal */
   font-weight: 500 !important;
   color: var(--text-primary, white) !important;
 }
@@ -89,7 +78,6 @@
 .listaSubcategoria {
   list-style: none;
   padding-left: 15px;
-  /* Indentação para subcategorias */
   margin-top: 5px;
   margin-bottom: 15px;
 }
@@ -103,7 +91,6 @@
   color: var(--text-tertiary, #a0a0c0);
   margin-top: 5px;
   margin-left: 0;
-  /* Ajuste se estiver usando indentação da ul */
   padding-bottom: 10px;
 }
 
@@ -113,9 +100,7 @@
   margin-bottom: 20px;
 }
 
-/* Estilos para os ITENS CLICÁVEIS (subcategorias e faixas de preço) */
 .itemSubcategoria,
-/* Classe específica para botões de subcategoria */
 .listaPreco button {
   background: none;
   border: none;
@@ -125,7 +110,6 @@
   width: 100%;
   cursor: pointer;
   font-size: 0.95rem;
-  /* Mantido como antes para itens clicáveis */
   transition: color 0.2s ease;
 }
 
@@ -155,7 +139,6 @@
   text-align: center;
 }
 
-/* Estilo para remover setas do input number no Chrome/Safari/Edge/Opera */
 .inputPreco::-webkit-outer-spin-button,
 .inputPreco::-webkit-inner-spin-button {
   -webkit-appearance: none;

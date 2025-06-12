@@ -16,7 +16,6 @@
   text-align: left;
   font-size: 28px;
   font-weight: 400;
-  /* Para suportar as quebras de linha naturais no JSX */
   white-space: pre-line;
   margin: 0;
 }
@@ -133,7 +132,6 @@
 
 @media (max-width: 975px) {
   .parceriasCarroselComTexto {
-    /* all: unset; */
     display: flex;
     gap: 12px;
   }
@@ -206,7 +204,6 @@
 
   .parcerias>h2 {
     font-size: clamp(24px, 5vw, 40px);
-    /* Ajuste responsivo */
     border-bottom: 1px solid white;
     display: inline-block;
     margin-bottom: 16px;
@@ -215,30 +212,24 @@
   .parceriasCarroselEsquerda {
     display: flex;
     flex-direction: column;
-    /* Organiza elementos na vertical */
     align-items: center;
   }
 
   .parceriasCarroselEsquerda img:nth-child(2) {
     margin-bottom: 12px;
-    /* Espaçamento entre imagem e texto */
   }
 
   .parceriasCarroselEsquerda {
     display: flex;
     flex-direction: column;
-    /* Agora os itens ficam um abaixo do outro */
     align-items: center;
-    /* Centraliza a imagem e o texto */
     justify-content: center;
     text-align: center;
   }
 
   .parceriasCarroselEsquerda img:nth-child(2) {
     width: 144px;
-    /* Mantém um tamanho adequado */
     margin-bottom: 12px;
-    /* Espaço entre imagem e texto */
   }
 
   .parceriasCarrosel {
