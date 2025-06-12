@@ -7,7 +7,7 @@ const ChatModal = () => {
   const { isChatOpen, toggleChat } = useChat();
   const navigate = useNavigate();
   const [messages, setMessages] = useState([
-    { from: 'bot', text: 'Olá! Sou a assistente virtual da Lume. Como posso ajudar?' }
+    { from: 'bot', text: 'Olá! Sou a Aurora, assistente virtual da Lume. Como posso ajudar?' }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -79,7 +79,7 @@ const ChatModal = () => {
     <div className={styles.modalOverlay} onClick={toggleChat}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={toggleChat}>&times;</button>
-        <div className={styles.chatHeader}>Assistente Lume</div>
+        <div className={styles.chatHeader}>Assistente Aurora</div>
         <div className={styles.chatWindow}>
           {messages.map((msg, index) => (
             <div key={index} className={`${styles.message} ${styles[msg.from]}`}>
