@@ -5,7 +5,11 @@ import globoLaranja from '../../assets/img/globoLaranja.png'
 import reciclagemLaranja from '../../assets/img/reciclagemLaranja.png'
 import setaEsquerda from '../../assets/icons/setaEsquerda.svg';
 import setaDireita from '../../assets/icons/setaDireita.svg';
-import logoLumeNova from '../../assets/img/logoLumeNova.svg'
+import logoPontoNorteTransparente from '../../assets/img/logoPontoNorteTransparente.png'
+import montanha from '../../assets/img/montanha.png'
+import arvore from '../../assets/img/arvore.png'
+import trilha from '../../assets/img/trilha.png'
+
 
 function ParceriasCarrosel() {
   return (
@@ -23,19 +27,20 @@ function ParceriasCarrosel() {
         <div className={styles.parceriasCarrosel}>
           <div className={styles.parceriasCarroselComTexto}>
             <div className={styles.parceriasCarroselEsquerda}>
-                <img src={logoLumeNova} alt="Logo da Lume" />
+                <img src={logoPontoNorteTransparente} alt="Logo da Lume" />
             </div>
             <div className={styles.containerParceiroMobile}>
               <h3 className={styles.parceiroTitulo}>
                 Conheça mais
                 <br />
-                sobre a Lume!
+                sobre a 
+                <br />Ponto Norte!
               </h3>
               <div className={styles.parceriasCarroselDireita}>
                 <div className={styles.parceriasCarroselDireitaImagens}>
-                  <img src={vagalumeLaranja} alt="Vaga-lume laranja" />
-                  <img src={globoLaranja} alt="Globo laranja" />
-                  <img src={reciclagemLaranja} alt="Imagem de reciclagem laranja" />
+                  <img src={montanha} alt="Imagem de uma montanha" />
+                  <img src={arvore} alt="Imagem de uma árvore" />
+                  <img src={trilha} alt="Imagem de uma trilha" />
                 </div>
                 <Link to="#" className={styles.botaoSaibaMais}>
                   Saiba mais
