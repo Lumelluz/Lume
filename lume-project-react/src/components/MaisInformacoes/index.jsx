@@ -1,5 +1,6 @@
 import styles from './MaisInformacoes.module.css';
-import maisInfo1 from '../../assets/img/maisInfo1.png';
+// import maisInfo1 from '../../assets/img/maisInfo1.png';
+import group101 from '../../assets/img/group101.png';
 import maisInfo2 from '../../assets/img/maisInfo2.png';
 import { Link } from 'react-router-dom';
 
@@ -23,15 +24,12 @@ function MaisInformacoes() {
           <div className={styles.containerDireitaMaisInfo}>
 
             <div className={styles.info1}>
-              <img src={maisInfo1} alt="Imagem de um entregador" />
               <div className={styles.info1Texto}>
                 <h2>
-                  Não se preocupe<br />com<br />entregas
+                  Lume plus+
                 </h2>
                 <p>
-                  A <span className={styles.lumeNome}>Lume</span> já oferece serviço de<br />
-                  entrega para seus clientes.<br />
-                  Assim sua empresa não<br />precisa se preocupar!
+                  Conheça nossas <span className={styles.lumeNome}>Assinaturas</span>
                 </p>
               </div>
             </div>
