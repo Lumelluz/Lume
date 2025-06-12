@@ -1,7 +1,6 @@
-// Arquivo: ContainerDireita.jsx
-import styles from './ContainerInicial.module.css'; // Usa o mesmo CSS
-import CarrosselProdutos from './CarrosselProdutos'; // Importa o carrossel funcional
-import BannerCampanha from './BannerCampanha'; // Seu componente de banner
+import styles from './ContainerInicial.module.css';
+import CarrosselProdutos from './CarrosselProdutos';
+import BannerCampanha from './BannerCampanha';
 
 function ContainerDireita({ produtos }) {
   return (

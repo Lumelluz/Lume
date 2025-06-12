@@ -1,5 +1,3 @@
-/* Arquivo: ContainerProdutos.module.css (VERSÃO FINAL COMBINADA) */
-
 .container {
   width: 100%;
 }
@@ -40,13 +38,8 @@
   color: #f0f0f0;
 }
 
-/* ... outros estilos do arquivo (.container, .header, etc.) ... */
-
 .gridProdutos {
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fit, 260px);
-
-  /* ▼▼▼ A LINHA QUE FALTAVA PARA CENTRALIZAR OS CARDS ▼▼▼ */
-  /* justify-content: center; */
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ContainerCategoriasComFiltros.module.css';
 
-// Estrutura de dados para as categorias (pode vir de props ou ser definida aqui)
 const categoriasPrincipais = [
     {
         nome: 'Casa Sustentável',
@@ -25,8 +24,6 @@ const categoriasPrincipais = [
     },
     {
         nome: 'Comidas',
-        // A imagem mostra "Veja nosso catálogo de alimentos!"
-        // Podemos manter subcategorias ou um link para uma página de catálogo
         subcategorias: ['Vegano', 'Vegetariano', 'Bebidas', 'Lanche', 'Almoço/Janta'],
     },
 ];
@@ -40,14 +37,12 @@ const faixasDePreco = [
 const ContainerCategoriasComFiltros = ({
     query,
     isModalView,
-    filtrosAtivos, // Ex: { categoria: 'Roupas ecológicas', precoMin: 0, precoMax: 100 }
-    onCategoriaChange, // Função para mudar a categoria
-    onPrecoChange, // Função para mudar a faixa de preço
-    onPrecoRangeChange, // Função para mudar o range min/max customizado
+    filtrosAtivos,
+    onCategoriaChange,
+    onPrecoChange,
+    onPrecoRangeChange,
 }) => {
-    // Funções para lidar com cliques e mudanças de input
     const handleCategoriaClick = (categoria, subcategoria) => {
-        // Lógica para tratar se é uma categoria principal ou subcategoria
         onCategoriaChange(subcategoria || categoria);
     };
 
@@ -55,20 +50,17 @@ const ContainerCategoriasComFiltros = ({
         onPrecoChange(faixa.min, faixa.max);
     };
 
-    // Estados para os inputs de preço mínimo e máximo
     const [precoMinInput, setPrecoMinInput] = React.useState(filtrosAtivos?.precoMin || '');
     const [precoMaxInput, setPrecoMaxInput] = React.useState(filtrosAtivos?.precoMax || '');
 
     const handlePrecoMinChange = (e) => {
         setPrecoMinInput(e.target.value);
-        // Chama onPrecoRangeChange com delay (debounce) ou ao perder foco para não sobrecarregar
     };
 
     const handlePrecoMaxChange = (e) => {
         setPrecoMaxInput(e.target.value);
     };
 
-    // Função para aplicar o range de preço customizado
     const aplicarRangePreco = () => {
         const min = parseFloat(precoMinInput);
         const max = parseFloat(precoMaxInput);
@@ -83,8 +75,6 @@ const ContainerCategoriasComFiltros = ({
             <h2 className={styles.tituloSecao}>Categorias</h2>
             {categoriasPrincipais.map((catPrincipal) => (
                 <div key={catPrincipal.nome} className={styles.grupoCategoria}>
-                    {/* ALTERAÇÃO AQUI: Mudamos de <button> para <h3> */}
-                    {/* Também removemos onClick e a lógica da classe 'ativo' para o título principal */}
                     <h3 className={styles.categoriaPrincipalTitulo}>
                         {catPrincipal.nome}
                     </h3>
@@ -94,7 +84,6 @@ const ContainerCategoriasComFiltros = ({
                                 <li key={sub}>
                                     <button
                                         className={`${styles.itemSubcategoria} ${filtrosAtivos?.categoria === sub ? styles.ativo : ''}`}
-                                        // O onClick agora só passa a subcategoria
                                         onClick={() => handleCategoriaClick(sub)}
                                     >
                                         {sub}
@@ -107,7 +96,6 @@ const ContainerCategoriasComFiltros = ({
             ))}
 
             <h2 className={styles.tituloSecao}>Preço</h2>
-            {/* ... o resto do seu JSX para Preço continua igual ... */}
             <ul className={styles.listaPreco}>
                 {faixasDePreco.map((faixa) => (
                     <li key={faixa.label}>

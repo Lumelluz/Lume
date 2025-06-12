@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
-  /* melhor colocar aqui para hover */
 }
 
 .produtosItems:hover {
@@ -68,8 +67,6 @@
   margin: 0;
 }
 
-/* Responsivo 620px */
-
 @media (max-width: 351px) {
   .produtosItems {
     width: 70%;
@@ -78,10 +75,6 @@
   .containerImagem {
     display: flex;
     align-items: center;
-  }
-
-  .containerImagem img {
-    
   }
 
   .produtosItems figcaption {
@@ -94,5 +87,4 @@
     font-weight: 100;
     margin: 0;
   }
-
 }

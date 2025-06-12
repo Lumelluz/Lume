@@ -5,14 +5,14 @@ import Navigation from './Navigation';
 import UserActions from './UserActions';
 import MobileActions from './MobileActions';
 
-function Header({ isLoggedIn }) {
+function Header({ isLoggedIn, onSettingsClick }) {
     return (
         <header className={styles.header}>
             <ul className={styles.headerList}>
                 <li><Logo /></li>
                 <li className={styles.navComSearch}>
                     <SearchBar />
-                    <Navigation />
+                    <Navigation onSettingsClick={onSettingsClick} />
                 </li>
                 <li><UserActions isLoggedIn={isLoggedIn} /></li>
                 <li><MobileActions /></li>

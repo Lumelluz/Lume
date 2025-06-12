@@ -1,18 +1,29 @@
 html {
-    background-color: var(--page-bg);
+  background-color: var(--page-bg);
+}
+
+.backgroundLayer {
+  background-image: url(../../assets/img/fundoLume.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  transition: filter 0.8s ease-in-out;
+}
+
+.contentLayer {
+  width: 100%;
 }
 
 main {
-    max-width: 1500px;
-    margin: 0 auto;
-    overflow: hidden;
-    width: 100%;
-}
-
-.backgroundImage {
-    background-image: url(../../assets/img/fundoLume.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
 }

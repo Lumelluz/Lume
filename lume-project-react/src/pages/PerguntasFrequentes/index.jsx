@@ -2,6 +2,7 @@ import ContainerPerguntasFrequentes from '../../components/ContainerPerguntasFre
 import styles from './PerguntasFrequentes.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import { Link } from 'react-router-dom';
+
 function PerguntasFrequentes() {
   return (
     <main className={styles.container}>

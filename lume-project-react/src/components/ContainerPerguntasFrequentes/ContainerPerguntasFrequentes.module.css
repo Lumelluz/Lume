@@ -64,7 +64,6 @@
   top: 0;
 }
 
-/* RESPONSIVIDADE */
 @media (max-width: 480px) {
   .faq_container {
     padding: 20px 15px;

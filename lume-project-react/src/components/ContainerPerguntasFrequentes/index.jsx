@@ -1,5 +1,4 @@
 import styles from '../ContainerPerguntasFrequentes/ContainerPerguntasFrequentes.module.css'
-import logoLumeNova from '../../assets/img/logoLumeNova.svg' // só caso precise usar depois
 
 function ContainerPerguntasFrequentes() {
   return (

@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from './ParceriasCarrosel.module.css';
-import aguaNaCaixa from '../../assets/img/aguaNaCaixa.png';
-import vagalumeSpriteLuminoso from '../../assets/img/vagalumeSpriteLuminoso.png';
 import vagalumeLaranja from '../../assets/img/vagalumeLaranja.png'
 import globoLaranja from '../../assets/img/globoLaranja.png'
 import reciclagemLaranja from '../../assets/img/reciclagemLaranja.png'
@@ -25,7 +23,7 @@ function ParceriasCarrosel() {
         <div className={styles.parceriasCarrosel}>
           <div className={styles.parceriasCarroselComTexto}>
             <div className={styles.parceriasCarroselEsquerda}>
-                <img src={logoLumeNova} alt="Logo da parceira Água na Caixa" />
+                <img src={logoLumeNova} alt="Logo da Lume" />
             </div>
             <div className={styles.containerParceiroMobile}>
               <h3 className={styles.parceiroTitulo}>
@@ -35,9 +33,9 @@ function ParceriasCarrosel() {
               </h3>
               <div className={styles.parceriasCarroselDireita}>
                 <div className={styles.parceriasCarroselDireitaImagens}>
-                  <img src={vagalumeLaranja} alt="Produto Água 1" />
-                  <img src={globoLaranja} alt="Produto Água 2" />
-                  <img src={reciclagemLaranja} alt="Produto Água 3" />
+                  <img src={vagalumeLaranja} alt="Vaga-lume laranja" />
+                  <img src={globoLaranja} alt="Globo laranja" />
+                  <img src={reciclagemLaranja} alt="Imagem de reciclagem laranja" />
                 </div>
                 <Link to="#" className={styles.botaoSaibaMais}>
                   Saiba mais

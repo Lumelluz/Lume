@@ -3,7 +3,6 @@ import logoLumeNova from '../../assets/img/logoLumeNova.svg'
 import { useState } from 'react'
 
 function ContainerCadastrarEmpresa({ campos = [], dadosIniciais = {}, onAvancar, onVoltar, titulo }) {
-    // Inicializa o estado com dadosIniciais ou vazio para cada campo
     const [formData, setFormData] = useState(() => {
         const initial = {}
         if (Array.isArray(campos)) {
@@ -21,25 +20,18 @@ function ContainerCadastrarEmpresa({ campos = [], dadosIniciais = {}, onAvancar,
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // Validação poderia ser feita aqui
         onAvancar(formData)
     }
 
     return (
         <section className={styles.section_bg}>
             <div className={styles.container}>
-
-                {/* Logo */}
                 <div className={styles.logo}>
                     <img src={logoLumeNova} alt="Logo Lume" className={styles.logo_img} />
                 </div>
-
-                {/* Título principal */}
                 <h1 className={styles.title}>
                     Cadastre sua empresa na <span className={styles.highlight}>Lume</span>
                 </h1>
-
-                {/* Formulário */}
                 <div className={styles.form_wrapper}>
                     <h2 className={styles.form_title}>{titulo}</h2>
 

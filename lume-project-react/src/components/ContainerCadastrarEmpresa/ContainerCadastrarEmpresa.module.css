@@ -1,4 +1,3 @@
-/* Container section com fundo coberto e centralizado */
 .section_bg {
   height: 100%;
   background-size: cover;
@@ -8,7 +7,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* Container central flexível com backdrop blur e fundo semi-transparente */
 .container {
   min-height: 100vh;
   display: flex;
@@ -22,7 +20,6 @@
   position: relative;
 }
 
-/* Logo posicionada no topo esquerdo */
 .logo {
   position: absolute;
   top: 1rem;
@@ -31,50 +28,38 @@
 
 .logo_img {
   width: 150px;
-
-  /* 12 x 0.25rem = 3rem */
 }
 
-/* Título principal com tamanhos responsivos */
 .title {
   font-size: 1.875rem;
-  /* text-2xl */
   font-weight: 600;
   margin-bottom: 2rem;
   text-align: center;
 }
 
-/* Texto em destaque roxo */
 .highlight {
   color: #a78bfa;
-  /* purple-400 do Tailwind */
   font-weight: 700;
 }
 
-/* Wrapper do formulário com fundo translúcido, bordas arredondadas, sombra e blur */
 .form_wrapper {
   background-color: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   padding: 2rem;
   border-radius: 1.5rem;
-  /* rounded-2xl */
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 28rem;
-  /* max-w-md */
   color: white;
 }
 
-/* Título do formulário */
 .form_title {
   font-size: 1.25rem;
-  /* text-xl */
   font-weight: 500;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-/* Formulário com espaçamento entre inputs */
 .form {
   display: flex;
   align-items: center;
@@ -93,8 +78,6 @@
   transform: rotate(180deg);
 }
 
-/* Inputs */
-
 .input_field {
   width: 100%;
   padding: 0.5rem 2.5vw;
@@ -105,34 +88,27 @@
   font-size: 1rem;
   outline: none;
   resize: none;
-  /* evita redimensionamento manual */
   overflow: hidden;
-  /* evita barras de rolagem */
   transition: box-shadow 0.3s ease;
 
 }
 
-/* Placeholder branco */
 .input_field::placeholder {
   color: white;
   opacity: 1;
 }
 
-/* Focus nos inputs com outline roxo */
 .input_field:focus {
   box-shadow: 0 0 0 2px #a78bfa;
 }
 
-/* Botão submit com gradiente, arredondado e efeito hover */
 .btn_submit {
   margin-top: 1rem;
   background: linear-gradient(to right, #ec4899, #8b5cf6);
-  /* from-pink-500 to-purple-600 */
   color: white;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 9999px;
-  /* rounded-full */
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -142,24 +118,19 @@
   transition: filter 0.3s ease;
 }
 
-/* Hover deixa o botão um pouco mais claro */
 .btn_submit:hover {
   filter: brightness(1.1);
 }
 
-/* Ícone SVG dentro do botão */
 .btn_icon {
   height: 1rem;
-  /* 4 */
   width: 1rem;
-  /* 4 */
   stroke: currentColor;
 }
 
 @media (max-width: 768px) {
   .title {
     font-size: 1.5rem;
-    /* text-3xl */
   }
 
   .logo {
@@ -180,12 +151,10 @@
   .btn_submit {
     margin-top: 1rem;
     background: linear-gradient(to right, #ec4899, #8b5cf6);
-    /* from-pink-500 to-purple-600 */
     color: white;
     padding: 1.5vw 2.5vw;
     border: none;
     border-radius: 9999px;
-    /* rounded-full */
     font-weight: 600;
     display: flex;
     align-items: center;

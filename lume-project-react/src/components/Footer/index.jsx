@@ -1,5 +1,4 @@
 import ScrollToTopLink from '../ScrollToTopLink'; 
-import React from 'react';
 import styles from './Footer.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import logoInstagram from '../../assets/img/logoInstagram.png';
