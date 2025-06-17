@@ -105,6 +105,7 @@
 
 .info1Texto p:hover {
     transform: scale(1.04);
+    background: rgba(36, 0, 134, 0.411);
 }
 
 .info2Texto h2 {
