@@ -1,5 +1,5 @@
-import ContainerLogin from '../../components/ContainerLogin'
-import ContainerLoginSenha from '../../components/ContainerLoginSenha'
+import ContainerLogin from '../../components/features/ContainerLogin'
+import ContainerLoginSenha from '../../components/features/ContainerLoginSenha'
 import { useState } from 'react'
 import styles from '../TelaLogin/TelaLogin.module.css'
 

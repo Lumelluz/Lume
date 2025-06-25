@@ -1,4 +1,4 @@
-import ContainerCadastrarEmpresa from '../../components/ContainerCadastrarEmpresa';
+import ContainerCadastrarEmpresa from '../../components/features/ContainerCadastrarEmpresa';
 import styles from '../CadastrarEmpresa/CadastrarEmpresa.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

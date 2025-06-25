@@ -1,5 +1,5 @@
-import ContainerInicial from '../../components/ContainerInicial';
-import ParceriasCarrosel from '../../components/ParceriasCarrosel';
+import ContainerInicial from '../../components/features/ContainerInicial';
+import ParceriasCarrosel from '../../components/features/ParceriasCarrosel';
 
 function Home() {
     return (

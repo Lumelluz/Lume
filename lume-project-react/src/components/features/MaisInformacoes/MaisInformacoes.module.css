@@ -1,0 +1,196 @@
+.container {
+    padding-bottom: 40px;
+    margin: 0 auto;
+    background-color: #512E74;
+    text-align: center;
+}
+
+.container>h2 {
+    margin: 20px;
+    font-size: 36px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+}
+
+.conteudo {
+    max-width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cadastrarEmpresa,
+.cadastrarEmpresaMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.cadastrarEmpresa h2,
+.cadastrarEmpresaMobile h2 {
+    font-size: 44px;
+    font-weight: 100;
+}
+
+.linkCadastrar {
+    text-align: center;
+    background-color: rgba(112, 52, 177, 0.90);
+    text-decoration: none;
+    padding: 16px 48px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    font-size: 20px;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.linkCadastrar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.containerDireitaMaisInfo {
+    display: flex;
+    gap: 50px;
+    background-color: #472968;
+    filter: drop-shadow(0px -1px 16px #7A2ECB);
+    border-radius: 43px;
+    padding: 24px 50px;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.containerDireitaMaisInfo h2 {
+    font-size: 28px;
+}
+
+.info1,
+.info2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.info1 img,
+.info2 img {
+    height: 200px;
+}
+
+.info1Texto {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.info2Texto {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info1Texto p {
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(360deg, #512E74, rgba(0, 0, 0, 0) 100%);
+    transition: .6s;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.info1Texto p:hover {
+    transform: scale(1.04);
+}
+
+.info2Texto h2 {
+    font-weight: 200;
+}
+
+.lumeNome {
+    color: #C990FA;
+}
+
+.cadastrarEmpresaMobile {
+    display: none;
+}
+
+.fundoDegrade {
+    padding-top: 80px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: linear-gradient(360deg, #512E74, rgb(0, 0, 0, 0) 100%);
+}
+
+@media (max-width: 1380px) {
+    .conteudo {
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .containerDireitaMaisInfo {
+        gap: 4.8vw;
+        border-radius: 43px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 1070px) {
+    .containerDireitaMaisInfo {
+        flex-direction: column;
+        border-radius: 16px;
+        gap: 24px;
+        padding: 4%;
+    }
+
+    .cadastrarEmpresa {
+        display: none;
+    }
+
+    .cadastrarEmpresaMobile {
+        display: flex;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .cadastrarEmpresaMobile h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 620px) {
+    .container>h2 {
+        font-size: 25px;
+    }
+
+    .info1 img,
+    .info2 img {
+        height: 160px;
+    }
+
+    .info1Texto h2,
+    .info2Texto h2 {
+        font-size: 18px;
+    }
+
+    .info1Texto p,
+    .info2Texto p {
+        font-size: 11px;
+    }
+
+    .cadastrarEmpresaMobile h2 {
+        font-size: 25px;
+    }
+
+    .linkCadastrar {
+        padding: 2.4vw 7.2vw;
+        font-size: 3.2vw;
+    }
+}

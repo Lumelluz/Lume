@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from './ProdutoEspecifico.module.css';
 import { listaDeProdutos } from '../../data/products';
 import { useCart } from '../../context/CartContext';
-import ProdutosItemsCompacto from '../../components/ProdutosItemsCompacto/';
+import ProdutosItemsCompacto from '../../components/features/ProdutosItemsCompacto/';
 
 function ProdutoEspecifico() {
     const { productId } = useParams();

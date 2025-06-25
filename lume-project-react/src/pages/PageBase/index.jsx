@@ -1,14 +1,14 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import MaisInformacoes from '../../components/MaisInformacoes';
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
+import MaisInformacoes from '../../components/features/MaisInformacoes';
 import styles from './PageBase.module.css';
 import BotoesNavegacao from '../../components/layout/BotoesNavegacao';
 import { useState, useEffect } from 'react';
-import ChatButton from '../../components/ChatButton';
-import ChatModal from '../../components/ChatModal';
-import VLibras from '../../components/VLibras';
-import SettingsModal from '../../components/SettingsModal';
+import ChatButton from '../../components/features/ChatButton';
+import ChatModal from '../../components/features/ChatModal';
+import VLibras from '../../components/features/VLibras';
+import SettingsModal from '../../components/features/SettingsModal';
 import CartModal from '../../components/features/CartModal';
 import AccessibilityMenu from '../../components/features/AccessibilityMenu';
 

@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './Produtos.module.css';
-import ContainerProdutos from '../../components/ContainerProdutos/';
-import ContainerCategoriasComFiltros from '../../components/ContainerCategoriasComFiltros/';
+import ContainerProdutos from '../../components/features/ContainerProdutos/';
+import ContainerCategoriasComFiltros from '../../components/features/ContainerCategoriasComFiltros/';
 import { listaDeProdutos } from '../../data/products';
 
 function Produtos() {
