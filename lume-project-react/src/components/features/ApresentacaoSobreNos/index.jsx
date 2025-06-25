@@ -1,4 +1,4 @@
-import styles from '../ApresentacaoSobreNos/ApresentacaoSobreNos.module.css';
+import styles from './ApresentacaoSobreNos.module.css';
 
 function ApresentacaoSobreNos() {
     return (

@@ -1,5 +1,5 @@
-import styles from '../BotoesNavegacao/BotoesNavegacao.module.css'
-import menuHamburguerBranco from '../../assets/icons/menuHamburguerBranco.svg'
+import styles from './BotoesNavegacao.module.css'
+import menuHamburguerBranco from '../../../assets/icons/menuHamburguerBranco.svg'
 import { useState, useEffect } from 'react';
 
 function BotoesNavegacao() {

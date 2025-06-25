@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './CartModal.module.css';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../../context/CartContext';
 
 const CartModal = () => {
   // Pega as novas funções do contexto

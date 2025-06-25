@@ -3,14 +3,14 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MaisInformacoes from '../../components/MaisInformacoes';
 import styles from './PageBase.module.css';
-import BotoesNavegacao from '../../components/BotoesNavegacao';
+import BotoesNavegacao from '../../components/layout/BotoesNavegacao';
 import { useState, useEffect } from 'react';
 import ChatButton from '../../components/ChatButton';
 import ChatModal from '../../components/ChatModal';
 import VLibras from '../../components/VLibras';
 import SettingsModal from '../../components/SettingsModal';
-import CartModal from '../../components/CartModal';
-import AccessibilityMenu from '../../components/AccessibilityMenu';
+import CartModal from '../../components/features/CartModal';
+import AccessibilityMenu from '../../components/features/AccessibilityMenu';
 
 const initialFilters = {
   saturation: 100,
