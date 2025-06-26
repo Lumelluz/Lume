@@ -4,12 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { ChatProvider } from './context/ChatContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
+import { PendingProductProvider } from './context/PendingProductContext';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ChatProvider>
       <CartProvider>
-        <App />
+        <PendingProductProvider>
+          <App />
+        </PendingProductProvider>
       </CartProvider>
     </ChatProvider>
   </StrictMode>

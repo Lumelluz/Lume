@@ -1,0 +1,119 @@
+.mainContent {
+    overflow: hidden;
+    color: var(--lume-text, #e0e0e0);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.heroSection {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    background-color: var(--lume-bg-darker, #111827);
+    border-bottom: 1px solid var(--lume-border, rgba(255, 255, 255, 0.1));
+}
+
+.mainTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--lume-text-white, #ffffff);
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.lastUpdated {
+    font-size: 0.875rem;
+    color: var(--lume-text-tertiary, #8b949e);
+    margin-top: 0.5rem;
+}
+
+.policySection {
+    padding: 3rem 0;
+}
+
+.policyContent {
+    max-width: 896px;
+}
+
+.policyContent h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--lume-text-white, #ffffff);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--lume-border, rgba(255, 255, 255, 0.1));
+}
+
+.policyContent h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--lume-text-white, #ffffff);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.policyContent p {
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.policyContent ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.policyContent li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.policyContent a {
+    color: var(--accent-blue, #63a4ff);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.policyContent a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 2.25rem;
+    }
+
+    .heroSection {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .policySection {
+        padding: 2rem 0;
+    }
+
+    .policyContent h2 {
+        font-size: 1.5rem;
+    }
+
+    .policyContent h3 {
+        font-size: 1.125rem;
+    }
+}
