@@ -9,6 +9,12 @@ import FaleConosco from "./pages/FaleConosco";
 import PerguntasFrequentes from "./pages/PerguntasFrequentes";
 import Produtos from "./pages/Produtos";
 import ProdutoEspecifico from "./pages/ProdutoEspecifico";
+import Parcerias from "./pages/Parcerias";
+import MissaoBeneficios from "./pages/MissaoBeneficios";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import AdminDashboard from "./pages/AdminDashboard";
+import CadastrarProdutos from "./pages/CadastrarProdutos";
+import TelaCadastro from "./pages/TelaCadastro";
 
 function AppRoutes() {
     return (
@@ -24,6 +30,13 @@ function AppRoutes() {
                     <Route path="/perguntas-frequentes" element={<PerguntasFrequentes />} />
                     <Route path="/produtos" element={<Produtos />} />
                     <Route path='/produto-especifico/:productId' element={<ProdutoEspecifico />} />
+                    <Route path="/parcerias" element={<Parcerias />} />
+                    <Route path="/missoes-beneficios" element={<MissaoBeneficios />} />
+                    <Route path="/politicas-privacidade" element={<PoliticaPrivacidade />} />
+                    <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                    <Route path="/cadastrar-produto" element={<CadastrarProdutos />} />
+                    <Route path="/cadastro" element={<TelaCadastro />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

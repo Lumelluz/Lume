@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './Produtos.module.css';
-import ContainerProdutos from '../../components/ContainerProdutos/';
-import ContainerCategoriasComFiltros from '../../components/ContainerCategoriasComFiltros/';
-import { listaDeProdutos } from '../../data/products';
+import ContainerProdutos from '../../components/features/ContainerProdutos/';
+import ContainerCategoriasComFiltros from '../../components/features/ContainerCategoriasComFiltros/';
+import { useProducts } from '../../context/ProductContext';
 
 function Produtos() {
     const location = useLocation();
@@ -35,6 +35,8 @@ function Produtos() {
         return () => document.body.classList.remove(styles.noScroll);
     }, [isModalOpen]);
 
+    const { products } = useProducts();
+
     const handleCategoriaChange = (categoriaSelecionada) => {
         setFiltros(prevFiltros => ({
             ...prevFiltros,
@@ -59,7 +61,7 @@ function Produtos() {
     };
 
     const produtosFiltrados = useMemo(() => {
-        return [...listaDeProdutos]
+        return [...products]
             .filter(produto => {
                 const correspondeQuery = produto.productName.toLowerCase().includes(filtros.query.toLowerCase());
                 const correspondeCategoria = filtros.categoria ? produto.categoria === filtros.categoria : true;
@@ -91,7 +93,7 @@ function Produtos() {
                         return 0; // Não altera a ordem
                 }
             });
-    }, [filtros, ordenacao]);
+    }, [filtros, ordenacao, products]);
 
     return (
         <>
