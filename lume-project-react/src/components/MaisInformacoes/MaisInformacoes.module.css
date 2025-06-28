@@ -51,6 +51,7 @@
 
 .linkCadastrar:hover {
     transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .containerDireitaMaisInfo {
@@ -61,6 +62,7 @@
     border-radius: 43px;
     padding: 24px;
     text-align: left;
+    justify-content: space-between;
 }
 
 .containerDireitaMaisInfo h2 {
@@ -71,6 +73,7 @@
 .info2 {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
 }
 
@@ -79,11 +82,29 @@
     height: 200px;
 }
 
-.info1Texto,
+.info1Texto {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
 .info2Texto {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.info1Texto p {
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(360deg, #512E74, rgba(0, 0, 0, 0) 100%);
+    transition: .6s;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.info1Texto p:hover {
+    transform: scale(1.04);
 }
 
 .info2Texto h2 {
@@ -103,10 +124,8 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    background: linear-gradient(360deg, rgba(82, 52, 114, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(360deg, #512E74, rgb(0, 0, 0, 0) 100%);
 }
-
-/* MEDIA QUERIES */
 
 @media (max-width: 1380px) {
     .conteudo {
@@ -147,24 +166,27 @@
 }
 
 @media (max-width: 620px) {
-    .container > h2 {
-        font-size: 4.4vw;
+    .container>h2 {
+        font-size: 25px;
     }
 
-    .info1 img, .info2 img {
-        height: 32vw;
+    .info1 img,
+    .info2 img {
+        height: 160px;
     }
 
-    .info1Texto h2, .info2Texto h2 {
-        font-size: 4.4vw;
+    .info1Texto h2,
+    .info2Texto h2 {
+        font-size: 18px;
     }
 
-    .info1Texto p, .info2Texto p {
-        font-size: 2vw;
+    .info1Texto p,
+    .info2Texto p {
+        font-size: 11px;
     }
 
     .cadastrarEmpresaMobile h2 {
-        font-size: 4.8vw;
+        font-size: 25px;
     }
 
     .linkCadastrar {

@@ -1,29 +1,29 @@
+import ScrollToTopLink from '../ScrollToTopLink'; 
 import styles from './Footer.module.css';
-import logoLumeNova from '../../assets/img/logoLumeNova.svg'
-import logoInstagram from '../../assets/img/logoInstagram.png'
-import logoGitHub from '../../assets/img/logoGitHub.png'
-import logoLinkdln from '../../assets/img/logoLinkdln.png'
-
+import logoLumeNova from '../../assets/img/logoLumeNova.svg';
+import logoInstagram from '../../assets/img/logoInstagram.png';
+import logoGitHub from '../../assets/img/logoGitHub.png';
+import logoLinkdln from '../../assets/img/logoLinkdln.png';
 
 function Footer() {
     return (
-        <section className={styles.container}>
+        <footer className={styles.container}>
             <div className={styles.conteudo}>
                 <div className={styles.columOne}>
                     <div className={styles.columOneLogo}>
-                    <img src={logoLumeNova} alt="logoLume" />
-                    <p className={styles.suaLuz}>Sua luz faz a diferença</p>
+                        <img src={logoLumeNova} alt="Logo Lume Luz" />
+                        <p className={styles.suaLuz}>Sua luz faz a diferença</p>
                     </div>
                     <p className={styles.sigaNos}>Siga-nos</p>
                     <div className={styles.redesSociais}>
-                        <a href="https://www.instagram.com/lumelluz/" target="_blank">
-                            <img src={logoInstagram} alt="logo instagram" className={styles.imgInstagram} />
+                        <a href="https://www.instagram.com/lumelluz/" target="_blank" rel="noopener noreferrer">
+                            <img src={logoInstagram} alt="Instagram Lume Luz" className={styles.imgInstagram} />
                         </a>
-                        <a href="https://www.linkedin.com/company/lumelluz/" target="_blank">
-                            <img src={logoLinkdln} alt="logo linkdln" className={styles.imgLinkdln} />
+                        <a href="https://www.ScrollToTopLinkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
+                            <img src={logoLinkdln} alt="ScrollToTopLinkedIn Lume Luz" className={styles.imgLinkdln} />
                         </a>
-                        <a href="https://github.com/Lumelluz/Lume" target="_blank">
-                            <img src={logoGitHub} alt="logo gitHub" className={styles.imgGitHub} />
+                        <a href="https://github.com/Lumelluz" target="_blank" rel="noopener noreferrer">
+                            <img src={logoGitHub} alt="GitHub Lume Luz" className={styles.imgGitHub} />
                         </a>
                     </div>
                     <div className={styles.contornoIcons}></div>
@@ -33,9 +33,9 @@ function Footer() {
                         <h3>Sobre nós</h3>
                         <nav>
                             <ul>
-                                <li><a href="#"> Quem somos</a></li>
-                                <li><a href="#"> Nossa missão</a></li>
-                                <li><a href="#"> Parcerias</a></li>
+                                <li><ScrollToTopLink to="/sobre-nos">Quem somos</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/nossa-missao">Nossa missão</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/parcerias">Parcerias</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -43,9 +43,9 @@ function Footer() {
                         <h3>Suporte</h3>
                         <nav>
                             <ul>
-                                <li><a href="#">Perguntas frequentes</a></li>
-                                <li><a href="#">Fale conosco</a></li>
-                                <li><a href="#">Politicas de privacidade</a></li>
+                                <li><ScrollToTopLink to="/perguntas-frequentes">Perguntas frequentes</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/fale-conosco">Fale conosco</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/politicas-privacidade">Políticas de privacidade</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>
@@ -53,17 +53,16 @@ function Footer() {
                         <h3>Para empresa</h3>
                         <nav>
                             <ul>
-                                <li><a href="#">Seja um parceiro</a></li>
-                                <li><a href="#">Beneficios da lume</a></li>
-                                <li><a href="#">Suporte para marcas</a></li>
+                                <li><ScrollToTopLink to="/seja-parceiro">Seja um parceiro</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/beneficios-lume">Benefícios da Lume</ScrollToTopLink></li>
+                                <li><ScrollToTopLink to="/suporte-marcas">Suporte para marcas</ScrollToTopLink></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                
             </div>
-                <p className={styles.copyright}>Todos os direitos reservados &copy; - 2025</p>
-        </section>
+            <p className={styles.copyright}>Todos os direitos reservados &copy; - 2025</p>
+        </footer>
     )
 }
 

@@ -1,0 +1,99 @@
+.fale_conosco {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  margin: 50px auto;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fale_conosco img {
+  width: 110px;
+  margin-bottom: 20px;
+}
+
+.fale_conosco h2 {
+  color: #d37ae2;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+form {
+  width: 100%;
+}
+
+.form_group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form_group input,
+.form_group select,
+.form_group textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline-offset: 3px;
+  outline-color: transparent;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: outline-color 0.3s ease;
+}
+
+.form_group input:focus,
+.form_group select:focus,
+.form_group textarea:focus {
+  outline-color: #d37ae2;
+}
+
+.form_group select option {
+  background-color: #0e123d;
+  color: white;
+}
+
+.form_group textarea {
+  height: 100px;
+}
+
+.submit_button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #d37ae2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit_button:hover,
+.submit_button:focus {
+  background: #b25cbf;
+  outline: none;
+}
+
+.horario {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.horario h3 {
+  margin-bottom: 10px;
+}
