@@ -1,32 +1,43 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './ProdutoEspecifico.module.css';
-import { listaDeProdutos } from '../../data/products';
+import { useProducts } from '../../context/ProductContext';
 import { useCart } from '../../context/CartContext';
 import ProdutosItemsCompacto from '../../components/features/ProdutosItemsCompacto/';
 
 function ProdutoEspecifico() {
     const { productId } = useParams();
     const { addToCart } = useCart();
-
+    const { products } = useProducts();
+    
     const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
     const [mainImage, setMainImage] = useState(null);
     const [activeTab, setActiveTab] = useState('avaliacoes');
+    
+    const [displayThumbnails, setDisplayThumbnails] = useState([]);
 
     useEffect(() => {
-        const foundProduct = listaDeProdutos.find(p => String(p.id) === String(productId));
+        if (!products || products.length === 0) {
+            return; 
+        }
+
+        const foundProduct = products.find(p => String(p.id) === String(productId));
         setProduct(foundProduct);
 
         if (foundProduct) {
             setMainImage(foundProduct.imageUrl);
+            setDisplayThumbnails((foundProduct.galleryImages || []).slice(0, 4)); 
             setQuantity(1);
             setActiveTab('avaliacoes');
         }
-    }, [productId]);
+    }, [productId, products]);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }, [productId]);
 
     if (!product) {
@@ -35,15 +46,20 @@ function ProdutoEspecifico() {
 
     const handleAddToCart = () => {
         addToCart(product, quantity);
-        console.log(`Adicionado ${quantity}x "${product.productName}" ao carrinho.`);
     };
 
-    const handleThumbnailClick = (image) => {
-        setMainImage(image);
+    const handleThumbnailClick = (clickedImage, index) => {
+        const previousMainImage = mainImage;
+        
+        setMainImage(clickedImage);
+
+        const newThumbnails = [...displayThumbnails];
+        newThumbnails[index] = previousMainImage;
+        setDisplayThumbnails(newThumbnails);
     };
 
     const totalReviews = product.reviews?.length || 0;
-    const relatedProductsList = listaDeProdutos.filter(p => product.relatedProducts?.includes(p.id) && p.id !== product.id);
+    const relatedProductsList = products.filter(p => product.relatedProducts?.includes(p.id) && p.id !== product.id);
     const ratingSummaryArray = Object.entries(product.ratingSummary || {}).sort((a, b) => b[0] - a[0]);
     const totalRatingCount = ratingSummaryArray.reduce((sum, [, count]) => sum + count, 0);
 
@@ -55,9 +71,9 @@ function ProdutoEspecifico() {
                         <img src={mainImage || product.imageUrl} alt={product.imageAlt} />
                     </div>
                     <ul className={styles.thumbnailsProduto}>
-                        {(product.galleryImages || []).map((img, index) => (
+                        {displayThumbnails.map((img, index) => (
                             <li key={index}>
-                                <button onClick={() => handleThumbnailClick(img)} className={mainImage === img ? styles.thumbnailActive : ''}>
+                                <button onClick={() => handleThumbnailClick(img, index)} className={mainImage === img ? styles.thumbnailActive : ''}>
                                     <img src={img} alt={`Thumbnail ${index + 1}`} />
                                 </button>
                             </li>
@@ -68,7 +84,7 @@ function ProdutoEspecifico() {
                 <div className={styles.infoProduto}>
                     <h1 id="product-title">{product.productName}</h1>
                     <div className={styles.avaliacaoResumo}>
-                        <span>★★★★☆</span> {/* Pode ser dinâmico com product.rating */}
+                        <span>★★★★☆</span>
                         <a href="#opinioes">({totalReviews} avaliações)</a>
                     </div>
                     <div className={styles.precoInfo}>
@@ -140,7 +156,7 @@ function ProdutoEspecifico() {
                         </ul>
                     </div>
                 </div>
-
+                
                 <h3>Fotos e vídeos de clientes</h3>
                 <div className={styles.midiaClientes}>
                     {(product.customerMedia || []).map((media, index) => <img key={index} src={media} alt={`Foto do cliente ${index + 1}`} />)}
@@ -150,7 +166,7 @@ function ProdutoEspecifico() {
                     <button onClick={() => setActiveTab('avaliacoes')} className={activeTab === 'avaliacoes' ? styles.abaAtiva : ''}>Avaliações ({totalReviews})</button>
                     <button onClick={() => setActiveTab('perguntas')} className={activeTab === 'perguntas' ? styles.abaAtiva : ''}>Perguntas (2)</button>
                 </nav>
-
+                
                 <div className={styles.conteudoAbas}>
                     {activeTab === 'avaliacoes' && (
                         <div className={styles.listaAvaliacoes}>

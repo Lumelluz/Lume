@@ -3,10 +3,16 @@ import styles from './AdminDashboard.module.css';
 import { Chart, registerables } from 'chart.js';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { usePendingProducts } from '../../context/PendingProductContext';
-import { listaDeProdutos } from '../../data/products';
+import { useProducts } from '../../context/ProductContext';
 
 Chart.register(...registerables);
+
+const categoryOptions = {
+    'Casa Sustentável': ['Casa e decoração', 'Festas', 'Produtos de limpeza ecológicos', 'Itens de cozinha', 'Composteiras domésticas', 'Purificadores e filtros de água'],
+    'Moda Sustentável': ['Roupas ecológicas', 'Calçados veganos', 'Acessórios recicláveis ou biodegradáveis', 'Bolsas e mochilas sustentáveis'],
+    'Comidas': ['Vegano', 'Vegetariano', 'Bebidas', 'Lanche', 'Almoço/Janta'],
+};
+
 
 const MetricCard = ({ id, title, value, trend, trendColor }) => (
     <div id={id} className={styles.metricCard}>
@@ -19,6 +25,7 @@ const MetricCard = ({ id, title, value, trend, trendColor }) => (
 const DashboardHome = ({ onAnalisarPedido, onGerarRelatorio }) => {
     const salesChartRef = useRef(null);
     const trafficChartRef = useRef(null);
+    const { products } = useProducts();
 
     const [metricsData, setMetricsData] = useState(null);
     const [trafficData, setTrafficData] = useState('');
@@ -26,10 +33,9 @@ const DashboardHome = ({ onAnalisarPedido, onGerarRelatorio }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        // Simulação de uma chamada de API para buscar os dados do dashboard
         const fetchDashboardData = () => {
-            // API Java aqui, no futuro, substituindo os dados mockados
-            // fetch('http://localhost:8080/api/dashboard-data').then(...)
-
+            // No futuro, fazer um axios para a API Java  aqui
             setMetricsData({
                 vendas: { value: "R$ 45.897,00", trend: "+2.5% vs. mês passado" },
                 usuarios: { value: "1.250", trend: "+12% vs. mês passado" },
@@ -38,7 +44,7 @@ const DashboardHome = ({ onAnalisarPedido, onGerarRelatorio }) => {
             });
             setTrafficData("Orgânico (45%), Social (25%), Direto (20%), Referência (10%)");
 
-            const sortedProducts = [...listaDeProdutos].sort((a, b) => new Date(b.date) - new Date(a.date));
+            const sortedProducts = [...products].sort((a, b) => new Date(b.date) - new Date(a.date));
             const formattedOrders = sortedProducts.slice(0, 5).map((product, index) => ({
                 id: `#${3065 - index}`,
                 cliente: product.companyName,
@@ -52,7 +58,7 @@ const DashboardHome = ({ onAnalisarPedido, onGerarRelatorio }) => {
         };
 
         setTimeout(fetchDashboardData, 500);
-    }, []);
+    }, [products]);
 
 
     useEffect(() => {
@@ -117,9 +123,7 @@ const DashboardHome = ({ onAnalisarPedido, onGerarRelatorio }) => {
 const VerificacaoProdutosView = ({ pendingProducts, onVerifyProduct }) => {
     return (
         <div className={styles.viewContainer}>
-            <div className={styles.contentHeader}>
-                <h2>Verificação de Produtos Pendentes</h2>
-            </div>
+            <div className={styles.contentHeader}><h2>Verificação de Produtos Pendentes</h2></div>
             <div className={styles.tableCard}>
                 <div className={styles.tableWrapper}>
                     <table className={styles.table}>
@@ -143,20 +147,125 @@ const VerificacaoProdutosView = ({ pendingProducts, onVerifyProduct }) => {
     );
 };
 
-const ProductVerificationModal = ({ product, isOpen, onClose, onApprove, onReject }) => {
+const ProductVerificationModal = ({ product, isOpen, onClose, onApprove, onReject, onUpdate }) => {
     if (!isOpen || !product) return null;
-    const DetailItem = ({ label, value, isArray = false }) => {
-        const displayValue = isArray ? (Array.isArray(value) ? value.join(', ') : value) : value;
-        if (!displayValue && displayValue !== 0) return null;
-        return <p><strong>{label}:</strong> {displayValue}</p>;
+
+    const [editableData, setEditableData] = useState(product);
+    const [activeImage, setActiveImage] = useState(product.imageUrl);
+
+    const [selectedMainCategory, setSelectedMainCategory] = useState('');
+    const [subcategories, setSubcategories] = useState([]);
+
+    const findMainCategory = (subcategory) => {
+        for (const mainCategory in categoryOptions) {
+            if (categoryOptions[mainCategory].includes(subcategory)) {
+                return mainCategory;
+            }
+        }
+        return '';
     };
+
+    useEffect(() => {
+        const mainCat = findMainCategory(product.categoria);
+        setSelectedMainCategory(mainCat);
+        setSubcategories(categoryOptions[mainCat] || []);
+        setEditableData(product);
+        setActiveImage(product.imageUrl);
+    }, [product]);
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setEditableData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    };
+
+    const handleMainCategoryChange = (e) => {
+        const mainCategory = e.target.value;
+        setSelectedMainCategory(mainCategory);
+        const newSubcategories = categoryOptions[mainCategory] || [];
+        setSubcategories(newSubcategories);
+        setEditableData(prev => ({ ...prev, categoria: newSubcategories[0] || '' }));
+    };
+
+    const prepareDataToSend = () => {
+        return {
+            ...editableData,
+            originalPrice: parseFloat(editableData.originalPrice) || 0,
+            currentPrice: parseFloat(editableData.currentPrice) || 0,
+            benefits: Array.isArray(editableData.benefits) ? editableData.benefits : String(editableData.benefits).split(',').map(item => item.trim()).filter(item => item),
+            features: Array.isArray(editableData.features) ? editableData.features : String(editableData.features).split(',').map(item => item.trim()).filter(item => item),
+        };
+    };
+
+    const handleSaveChanges = () => {
+        const dataToSend = prepareDataToSend();
+        onUpdate(product.id, dataToSend);
+        alert('Alterações salvas!');
+    };
+
+    const handleApproveClick = () => {
+        const dataToSend = prepareDataToSend();
+        onApprove(product.id, dataToSend);
+    };
+
+    const allImages = [editableData.imageUrl, ...(editableData.galleryImages || [])].filter(Boolean);
+
     return (
         <div className={`${styles.modalOverlay} ${isOpen ? styles.open : ''}`} onClick={onClose}>
             <div className={`${styles.modalContent} ${styles.verificationModalContent}`} onClick={e => e.stopPropagation()}>
                 <button className={styles.modalCloseButton} onClick={onClose}>&times;</button>
-                <h2 className={styles.modalTitle}>Analisar Produto: {product.productName}</h2>
-                <div className={styles.modalBody}><div className={styles.productDetailsGrid}><div className={styles.productImageColumn}><h3 className={styles.topicTitle}>Imagem Principal</h3><div className={styles.productImagePreview}><img src={product.imageUrl} alt={product.imageAlt || product.productName} /></div><DetailItem label="Texto Alternativo" value={product.imageAlt} /></div><div className={styles.productInfoColumn}><h3 className={styles.topicTitle}>Informações Principais</h3><DetailItem label="Nome do Produto" value={product.productName} /><DetailItem label="Empresa" value={product.companyName} /><DetailItem label="Categoria" value={product.categoria} /><h3 className={styles.topicTitle}>Detalhes de Preço e Venda</h3><DetailItem label="Preço Original" value={`R$ ${product.originalPrice}`} /><DetailItem label="Preço Atual" value={`R$ ${product.currentPrice}`} /><DetailItem label="Desconto" value={`${product.discountPercentage || 0}%`} /><DetailItem label="Parcelamento" value={product.installments} /><h3 className={styles.topicTitle}>Logística e Marketing</h3><DetailItem label="Informação de Frete" value={product.shippingInfo} /><DetailItem label="Desconto Especial" value={product.specialDiscount} /><h3 className={styles.topicTitle}>Atributos e Descrição</h3><DetailItem label="Benefícios" value={product.benefits} isArray={true} /><p><strong>Descrição Completa:</strong></p><p>{product.description || 'Nenhuma descrição fornecida.'}</p></div></div></div>
-                <div className={styles.modalActions}><button onClick={() => onReject(product.id)} className={styles.rejectButton}>Rejeitar</button><button onClick={() => onApprove(product.id)} className={styles.approveButton}>Aprovar Produto</button></div>
+                <h2 className={styles.modalTitle}>Analisar e Editar Produto</h2>
+                <div className={styles.modalBody}>
+                    <div className={styles.productDetailsGrid}>
+                        <div className={styles.productImageColumn}>
+                            <h3 className={styles.topicTitle}>Imagens do Produto</h3>
+                            <div className={styles.productImagePreview}><img src={activeImage} alt={editableData.imageAlt} /></div>
+                            {allImages.length > 1 && (
+                                <div className={styles.galleryThumbnails}>
+                                    {allImages.map((img, index) => (
+                                        <button key={index} className={`${styles.thumbnailButton} ${activeImage === img ? styles.thumbnailActive : ''}`} onClick={() => setActiveImage(img)}>
+                                            <img src={img} alt={`Galeria ${index + 1}`} />
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                        <div className={styles.productInfoColumn}>
+                            <h3 className={styles.topicTitle}>Informações Editáveis</h3>
+                            <label>Nome do Produto:</label><input type="text" name="productName" value={editableData.productName} onChange={handleChange} className={styles.modalInput} />
+                            <label>Empresa:</label><input type="text" name="companyName" value={editableData.companyName} onChange={handleChange} className={styles.modalInput} />
+                            <label>Categoria Principal:</label>
+                            <select value={selectedMainCategory} onChange={handleMainCategoryChange} className={styles.modalInput}>
+                                <option value="" disabled>Selecione a categoria principal</option>
+                                {Object.keys(categoryOptions).map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                            </select>
+                            <label>Subcategoria:</label>
+                            <select name="categoria" value={editableData.categoria} onChange={handleChange} className={styles.modalInput} disabled={!selectedMainCategory}>
+                                <option value="" disabled>Selecione a subcategoria</option>
+                                {subcategories.map(sub => <option key={sub} value={sub}>{sub}</option>)}
+                            </select>
+                            <label>Texto Alternativo (SEO):</label><input type="text" name="imageAlt" value={editableData.imageAlt} onChange={handleChange} className={styles.modalInput} />
+
+                            <h3 className={styles.topicTitle}>Preços e Venda</h3>
+                            <label>Preço Original (R$):</label><input type="number" step="0.01" name="originalPrice" value={editableData.originalPrice} onChange={handleChange} className={styles.modalInput} />
+                            <label>Preço Atual (R$):</label><input type="number" step="0.01" name="currentPrice" value={editableData.currentPrice} onChange={handleChange} className={styles.modalInput} />
+                            <label>Desconto (%):</label><input type="number" name="discountPercentage" value={editableData.discountPercentage} onChange={handleChange} className={styles.modalInput} />
+                            <label>Parcelamento:</label><input type="text" name="installments" value={editableData.installments} onChange={handleChange} className={styles.modalInput} />
+
+                            <h3 className={styles.topicTitle}>Detalhes Adicionais</h3>
+                            <label>Frete:</label><input type="text" name="shippingInfo" value={editableData.shippingInfo} onChange={handleChange} className={styles.modalInput} />
+                            <label>Desconto Especial:</label><input type="text" name="specialDiscount" value={editableData.specialDiscount} onChange={handleChange} className={styles.modalInput} />
+                            <label>Benefícios (separados por vírgula):</label><input type="text" name="benefits" value={Array.isArray(editableData.benefits) ? editableData.benefits.join(', ') : editableData.benefits} onChange={handleChange} className={styles.modalInput} />
+                            <label>Características (separadas por vírgula):</label><input type="text" name="features" value={Array.isArray(editableData.features) ? editableData.features.join(', ') : editableData.features} onChange={handleChange} className={styles.modalInput} />
+                            <label>Descrição:</label><textarea name="description" value={editableData.description} onChange={handleChange} rows="5" className={styles.modalTextarea}></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div className={styles.modalActions}>
+                    <button onClick={() => onReject(product.id)} className={styles.rejectButton}>Rejeitar</button>
+                    <button onClick={handleSaveChanges} className={styles.saveButton}>Salvar Alterações</button>
+                    <button onClick={handleApproveClick} className={styles.approveButton}>Salvar e Aprovar</button>
+                </div>
             </div>
         </div>
     );
@@ -168,7 +277,6 @@ const ProdutosView = () => (<div className={styles.viewContainer}><div className
 const UsuariosView = () => (<div className={styles.viewContainer}><div className={styles.contentHeader}><h2>Gerenciamento de Usuários</h2><p className={styles.placeholderText}>Área em construção...</p></div></div>);
 const SuporteView = () => (<div className={styles.viewContainer}><div className={styles.contentHeader}><h2>Tickets de Suporte</h2><p className={styles.placeholderText}>Área em construção...</p></div></div>);
 
-
 function AdminDashboard() {
     const [activeView, setActiveView] = useState('dashboard');
     const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
@@ -178,15 +286,15 @@ function AdminDashboard() {
     const [aiModalContent, setAiModalContent] = useState('');
     const [isAiLoading, setIsAiLoading] = useState(false);
 
-    const { pendingProducts, approveProduct, rejectProduct } = usePendingProducts();
+    const { pendingProducts, approveProduct, rejectProduct, updatePendingProduct } = useProducts();
 
     const handleVerifyProductClick = (product) => {
         setProductToVerify(product);
         setIsVerificationModalOpen(true);
     };
 
-    const handleApproveProduct = (productId) => {
-        approveProduct(productId);
+    const handleApproveProduct = (productId, finalData) => {
+        approveProduct(productId, finalData);
         setIsVerificationModalOpen(false);
     };
 
@@ -195,9 +303,16 @@ function AdminDashboard() {
         setIsVerificationModalOpen(false);
     };
 
+    const handleUpdateProduct = (productId, updatedData) => {
+        updatePendingProduct(productId, updatedData);
+        setProductToVerify(prev => ({ ...prev, ...updatedData }));
+    };
+
     const callGeminiAPI = async (prompt) => {
-        const apiKey = "AIzaSyBSp24cHyAOSXIAVX_Xd2ewKxmC4_NZ4e8";
+        setIsAiLoading(true);
+        const apiKey = "colocar aqui a API do Gemini, falar com o Gustavo";
         if (!apiKey) {
+            setIsAiLoading(false);
             return "Erro: A chave de API do Gemini não está configurada.";
         }
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
@@ -212,39 +327,33 @@ function AdminDashboard() {
             return result.candidates[0].content.parts[0].text;
         } catch (error) {
             console.error("Erro ao chamar a API Gemini:", error);
-            return `Desculpe, ocorreu um erro ao contatar a IA: ${error.message}`;
+            return `Desculpe, ocorreu um erro: ${error.message}`;
+        } finally {
+            setIsAiLoading(false);
         }
     };
 
     const handleGerarRelatorio = async (metrics, traffic) => {
         setIsAiModalOpen(true);
-        setIsAiLoading(true);
         setAiModalTitle('Relatório de Performance ✨');
         setAiModalContent('');
         const nomeMesAtual = new Date().toLocaleString('pt-BR', { month: 'long' });
         const primeiroLetraMaiuscula = nomeMesAtual.charAt(0).toUpperCase() + nomeMesAtual.slice(1);
-        const prompt = `Você é um analista de dados sênior para um e-commerce de produtos sustentáveis chamado Lume. Com base nos seguintes KPIs do mês de ${primeiroLetraMaiuscula}, escreva um relatório conciso em 3 parágrafos, formatado com Markdown. O primeiro parágrafo deve resumir a performance geral. O segundo deve destacar pontos positivos e áreas de preocupação. O terceiro deve oferecer duas sugestões de ações claras e práticas para melhorar os resultados no próximo mês. Dados:\n- Vendas Totais: ${metrics.vendas.value} (${metrics.vendas.trend})\n- Novos Usuários: ${metrics.usuarios.value} (${metrics.usuarios.trend})\n- Pedidos Pendentes: ${metrics.pedidos.value}\n- Taxa de Conversão: ${metrics.conversao.value} (${metrics.conversao.trend})\n- Fontes de Tráfego: ${traffic}`;
+        const prompt = `Você é um analista de dados sênior para um e-commerce de produtos sustentáveis chamado Lume. Com base nos seguintes KPIs do mês de ${primeiroLetraMaiuscula}, escreva um relatório conciso em 3 parágrafos, formatado com Markdown. Dados:\n- Vendas Totais: ${metrics.vendas.value} (${metrics.vendas.trend})\n- Novos Usuários: ${metrics.usuarios.value} (${metrics.usuarios.trend})\n- Pedidos Pendentes: ${metrics.pedidos.value}\n- Taxa de Conversão: ${metrics.conversao.value} (${metrics.conversao.trend})\n- Fontes de Tráfego: ${traffic}`;
         const report = await callGeminiAPI(prompt);
         setAiModalContent(report);
-        setIsAiLoading(false);
     };
 
     const handleAnalisarPedido = async (pedido) => {
         setIsAiModalOpen(true);
-        setIsAiLoading(true);
         setAiModalTitle(`Análise do Pedido ${pedido.id}`);
         setAiModalContent('');
         let prompt = `Você é um especialista em e-commerce da Lume. Analise o seguinte pedido e sugira uma ação clara e profissional, formatada em Markdown.\n- Pedido ID: ${pedido.id}\n- Cliente: ${pedido.cliente}\n- Valor: R$ ${pedido.valor}\n- Status: ${pedido.status}`;
-        if (pedido.status === 'Pendente') {
-            prompt += "\nO pedido está pendente. Sugira um rascunho de e-mail curto e amigável para enviar ao cliente, informando sobre o status e dando uma previsão de envio. Adicionalmente, liste em tópicos duas possíveis causas internas para o atraso.";
-        } else if (pedido.status === 'Cancelado') {
-            prompt += "\nO pedido foi cancelado. Sugira um rascunho de e-mail curto e amigável para enviar ao cliente, lamentando o ocorrido e oferecendo um cupom de 10% de desconto para uma futura compra como gesto de boa vontade.";
-        } else {
-            prompt += "\nResuma a situação do pedido e sugira se alguma ação de acompanhamento (como um e-mail de agradecimento ou pedido de avaliação) é necessária.";
-        }
+        if (pedido.status === 'Pendente') prompt += "\nSugira um rascunho de e-mail para o cliente e liste possíveis causas internas para o atraso.";
+        else if (pedido.status === 'Cancelado') prompt += "\nSugira um rascunho de e-mail lamentando o ocorrido e oferecendo um cupom de 10% de desconto.";
+        else prompt += "\nSugira uma ação de acompanhamento (como um pedido de avaliação).";
         const analysis = await callGeminiAPI(prompt);
         setAiModalContent(analysis);
-        setIsAiLoading(false);
     };
 
     const renderView = () => {
@@ -262,9 +371,7 @@ function AdminDashboard() {
     return (
         <div className={styles.dashboardContainer}>
             <aside className={styles.sidebar}>
-                <div className={styles.sidebarHeader}>
-                    <div className={styles.logo}>L</div><h1>Lume Admin</h1>
-                </div>
+                <div className={styles.sidebarHeader}><div className={styles.logo}>L</div><h1>Lume Admin</h1></div>
                 <nav className={styles.sidebarNav}>
                     <ul>
                         <li><button onClick={() => setActiveView('dashboard')} className={activeView === 'dashboard' ? styles.activeLink : ''}><span>Dashboard</span></button></li>
@@ -293,6 +400,7 @@ function AdminDashboard() {
                 product={productToVerify}
                 onApprove={handleApproveProduct}
                 onReject={handleRejectProduct}
+                onUpdate={handleUpdateProduct}
             />
 
             {isAiModalOpen && (

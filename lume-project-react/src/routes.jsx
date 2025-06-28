@@ -14,6 +14,7 @@ import MissaoBeneficios from "./pages/MissaoBeneficios";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import AdminDashboard from "./pages/AdminDashboard";
 import CadastrarProdutos from "./pages/CadastrarProdutos";
+import TelaCadastro from "./pages/TelaCadastro";
 
 function AppRoutes() {
     return (
@@ -34,6 +35,8 @@ function AppRoutes() {
                     <Route path="/politicas-privacidade" element={<PoliticaPrivacidade />} />
                     <Route path="/admin-dashboard" element={<AdminDashboard />} />
                     <Route path="/cadastrar-produto" element={<CadastrarProdutos />} />
+                    <Route path="/cadastro" element={<TelaCadastro />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

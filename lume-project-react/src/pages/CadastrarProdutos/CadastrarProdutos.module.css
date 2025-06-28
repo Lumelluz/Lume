@@ -1,18 +1,15 @@
-/* As variáveis de cor devem vir do seu arquivo global (ex: index.css) */
-
 .pageWrapper {
     min-height: 100vh;
     padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* A imagem de fundo principal virá do seu PageBase.module.css */
 }
 
 .formContainer {
-    width: 100%;
+    /* width: 100%; */
     max-width: 900px;
-    background: rgba(26, 26, 46, 0.8);
+    background: rgba(255, 255, 255, 0.05);
     padding: 2.5rem;
     border-radius: 1.5rem;
     backdrop-filter: blur(10px);
@@ -36,7 +33,7 @@
 
 .formGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     gap: 1.5rem;
 }
 
@@ -64,7 +61,9 @@
 }
 
 .formGroup input[type="text"],
-.formGroup input[type="number"] {
+.formGroup input[type="number"],
+.formGroup textarea,
+.formGroup select {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color, #4a4a6a);
     color: var(--text-primary, #fff);
@@ -72,12 +71,34 @@
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
 }
 
-.formGroup input:focus {
+.formGroup select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
     outline: none;
     border-color: var(--accent-blue, #63a4ff);
     box-shadow: 0 0 0 3px rgba(99, 164, 255, 0.2);
+}
+
+.formGroup select option {
+    background-color: #0e123d;
+    color: white;
 }
 
 .checkboxWrapper {
@@ -91,15 +112,20 @@
     margin: 0;
     cursor: pointer;
 }
+
 .checkboxWrapper input[type="checkbox"] {
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
 }
 
-.imageUploadSection {
+.imageUploadGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
     margin-top: 1rem;
 }
+
 .imageUploadSection h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -113,10 +139,13 @@
     border: 2px dashed var(--border-color, #4a4a6a);
     border-radius: 0.75rem;
     width: 100%;
-    height: 180px;
+    min-height: 180px;
     cursor: pointer;
     transition: border-color 0.2s, background-color 0.2s;
+    padding: 1rem;
+    flex-direction: column;
 }
+
 .imageUploadBox:hover {
     border-color: var(--accent-blue, #63a4ff);
     background-color: rgba(99, 164, 255, 0.05);
@@ -129,16 +158,32 @@
     gap: 0.5rem;
     color: var(--text-secondary, #e0e0e0);
 }
+
 .uploadPlaceholder svg {
     width: 3rem;
     height: 3rem;
 }
 
 .imagePreview {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 160px;
     object-fit: contain;
     border-radius: 0.5rem;
+}
+
+.galleryPreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.galleryPreview img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #4a4a6a);
 }
 
 .hiddenFileInput {
@@ -156,17 +201,20 @@
     transition: opacity 0.2s;
     font-size: 1.1rem;
     margin-top: 1.5rem;
-    align-self: center; /* Centraliza o botão */
-    min-width: 250px; /* Largura mínima para o botão */
+    grid-column: 1 / -1;
 }
+
 .submitButton:hover {
     opacity: 0.9;
 }
 
 @media (max-width: 768px) {
-    .formGrid {
+
+    .formGrid,
+    .imageUploadGrid {
         grid-template-columns: 1fr;
     }
+
     .formContainer {
         padding: 1.5rem;
     }

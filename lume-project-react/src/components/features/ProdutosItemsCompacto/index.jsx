@@ -34,7 +34,7 @@ const ProdutosItemsCompacto = ({ product }) => {
         <div className={styles.infoContainer}>
           <h3 className={styles.productName}>{productName}</h3>
           <div className={styles.priceInfo}>
-            {showOriginalPrice && (
+            {showOriginalPrice > 0 && (
               <p className={styles.originalPrice}>
                 de <del>R$ {originalPrice.toFixed(2).replace('.', ',')}</del>
               </p>

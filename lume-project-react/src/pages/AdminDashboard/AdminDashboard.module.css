@@ -122,6 +122,7 @@
     color: white;
 }
 
+
 .mainContent {
     flex-grow: 1;
     padding: 2rem;
@@ -219,7 +220,7 @@
 
 .chartCardLarge h3,
 .chartCardSmall h3,
-.tableCard h3 {
+.tableCard .tableTitle {
     font-size: 1.125rem;
     font-weight: 600;
     color: white;
@@ -258,10 +259,16 @@
 .table td {
     padding: 1rem 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
 }
 
-.table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.03);
+.table tbody tr.clickableRow {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.table tbody tr.clickableRow:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
 .table .orderId {
@@ -297,6 +304,11 @@
     color: #f87171;
 }
 
+.statusNovo {
+    background-color: rgba(167, 139, 250, 0.2);
+    color: #a78bfa;
+}
+
 .analisarButton {
     font-size: 0.875rem;
     color: #58a6ff;
@@ -326,7 +338,8 @@
 }
 
 .approveButton,
-.rejectButton {
+.rejectButton,
+.saveButton {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -336,7 +349,8 @@
 }
 
 .approveButton:hover,
-.rejectButton:hover {
+.rejectButton:hover,
+.saveButton:hover {
     opacity: 0.8;
 }
 
@@ -347,6 +361,11 @@
 
 .rejectButton {
     background-color: #da3633;
+    color: white;
+}
+
+.saveButton {
+    background-color: #3b82f6;
     color: white;
 }
 
@@ -376,9 +395,11 @@
     padding: 2rem;
     border-radius: 12px;
     width: 90%;
-    max-width: 600px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
 }
 
 .modalCloseButton {
@@ -395,14 +416,15 @@
 .modalTitle {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
 }
 
 .modalBody {
     color: #c9d1d9;
     line-height: 1.6;
-    max-height: 70vh;
     overflow-y: auto;
     white-space: pre-wrap;
 }
@@ -416,18 +438,6 @@
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.modalBody h1 {
-    font-size: 1.5rem;
-}
-
-.modalBody h2 {
-    font-size: 1.25rem;
-}
-
-.modalBody h3 {
-    font-size: 1.1rem;
 }
 
 .modalBody p {
@@ -447,6 +457,117 @@
 .modalBody strong {
     font-weight: 600;
     color: white;
+}
+
+.verificationModalContent {
+    max-width: 800px;
+}
+
+.productDetailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.productImageColumn .topicTitle,
+.productInfoColumn .topicTitle {
+    font-size: 1.1rem;
+    color: #a78bfa;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.productImageColumn .topicTitle:first-child,
+.productInfoColumn .topicTitle:first-child {
+    margin-top: 0;
+}
+
+.productImagePreview img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.productInfo p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.productInfo strong {
+    color: #8b949e;
+    margin-right: 0.5rem;
+}
+
+.modalInput,
+.modalTextarea {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #4a4a6a;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.modalInput:focus,
+.modalTextarea:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.modalTextarea {
+    resize: vertical;
+}
+
+.modalActions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.galleryThumbnails {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.thumbnailButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    padding: 0;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: none;
+}
+
+.thumbnailButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.thumbnailButton.thumbnailActive {
+    border-color: #58a6ff;
+}
+
+
+@media (max-width: 768px) {
+    .productDetailsGrid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 640px) {
