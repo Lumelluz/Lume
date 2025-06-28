@@ -1,0 +1,266 @@
+.mainContent {
+    overflow: hidden;
+    color: var(--lume-text);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--lume-text-white);
+}
+
+.sectionSubtitle {
+    color: var(--lume-text-secondary);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroSection {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    text-align: center;
+}
+
+.lumeGradientText {
+    background: linear-gradient(90deg, var(--lume-purple), var(--lume-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mainTitle {
+    font-size: 3.75rem;
+    font-weight: 800;
+    color: var(--lume-text-white);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    color: var(--lume-text-secondary);
+}
+
+.heroButton,
+.ctaButton {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    color: var(--lume-text-white);
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroButton:hover,
+.ctaButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.benefitsSection {
+    padding: 5rem 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+.beneficioCard {
+    background-color: var(--lume-bg-dark);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--lume-border);
+    text-align: center;
+}
+
+.iconWrapper {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficioTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lume-text-white);
+    margin-bottom: 0.75rem;
+}
+
+.beneficioText {
+    color: var(--lume-text-secondary);
+}
+
+.partnershipTypesSection {
+    padding: 5rem 0;
+}
+
+.partnershipGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+.modeloCard {
+    background-color: var(--lume-bg-dark);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--lume-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.modeloCardImage {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.modeloCardContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.modeloCardTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lume-text-white);
+    margin-bottom: 0.5rem;
+}
+
+.modeloCardText {
+    color: var(--lume-text-secondary);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.modeloCardLink {
+    color: #a78bfa;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.modeloCardLink:hover {
+    color: var(--lume-text-white);
+}
+
+.testimonialsSection {
+    padding: 5rem 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    max-width: 896px;
+    margin: 0 auto;
+}
+
+.testimonialCard {
+    background-color: var(--lume-bg-dark);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--lume-border);
+}
+
+.testimonialQuote {
+    color: var(--lume-text);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.testimonialAuthor {
+    display: flex;
+    align-items: center;
+}
+
+.testimonialAuthor img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    margin-right: 1rem;
+}
+
+.authorName {
+    font-weight: 700;
+    color: var(--lume-text-white);
+}
+
+.authorRole {
+    font-size: 0.875rem;
+    color: var(--lume-text-secondary);
+}
+
+.ctaSection {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.ctaSection .container {
+    max-width: 650px;
+}
+
+.ctaSection .sectionSubtitle {
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .mainTitle {
+        font-size: 3.75rem;
+    }
+
+    .benefitsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .partnershipGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonialsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,221 @@
+.pageWrapper {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer {
+    /* width: 100%; */
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    color: var(--text-primary, #fff);
+}
+
+.mainTitle {
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup.spanFull {
+    grid-column: 1 / -1;
+}
+
+.formGroup h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color, #4a4a6a);
+    margin-bottom: 0.5rem;
+}
+
+.formGroup label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #e0e0e0);
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea,
+.formGroup select {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color, #4a4a6a);
+    color: var(--text-primary, #fff);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.formGroup select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+.formGroup textarea {
+    resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--accent-blue, #63a4ff);
+    box-shadow: 0 0 0 3px rgba(99, 164, 255, 0.2);
+}
+
+.formGroup select option {
+    background-color: #0e123d;
+    color: white;
+}
+
+.checkboxWrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.checkboxWrapper label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkboxWrapper input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+.imageUploadGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.imageUploadSection h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.imageUploadBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--border-color, #4a4a6a);
+    border-radius: 0.75rem;
+    width: 100%;
+    min-height: 180px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+.imageUploadBox:hover {
+    border-color: var(--accent-blue, #63a4ff);
+    background-color: rgba(99, 164, 255, 0.05);
+}
+
+.uploadPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary, #e0e0e0);
+}
+
+.uploadPlaceholder svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.imagePreview {
+    max-width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.galleryPreview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.galleryPreview img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #4a4a6a);
+}
+
+.hiddenFileInput {
+    display: none;
+}
+
+.submitButton {
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    grid-column: 1 / -1;
+}
+
+.submitButton:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+
+    .formGrid,
+    .imageUploadGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formContainer {
+        padding: 1.5rem;
+    }
+}

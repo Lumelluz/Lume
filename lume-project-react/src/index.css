@@ -47,6 +47,16 @@
   --border-color: #4a4a6a;
   --star-color: #00a6ff;
 
+  --lume-bg: #0b0f2b;
+  --lume-bg-dark: #1a1a2e;
+  --lume-bg-darker: #111827;
+  --lume-border: rgba(255, 255, 255, 0.1);
+  --lume-text: #e0e0e0;
+  --lume-text-secondary: #a0aec0;
+  --lume-text-white: #ffffff;
+  --lume-purple: #8A2BE2;
+  --lume-blue: #4169E1;
+
   --success-color: #4caf50;
   --page-bg: #0b0f2b;
   --container-bg: #1a1a2e;
