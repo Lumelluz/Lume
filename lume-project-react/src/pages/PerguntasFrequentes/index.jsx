@@ -1,4 +1,4 @@
-import ContainerPerguntasFrequentes from '../../components/ContainerPerguntasFrequentes';
+import ContainerPerguntasFrequentes from '../../components/features/ContainerPerguntasFrequentes';
 import styles from './PerguntasFrequentes.module.css';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 import { Link } from 'react-router-dom';
