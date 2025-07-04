@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import logoMastercard from '../../assets/img/logoMastercard.png';
 import logoVisa from '../../assets/img/logoVisa.png';
-import adicionarCartao from '../../assets/img/adicionarcartao.png';
 import logoLumeNova from '../../assets/img/logoLumeNova.svg';
 
 const ConfirmationModal = ({ isOpen, onClose, message }) => {
@@ -118,7 +117,6 @@ function CheckoutPagamento() {
                                         <input type="radio" name="savedCard" />
                                     </div>
                                     <button className={styles.addCardButton}>
-                                        <img src={adicionarCartao} alt="Adicionar" />
                                         <span>Adicionar novo cartão</span>
                                     </button>
                                 </div>
