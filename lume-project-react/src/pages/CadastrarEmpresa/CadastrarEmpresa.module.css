@@ -10,3 +10,7 @@
 .fadeOut {
   opacity: 0;
 }
+
+.loadingMessage {
+  min-height: 60vh;
+}

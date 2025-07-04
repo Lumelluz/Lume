@@ -1,6 +1,8 @@
 import styles from './MaisInformacoes.module.css';
 import maisInfo2 from '../../../assets/img/maisInfo2.png';
 import { Link } from 'react-router-dom';
+import ScrollToTopLink from '../../ui/ScrollToTopLink';
+
 
 function MaisInformacoes() {
   return (
@@ -27,8 +29,9 @@ function MaisInformacoes() {
                   Lume plus+
                 </h2>
                 <p>
+                <ScrollToTopLink to='/assinatura-lume-clientes'>
                   Conheça nossas <span className={styles.lumeNome}>Assinaturas</span>
-                </p>
+                </ScrollToTopLink></p>
               </div>
             </div>
 

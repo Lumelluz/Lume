@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from './ParceriasCarrosel.module.css';
-import vagalumeLaranja from '../../../assets/img/vagalumeLaranja.png'
-import globoLaranja from '../../../assets/img/globoLaranja.png'
-import reciclagemLaranja from '../../../assets/img/reciclagemLaranja.png'
 import setaEsquerda from '../../../assets/icons/setaEsquerda.svg';
 import setaDireita from '../../../assets/icons/setaDireita.svg';
 import logoPontoNorteTransparente from '../../../assets/img/logoPontoNorteTransparente.png'
@@ -23,6 +20,7 @@ function ParceriasCarrosel() {
           tabIndex={0}
           aria-label="Seta para a esquerda"
           className={styles.seta}
+          onClick={() => alert("Não há mais parceiros para mostrar")}
         />
         <div className={styles.parceriasCarrosel}>
           <div className={styles.parceriasCarroselComTexto}>
@@ -42,7 +40,7 @@ function ParceriasCarrosel() {
                   <img src={arvore} alt="Imagem de uma árvore" />
                   <img src={trilha} alt="Imagem de uma trilha" />
                 </div>
-                <Link to="#" className={styles.botaoSaibaMais}>
+                <Link to="#" onClick={() => alert("Página indisponível no momento, estamos trabalhando nisso!")} className={styles.botaoSaibaMais}>
                   Saiba mais
                 </Link>
               </div>
@@ -56,6 +54,7 @@ function ParceriasCarrosel() {
           tabIndex={0}
           aria-label="Seta para a direita"
           className={styles.seta}
+          onClick={() => alert("Não há mais parceiros para mostrar")}
         />
       </div>
     </section>

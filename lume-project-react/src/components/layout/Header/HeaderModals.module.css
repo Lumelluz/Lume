@@ -1,0 +1,129 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.modalOverlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+.modalContent {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background: #161b22;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  padding: 1.5rem;
+  transition: transform 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.navModal {
+  left: 0;
+  width: 80%;
+  max-width: 300px;
+  transform: translateX(-100%);
+}
+.modalOverlay.open .navModal {
+  transform: translateX(0);
+}
+
+.userModal {
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  transform: translateX(100%);
+}
+.modalOverlay.open .userModal {
+  transform: translateX(0);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modalLogo {
+  height: 35px;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #8b949e;
+  cursor: pointer;
+}
+
+.modalNav {
+  margin-top: 1.5rem;
+}
+
+.modalNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modalNav a, .modalNav button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #c9d1d9;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.modalNav a:hover, .modalNav button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cartButton {
+  justify-content: space-between;
+}
+
+.badgeCarrinho {
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoutButton {
+  color: #f87171 !important;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}

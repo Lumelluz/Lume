@@ -11,6 +11,8 @@ import VLibras from '../../components/features/VLibras';
 import SettingsModal from '../../components/features/SettingsModal';
 import CartModal from '../../components/features/CartModal';
 import AccessibilityMenu from '../../components/features/AccessibilityMenu';
+import { AuthSessionManager } from '../../context/AuthContext';
+
 
 const initialFilters = {
   saturation: 100,
@@ -24,11 +26,12 @@ function PageBase() {
   const location = useLocation();
   const currentPath = location.pathname.toLowerCase();
 
-  const showHeaderRoutes = ['/', '/sobre-nos', '/produtos', '/produto-especifico:productId', '/fale-conosco'];
-  const showFooterRoutes = ['/', '/sobre-nos', '/login', '/produtos', '/produto-especifico:productId', '/fale-conosco'];
+  const showHeaderRoutes = ['/', '/login', '/sobre-nos', '/fale-conosco', '/perguntas-frequentes', '/produtos', '/parcerias', '/missoes-beneficios', '/politica-privacidade', '/cadastrar-produto', '/cadastro', '/cadastrar-empresa', '/admin-dashboard', '/perfil-empresa', '/assinatura-lume-clientes', '/politicas-privacidade', '/seja-parceiro', '/perfil'];
 
-  const shouldShowHeader = showHeaderRoutes.includes(currentPath) || currentPath.startsWith('/produto-especifico/');
-  const shouldShowFooter = showFooterRoutes.includes(currentPath) || currentPath.startsWith('/produto-especifico/');
+  const showFooterRoutes = ['/', '/login', '/sobre-nos', '/fale-conosco', '/perguntas-frequentes', '/produtos', '/parcerias', '/missoes-beneficios', '/politica-privacidade', '/cadastrar-produto', '/cadastro', '/cadastrar-empresa', '/admin-dashboard', '/perfil-empresa', '/assinatura-lume-clientes', '/politicas-privacidade', '/seja-parceiro', '/perfil'];
+
+  const shouldShowHeader = showHeaderRoutes.includes(currentPath) || currentPath.startsWith('/produto-especifico/') || currentPath.startsWith('/pagina-vendedor/');
+  const shouldShowFooter = showFooterRoutes.includes(currentPath) || currentPath.startsWith('/produto-especifico/') || currentPath.startsWith('/pagina-vendedor/');;
   const shouldShowMaisInformacoes = currentPath === '/';
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -78,6 +81,7 @@ function PageBase() {
 
   return (
     <>
+     <AuthSessionManager /> 
       <div className={styles.backgroundLayer} style={backgroundStyle} />
       
       <div className={styles.contentLayer}>

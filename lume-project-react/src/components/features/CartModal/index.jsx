@@ -1,15 +1,13 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './CartModal.module.css';
 import { useCart } from '../../../context/CartContext';
 
 const CartModal = () => {
-  // Pega as novas funções do contexto
   const { isCartOpen, toggleCart, cartItems, subtotal, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
   const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate('/checkout');
+    navigate('/checkout-pagamento');
     toggleCart();
   };
 
@@ -22,7 +20,7 @@ const CartModal = () => {
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={toggleCart}>&times;</button>
         <h3 className={styles.modalTitle}>Meu Carrinho</h3>
-        
+
         <div className={styles.cartItemsList}>
           {cartItems.length > 0 ? (
             cartItems.map(item => (
@@ -33,7 +31,6 @@ const CartModal = () => {
                   <p className={styles.itemPrice}>
                     R$ {(item.currentPrice * item.quantity).toFixed(2).replace('.', ',')}
                   </p>
-                  {/* --- NOVOS CONTROLES DE QUANTIDADE --- */}
                   <div className={styles.quantityControl}>
                     <button onClick={() => decreaseQuantity(item.id)}>-</button>
                     <span>{item.quantity}</span>
@@ -47,7 +44,7 @@ const CartModal = () => {
             <p className={styles.emptyCartMessage}>Seu carrinho está vazio.</p>
           )}
         </div>
-        
+
         {cartItems.length > 0 && (
           <div className={styles.cartSummary}>
             <div className={styles.subtotal}>

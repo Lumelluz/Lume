@@ -37,8 +37,8 @@ function ContainerPerguntasFrequentes() {
           <p>Fale com a gente!</p>
           <ul>
             <li>Atendimento de segunda a sexta, das 9h às 18h.</li>
-            <li>contato@nomedamarketplace.com</li>
-            <li>@lumeluz_ · 11-2345-4432 · Facebook</li>
+            <li>contatolume2025@gmail.com</li>
+            <li>@lumelluz · LinkedIn · Github · Instagram</li>
           </ul>
         </div>
 

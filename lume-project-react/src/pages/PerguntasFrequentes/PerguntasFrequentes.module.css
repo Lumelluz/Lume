@@ -2,3 +2,14 @@
     padding: 40px 0 0 50px;
     width: 200px;
 }
+
+/*
+  <header className={styles.header}>
+        <Link to="/"><img
+          src={logoLumeNova}
+          className={styles.logo}
+          alt="Logo do Marketplace Lume Nova"
+          loading="lazy"
+        /></Link>
+      </header>
+*/

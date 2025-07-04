@@ -1,14 +1,18 @@
-import styles from './ContainerFaleConosco.module.css';
 import { useState } from 'react';
+import styles from './ContainerFaleConosco.module.css';
 import logoLumeNova from '../../../assets/img/logoLumeNova.svg';
 
 function ContainerFaleConosco() {
   const [formData, setFormData] = useState({
-    nome: '',
+    name: '',
     email: '',
-    mensagem: '',
-    assunto: '',
+    subject: '',
+    message: '',
   });
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,10 +22,35 @@ function ContainerFaleConosco() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Dados enviados:\nNome: ${formData.nome}\nEmail: ${formData.email}\nAssunto: ${formData.assunto}\nMensagem: ${formData.mensagem}`);
-    // lógica para enviar dados para API aqui
+    setIsLoading(true);
+    setError('');
+    setSuccessMessage('');
+
+    try {
+      const response = await fetch('http://localhost:8080/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const successText = await response.text();
+        setSuccessMessage(successText);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const errorText = await response.text();
+        setError(errorText || 'Ocorreu um erro ao enviar a mensagem.');
+      }
+    } catch (err) {
+      console.error("Erro de rede:", err);
+      setError('Não foi possível conectar ao servidor. Tente mais tarde.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,8 +63,8 @@ function ContainerFaleConosco() {
           <input
             type="text"
             id="nome"
-            name="nome"
-            value={formData.nome}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
             autoComplete="name"
@@ -59,8 +88,8 @@ function ContainerFaleConosco() {
           <label htmlFor="assunto">Assunto:</label>
           <select
             id="assunto"
-            name="assunto"
-            value={formData.assunto}
+            name="subject"
+            value={formData.subject}
             onChange={handleChange}
             required
           >
@@ -69,6 +98,7 @@ function ContainerFaleConosco() {
             <option value="problema">Problema com pedido</option>
             <option value="vender">Quero vender</option>
             <option value="sugestao">Sugestão</option>
+            <option value="outro">Outro</option>
           </select>
         </div>
 
@@ -76,16 +106,19 @@ function ContainerFaleConosco() {
           <label htmlFor="mensagem">Escreva sua mensagem:</label>
           <textarea
             id="mensagem"
-            name="mensagem"
-            value={formData.mensagem}
+            name="message"
+            value={formData.message}
             onChange={handleChange}
             placeholder="Escreva sua mensagem aqui..."
             required
           />
         </div>
 
-        <button type="submit" className={styles.submit_button} aria-label="Enviar mensagem">
-          Enviar
+        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
+        {error && <p className={styles.errorMessage}>{error}</p>}
+
+        <button type="submit" className={styles.submit_button} disabled={isLoading} aria-label="Enviar mensagem">
+          {isLoading ? 'A enviar...' : 'Enviar'}
         </button>
       </form>
 

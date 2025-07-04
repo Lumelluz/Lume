@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProdutosItemsCompacto from '../ProdutosItemsCompacto';
+import ProdutosItemsCompacto from '../ProdutosItemsCompacto/';
 import styles from './ContainerInicial.module.css';
 import setaEsquerda from '../../../assets/icons/setaEsquerda.svg';
 import setaDireita from '../../../assets/icons/setaDireita.svg';
 
-const CARD_WIDTH = 170;
-const CARD_GAP = 4;
+const CARD_WIDTH = 170; 
+const CARD_GAP = 8;     
 const ITEM_TOTAL_WIDTH = CARD_WIDTH + CARD_GAP;
 
 const ITENS_DESKTOP_LARGE = 4;
@@ -17,16 +17,18 @@ const ITENS_MOBILE = 1;
 const MIN_SWIPE_DISTANCE = 50;
 
 function CarrosselProdutos({ produtos }) {
+
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [itensPorVez, setItensPorVez] = useState(ITENS_DESKTOP_LARGE);
   const [carrosselInteragido, setCarrosselInteragido] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const getItensPorVezAtual = () => {
-      if (window.innerWidth <= 500) return ITENS_MOBILE;
-      if (window.innerWidth <= 700) return ITENS_TABLET;
-      if (window.innerWidth <= 900) return ITENS_DESKTOP_MEDIUM;
+      if (window.innerWidth <= 420) return ITENS_MOBILE;
+      if (window.innerWidth <= 768) return ITENS_TABLET;
+      if (window.innerWidth <= 1024) return ITENS_DESKTOP_MEDIUM;
       return ITENS_DESKTOP_LARGE;
     };
     const handleResize = () => setItensPorVez(getItensPorVezAtual());
@@ -43,7 +45,6 @@ function CarrosselProdutos({ produtos }) {
     }
   }, [itensPorVez, produtos, indiceAtual]);
 
-
   if (!produtos || produtos.length === 0) {
     return <p>Sem produtos para exibir.</p>;
   }
@@ -52,18 +53,23 @@ function CarrosselProdutos({ produtos }) {
 
   const proximoSlide = () => {
     if (!carrosselInteragido) setCarrosselInteragido(true);
-    setIndiceAtual(prevIndice => (prevIndice + 1 > totalProdutos - itensPorVez) ? 0 : prevIndice + 1);
+    setIndiceAtual(prevIndice => {
+      const proximo = prevIndice + 1;
+      return proximo > totalProdutos - itensPorVez ? 0 : proximo;
+    });
   };
 
   const slideAnterior = () => {
     if (!carrosselInteragido) setCarrosselInteragido(true);
-    setIndiceAtual(prevIndice => (prevIndice - 1 < 0) ? Math.max(0, totalProdutos - itensPorVez) : prevIndice - 1);
+    setIndiceAtual(prevIndice => {
+      const anterior = prevIndice - 1;
+      return anterior < 0 ? Math.max(0, totalProdutos - itensPorVez) : anterior;
+    });
   };
 
   const handleVerMais = () => navigate('/produtos');
   const mostrarBotaoVerMais = carrosselInteragido && totalProdutos > itensPorVez;
 
-  const [touchStartX, setTouchStartX] = useState(0);
   const handleTouchStart = (e) => setTouchStartX(e.targetTouches[0].clientX);
   const handleTouchMove = (e) => {
     if (touchStartX === 0) return;

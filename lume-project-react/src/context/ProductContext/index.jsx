@@ -1,64 +1,158 @@
-import { createContext, useState, useContext, useEffect } from 'react';
-import { listaDeProdutos as initialProducts } from '../../data/products';
-
-const PRODUCTS_STORAGE_KEY = 'lumeProductList_approved';
-const PENDING_PRODUCTS_STORAGE_KEY = 'lumeProductList_pending';
+import { createContext, useState, useContext, useEffect, useCallback } from 'react';
+import { useAuth } from '../AuthContext';
 
 const ProductContext = createContext();
 
 export const useProducts = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
-    const [products, setProducts] = useState(() => {
-        const localData = localStorage.getItem(PRODUCTS_STORAGE_KEY);
-        return localData ? JSON.parse(localData) : initialProducts;
-    });
+    const [products, setProducts] = useState([]);
+    const [pendingProducts, setPendingProducts] = useState([]);
+    const { token, user } = useAuth();
 
-    const [pendingProducts, setPendingProducts] = useState(() => {
-        const localData = localStorage.getItem(PENDING_PRODUCTS_STORAGE_KEY);
-        return localData ? JSON.parse(localData) : [];
-    });
-
-    useEffect(() => {
-        localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(products));
-    }, [products]);
-
-    useEffect(() => {
-        localStorage.setItem(PENDING_PRODUCTS_STORAGE_KEY, JSON.stringify(pendingProducts));
-    }, [pendingProducts]);
-
-    const addProductToVerification = (productData) => {
-        const newProduct = { ...productData, id: `pending_${new Date().getTime()}`, status: 'Pendente' };
-        setPendingProducts(prev => [...prev, newProduct]);
-    };
-
-    // --- NOVA FUNÇÃO PARA ATUALIZAR UM PRODUTO PENDENTE ---
-    const updatePendingProduct = (productId, updatedData) => {
-        setPendingProducts(prev => 
-            prev.map(p => (p.id === productId ? { ...p, ...updatedData } : p))
-        );
-    };
-
-    const approveProduct = (productId, finalData) => {
-        const productToApprove = finalData || pendingProducts.find(p => p.id === productId);
-        if (productToApprove) {
-            const approvedProduct = { ...productToApprove, id: new Date().getTime(), date: new Date().toISOString(), isVerified: true, status: 'Aprovado' };
-            setProducts(prev => [...prev, approvedProduct]);
-            setPendingProducts(prev => prev.filter(p => p.id !== productId));
+    const fetchApprovedProducts = useCallback(async () => {
+        try {
+            const response = await fetch('http://localhost:8080/api/products');
+            if (response.ok) {
+                const data = await response.json();
+                setProducts(data);
+            } else {
+                 console.error("Falha ao buscar produtos aprovados:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Erro de rede ao buscar produtos aprovados:", error);
         }
+    }, []);
+
+    const fetchPendingProducts = useCallback(async () => {
+        if (user?.role === 'ROLE_ADMIN' && token) {
+            try {
+                const response = await fetch('http://localhost:8080/api/admin/products/pending', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setPendingProducts(data);
+                } else {
+                    console.error("Falha ao buscar produtos pendentes:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Erro de rede ao buscar produtos pendentes:", error);
+            }
+        } else {
+            setPendingProducts([]);
+        }
+    }, [user, token]);
+
+    useEffect(() => {
+        fetchApprovedProducts();
+        fetchPendingProducts();
+    }, [fetchApprovedProducts, fetchPendingProducts]);
+
+    const addProductToVerification = async (productData) => {
+        if (!token) throw new Error("Apenas empresas logadas podem cadastrar produtos.");
+
+        const response = await fetch('http://localhost:8080/api/products/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(productData),
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Falha ao cadastrar produto.');
+        }
+        
+        fetchPendingProducts();
     };
 
-    const rejectProduct = (productId) => {
-        setPendingProducts(prev => prev.filter(p => p.id !== productId));
+    const updateProductByBusiness = async (productId, productData) => {
+        if (!token) throw new Error("Apenas empresas logadas podem editar produtos.");
+
+        const response = await fetch(`http://localhost:8080/api/products/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(productData),
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Falha ao atualizar o produto.');
+        }
+
+        fetchApprovedProducts();
+        fetchPendingProducts();
     };
 
-    const value = {
-        products,
-        pendingProducts,
-        addProductToVerification,
-        updatePendingProduct, // <-- Exporta a nova função
-        approveProduct,
-        rejectProduct,
+    const updatePendingProduct = async (productId, updatedData) => {
+        if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
+
+        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(updatedData)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Falha ao atualizar dados do produto.');
+        }
+        
+        fetchPendingProducts();
+    };
+
+    const approveProduct = async (productId, finalData) => {
+        if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
+        
+        await updatePendingProduct(productId, finalData);
+
+        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}/approve`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Falha ao aprovar produto.');
+        }
+
+        fetchPendingProducts();
+        fetchApprovedProducts();
+    };
+
+    const rejectProduct = async (productId) => {
+        if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
+
+        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}/reject`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText || 'Falha ao remover produto.');
+        }
+        
+        fetchPendingProducts();
+    };
+
+    const value = { 
+        products, 
+        pendingProducts, 
+        addProductToVerification, 
+        approveProduct, 
+        rejectProduct, 
+        updatePendingProduct,
+        updateProductByBusiness
     };
 
     return (

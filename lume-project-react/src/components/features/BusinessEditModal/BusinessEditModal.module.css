@@ -1,0 +1,151 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modalOverlay.open {
+    display: flex;
+    opacity: 1;
+}
+
+.modalContent {
+    background: #161b22;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modalCloseButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #8b949e;
+    cursor: pointer;
+}
+
+.modalTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.modalBody {
+    color: #c9d1d9;
+    line-height: 1.6;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.verificationModalContent {
+    max-width: 800px;
+}
+
+.productDetailsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.productInfoColumn .topicTitle {
+    font-size: 1.1rem;
+    color: #a78bfa;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.productInfoColumn .topicTitle:first-child {
+    margin-top: 0;
+}
+
+.productInfoColumn label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #8b949e;
+    display: block;
+    margin-top: 1rem;
+}
+
+.modalInput,
+.modalTextarea {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #4a4a6a;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.modalInput:focus,
+.modalTextarea:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.modalTextarea {
+    resize: vertical;
+}
+
+.modalActions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.approveButton,
+.rejectButton {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.approveButton:hover,
+.rejectButton:hover {
+    opacity: 0.8;
+}
+
+.approveButton {
+    background-color: #238636;
+    color: white;
+}
+
+.rejectButton {
+    background-color: #da3633;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .productDetailsGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,7 +1,7 @@
 .accessibilityMenu {
   position: fixed;
-  right: 25px; 
-  bottom: 95px; 
+  right: 25px;
+  bottom: 95px;
   z-index: 998;
   display: flex;
   flex-direction: row-reverse;
@@ -42,12 +42,18 @@
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
+  pointer-events: none;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  z-index: 997;
 }
 
 .accessibilityMenu.open .options {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .options button {
@@ -66,4 +72,11 @@
   color: black;
   border-color: var(--accent-blue, #00FFFF);
   font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .toggleButton {
+    width: 45px;
+    height: 45px;
+  }
 }

@@ -2,9 +2,14 @@ import { Link } from 'react-router-dom';
 import styles from './ProdutosItemsCompletos2.module.css';
 import { useCart } from '../../../context/CartContext';
 
+const ensureArray = (data) => {
+    if (!data) return [];
+    if (Array.isArray(data)) return data;
+    return String(data).split(',').map(item => item.trim());
+};
+
 const StarRating = ({ rating }) => {
-  // Lógica para estrelas (pode ser melhorada no futuro)
-  return <div className={styles.stars}>★★★★★</div>;
+  return <div className={styles.stars}>5.0 ★★★★★</div>;
 };
 
 const ProdutosItemsCompletos2 = ({ product }) => {
@@ -28,9 +33,10 @@ const ProdutosItemsCompletos2 = ({ product }) => {
     installments,
     specialDiscount,
     shippingInfo,
-    benefits = [],
+    benefits,
   } = product;
 
+  const benefitsList = ensureArray(benefits);
   const showOriginalPrice = originalPrice && originalPrice > currentPrice;
 
   const handleAddToCart = (e) => {
@@ -89,10 +95,10 @@ const ProdutosItemsCompletos2 = ({ product }) => {
             <p className={styles.specialDiscount}>{specialDiscount}</p>
           )}
 
-          {(shippingInfo || benefits.length > 0) && (
+          {(shippingInfo || benefitsList.length > 0) && (
             <div className={styles.extraInfo}>
               {shippingInfo && <p>Frete: <span className={styles.shipping}>{shippingInfo}</span></p>}
-              {benefits.length > 0 && <p>Benefícios: <span className={styles.benefits}>{benefits.join(', ')}...</span></p>}
+              {benefitsList.length > 0 && <p>Benefícios: <span className={styles.benefits}>{benefitsList.join(', ')}...</span></p>}
             </div>
           )}
 

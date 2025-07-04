@@ -80,6 +80,10 @@ h3 {
     font-weight: 200;
 }
 
+.columOneLogo img {
+    width: 9vw;
+}
+
 @media (max-width: 1220px) {
 
     .conteudo {

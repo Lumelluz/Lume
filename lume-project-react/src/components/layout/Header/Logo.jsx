@@ -1,15 +1,17 @@
-import styles from './Header.module.css';
+import { Link } from 'react-router-dom';
 import logoLumeNova from '../../../assets/img/logoLumeNova.svg';
 import menuHamburguerBranco from '../../../assets/icons/menuHamburguerBranco.svg';
-import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
 
-function Logo() {
+function Logo({ onMenuClick }) {
     return (
         <div className={`${styles.headerListItens} ${styles.headerListItens1}`}>
             <Link to="/"><img src={logoLumeNova} alt="Logo da Lume" className={styles.logo} /></Link>
-            <img src={menuHamburguerBranco} alt="Menu de opções" className={styles.menuHamburguerMobile} role="button" aria-label="Abrir menu" tabIndex="0"/>
+            <button onClick={onMenuClick} className={styles.menuHamburguerMobile} aria-label="Abrir menu de navegação">
+                <img src={menuHamburguerBranco} alt="Menu" />
+            </button>
         </div>
-    )
+    );
 }
 
 export default Logo;

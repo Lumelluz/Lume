@@ -1,0 +1,231 @@
+.pagina-inteira {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo-lume-mais {
+    font-size: 50px;
+    font-weight: 500;
+    padding-bottom: 30px;
+}
+
+.titulo-cor {
+    font-weight: 600;
+    color: #CF65FF;
+}
+
+.planos-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.plano-lumezinho {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 20px rgba(188, 78, 189, 0.6),
+        0 0 40px rgba(125, 7, 193, 0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(22, 29, 74, 0.7);
+    border-radius: 20px;
+    width: 400px;
+    height: 620px;
+    margin-bottom: 50px;
+}
+
+.h2-lume-mais {
+    width: 100%;
+    font-size: 40px;
+    background: linear-gradient(to right, #BC16BF 0%, #7D07C1 100%);
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.fundo-transparente {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+}
+
+.preco-lumezinho {
+    font-size: 40px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.preco-lumezao {
+    font-size: 40px;
+    font-weight: 500;
+    padding: 26px 0 8px 0;
+}
+
+.mes {
+    font-size: 20px;
+    opacity: 60%;
+}
+
+.descricao {
+    font-weight: 400;
+    opacity: 80%;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.icon {
+    height: 15px;
+    padding-right: 8px;
+}
+
+.li-lume-mais {
+    padding: 6px;
+    display: flex;
+}
+
+.icon {
+    height: 15px;
+    padding-right: 8px;
+}
+
+.button-lumezinho {
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 250px;
+    height: 50px;
+    color: #fff;
+    background: linear-gradient(to right, #6D42D3 0%, #FD547E 100%);
+    margin-top: 55px;
+}
+
+.button-lumezao {
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 250px;
+    height: 50px;
+    color: #fff;
+    background: linear-gradient(to right, #6D42D3 0%, #FD547E 100%);
+}
+.button-lumezinho:hover{
+    
+  transform: scale(1.05);
+}
+
+.button-lumezao:hover{
+    
+  transform: scale(1.05);
+}
+
+
+.plano-lumezao {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 20px rgba(188, 78, 189, 0.6),
+        0 0 40px rgba(125, 7, 193, 0.7);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(22, 29, 74, 0.7);
+    border-radius: 20px;
+    width: 400px;
+    height: 620px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 930px) {
+
+    .planos-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+   
+}
+
+@media (max-width: 430px) {
+     .pagina-inteira {
+        padding: 10px;
+    }
+
+    .titulo-lume-mais {
+        font-size: 30px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+
+    .plano-lumezinho,
+    .plano-lumezao {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        padding: 20px 15px;
+    }
+
+    .h2-lume-mais {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .preco-lumezinho,
+    .preco-lumezao {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .mes {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .descricao {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .lista {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .li-lume-mais {
+        padding: 5px;
+    }
+
+    .icon {
+        height: 14px;
+        padding-right: 6px;
+    }
+
+    .button-lumezinho,
+    .button-lumezao {
+        width: 100%;
+        max-width: 250px;
+        height: 45px;
+        font-size: 16px;
+        margin-top: 30px;
+    }
+}

@@ -11,7 +11,7 @@ function Footer() {
             <div className={styles.conteudo}>
                 <div className={styles.columOne}>
                     <div className={styles.columOneLogo}>
-                        <img src={logoLumeNova} alt="Logo Lume Luz" />
+                        <ScrollToTopLink to="/"><img src={logoLumeNova} alt="Logo Lume Luz" /></ScrollToTopLink>
                         <p className={styles.suaLuz}>Sua luz faz a diferença</p>
                     </div>
                     <p className={styles.sigaNos}>Siga-nos</p>
@@ -19,7 +19,7 @@ function Footer() {
                         <a href="https://www.instagram.com/lumelluz/" target="_blank" rel="noopener noreferrer">
                             <img src={logoInstagram} alt="Instagram Lume Luz" className={styles.imgInstagram} />
                         </a>
-                        <a href="https://www.ScrollToTopLinkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/company/lumelluz/" target="_blank" rel="noopener noreferrer">
                             <img src={logoLinkdln} alt="ScrollToTopLinkedIn Lume Luz" className={styles.imgLinkdln} />
                         </a>
                         <a href="https://github.com/Lumelluz" target="_blank" rel="noopener noreferrer">
@@ -34,8 +34,8 @@ function Footer() {
                         <nav>
                             <ul>
                                 <li><ScrollToTopLink to="/sobre-nos">Quem somos</ScrollToTopLink></li>
-                                <li><ScrollToTopLink to="/nossa-missao">Nossa missão</ScrollToTopLink></li>
-                                <li><ScrollToTopLink to="/parcerias">Parcerias</ScrollToTopLink></li>
+                                <li><a onClick={() => alert('Página indisponível no momento, estamos trabalhando nisso!')}>Nossa missão</a></li>
+                                <li><a onClick={() => alert("Página indisponível no momento, estamos trabalhando nisso!")}>Parcerias</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -54,8 +54,8 @@ function Footer() {
                         <nav>
                             <ul>
                                 <li><ScrollToTopLink to="/seja-parceiro">Seja um parceiro</ScrollToTopLink></li>
-                                <li><ScrollToTopLink to="/beneficios-lume">Benefícios da Lume</ScrollToTopLink></li>
-                                <li><ScrollToTopLink to="/suporte-marcas">Suporte para marcas</ScrollToTopLink></li>
+                                <li><a onClick={() => alert('Página indisponível no momento, estamos trabalhando nisso!')}>Benefícios da Lume</a></li>
+                                <li><a onClick={() => alert('Página indisponível no momento, estamos trabalhando nisso!')}>Suporte para marcas</a></li>
                             </ul>
                         </nav>
                     </div>

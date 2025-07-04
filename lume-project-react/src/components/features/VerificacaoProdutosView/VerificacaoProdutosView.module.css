@@ -1,0 +1,72 @@
+.viewContainer {
+    width: 100%;
+}
+
+.contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.contentHeader h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+}
+
+.tableCard {
+    margin-top: 2rem;
+    background-color: #161b22;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.table th {
+    padding: 0.75rem 1.5rem;
+    color: #8b949e;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
+}
+
+.table tbody tr.clickableRow {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.table tbody tr.clickableRow:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.analisarButton {
+    font-size: 0.875rem;
+    color: #58a6ff;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.analisarButton:hover {
+    text-decoration: underline;
+}

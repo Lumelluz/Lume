@@ -1,14 +1,14 @@
-import styles from './Header.module.css';
 import perfilIconBranco from '../../../assets/icons/perfilIconBranco.svg';
+import styles from './Header.module.css';
 
-function MobileActions() {
+function MobileActions({ onProfileClick }) {
     return (
         <div className={styles.clubeComLoginRegistroMobile}>
-            <button aria-label="Acessar perfil">
+            <button onClick={onProfileClick} aria-label="Abrir menu do utilizador">
                 <img src={perfilIconBranco} alt="Ícone de perfil" />
             </button>
         </div>
-    )
+    );
 }
 
 export default MobileActions;
