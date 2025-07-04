@@ -1,8 +1,11 @@
+// Em src/pages/TelaCadastro/TelaCadastro.js (VERSÃO DE DEPURAÇÃO)
+
 import { useState } from 'react';
 import styles from './TelaCadastro.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function TelaCadastro() {
+    
     const [formData, setFormData] = useState({
         nomeCompleto: '',
         cpf: '',
@@ -21,6 +24,9 @@ function TelaCadastro() {
         aceitaTermos: false,
         querNovidades: false,
     });
+    const [erros, setErros] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -31,10 +37,8 @@ function TelaCadastro() {
     };
     
     const handleCepBlur = async (e) => {
-        const cep = e.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos ok Liuti
-        if (cep.length !== 8) {
-            return;
-        }
+        const cep = e.target.value.replace(/\D/g, '');
+        if (cep.length !== 8) return;
         try {
             const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
             const data = await response.json();
@@ -52,21 +56,64 @@ function TelaCadastro() {
         }
     };
 
-    const handleSubmit = (e) => {
+    // --- FUNÇÃO DE SUBMISSÃO COM CHECKPOINTS DE DEBUG ---
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("--- DEBUG: PASSO 1 - Início do handleSubmit ---");
+
+        setErros({}); 
         if (formData.senha !== formData.confirmarSenha) {
-            alert("As senhas não coincidem!");
+            setErros({ confirmarSenha: "As senhas não coincidem!" });
             return;
         }
         if (!formData.aceitaTermos) {
-            alert("Você precisa aceitar os Termos e Condições para continuar.");
+            setErros({ aceitaTermos: "Você precisa aceitar os Termos." });
             return;
         }
+        
+        console.log("--- DEBUG: PASSO 2 - Validações do frontend passaram ---");
+        setIsLoading(true);
 
-        // No futuro, aqui enviaria os dados para a API Java Lucas Liuti blz
+        const dadosParaApi = {
+            nome: formData.nomeCompleto,
+            email: formData.email,
+            senha: formData.senha,
+            cpf: formData.cpf.replace(/\D/g, ''),
+            celular: formData.telefone.replace(/\D/g, ''),
+            dataCadastro: new Date().toISOString()
+        };
 
-        console.log("Dados do novo cliente:", formData);
-        alert(`Bem-vindo(a), ${formData.nomeCompleto}! A sua conta foi criada com sucesso.`);
+        console.log("--- DEBUG: PASSO 3 - Dados preparados para a API:", dadosParaApi);
+
+        try {
+            console.log("--- DEBUG: PASSO 4 - Prestes a enviar a requisição (fetch)... ---");
+
+            const response = await fetch('http://localhost:8080/api/clientes/cadastro', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dadosParaApi),
+            });
+
+            console.log("--- DEBUG: PASSO 5 - Resposta da rede recebida! Status:", response.status);
+
+            const data = await response.json();
+            console.log("--- DEBUG: PASSO 6 - Resposta JSON processada:", data);
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Erro do servidor.');
+            }
+
+            console.log("--- DEBUG: PASSO 7 - Sucesso! Navegando...");
+            alert(`Bem-vindo(a), ${data.nome}! Conta criada com sucesso.`);
+            navigate('/login');
+
+        } catch (error) {
+            console.error("--- DEBUG: ERRO CAPTURADO NO CATCH! ---", error);
+            setErros({ api: error.message });
+        } finally {
+            console.log("--- DEBUG: PASSO FINAL - Executando o bloco finally ---");
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -75,7 +122,7 @@ function TelaCadastro() {
                 <h1 className={styles.mainTitle}>Crie a sua conta na Lume</h1>
                 <p className={styles.subtitle}>Junte-se à nossa comunidade e comece a sua jornada de consumo consciente.</p>
                 
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form} noValidate>
                     <h2 className={styles.sectionTitle}>Informações Pessoais</h2>
                     <div className={styles.formGrid}>
                         <div className={`${styles.formGroup} ${styles.spanFull}`}>
@@ -109,6 +156,7 @@ function TelaCadastro() {
                          <div className={styles.formGroup}>
                             <label htmlFor="confirmarSenha">Confirmar Senha*</label>
                             <input type="password" id="confirmarSenha" name="confirmarSenha" value={formData.confirmarSenha} onChange={handleChange} required />
+                            {erros.confirmarSenha && <span className={styles.erro}>{erros.confirmarSenha}</span>}
                         </div>
                     </div>
 
@@ -118,8 +166,8 @@ function TelaCadastro() {
                             <label htmlFor="cep">CEP*</label>
                             <input type="text" id="cep" name="cep" value={formData.cep} onChange={handleChange} onBlur={handleCepBlur} placeholder="00000-000" required />
                         </div>
-                        <div className={`${styles.formGroup} ${styles.spanFull}`}>
-                             <label htmlFor="logradouro">Morada*</label>
+                       <div className={`${styles.formGroup} ${styles.spanFull}`}>
+                           <label htmlFor="logradouro">Logradouro*</label>
                             <input type="text" id="logradouro" name="logradouro" value={formData.logradouro} onChange={handleChange} required />
                         </div>
                          <div className={styles.formGroup}>
@@ -152,10 +200,15 @@ function TelaCadastro() {
                          <div className={styles.checkboxWrapper}>
                             <input type="checkbox" id="aceitaTermos" name="aceitaTermos" checked={formData.aceitaTermos} onChange={handleChange} required />
                             <label htmlFor="aceitaTermos">Li e concordo com os <Link to="/termos-de-uso" target="_blank">Termos de Uso</Link> e a <Link to="/politica-privacidade" target="_blank">Política de Privacidade</Link>.*</label>
+                            {erros.aceitaTermos && <div className={styles.erro}>{erros.aceitaTermos}</div>}
                         </div>
                     </div>
 
-                    <button type="submit" className={styles.submitButton}>Criar minha conta</button>
+                    {erros.api && <p className={styles.erroApiGeral}>{erros.api}</p>}
+
+                    <button type="submit" className={styles.submitButton} disabled={isLoading}>
+                        {isLoading ? 'Criando conta...' : 'Criar minha conta'}
+                    </button>
                 </form>
             </div>
         </main>

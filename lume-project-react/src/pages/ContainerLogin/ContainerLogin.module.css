@@ -1,0 +1,140 @@
+/* Estilos básicos para o formulário. Ajuste como preferir! */
+.loginPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #f7fafc;
+}
+
+.imgLogoLume {
+    width: 150px;
+    margin-bottom: 2rem;
+}
+
+.loginInitial {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.oneLine h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+}
+
+.loginSpan {
+    color: #38a169; /* Verde */
+}
+
+.inputEmail {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.emailLabel {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.inputEmail input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Garante que padding não afete a largura total */
+}
+
+.inputEmail input:focus {
+    outline: none;
+    border-color: #38a169;
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.2);
+}
+
+.buttonContainer {
+    margin-top: 1rem;
+}
+
+.buttonStyle {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #38a169;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttonStyle:hover {
+    background-color: #2f855a;
+}
+
+.mensagemErro {
+    display: block;
+    color: #e53e3e; /* Vermelho */
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.lineDivision {
+    border-bottom: 1px solid #e2e8f0;
+    margin: 2rem 0;
+}
+
+.twoLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.styleAccont {
+    color: #38a169;
+    text-decoration: none;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.styleAccont:hover {
+    text-decoration: underline;
+}
+
+.loginGoogle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.25rem;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.loginGoogle:hover {
+    background-color: #f7fafc;
+}
+
+.imgLogoGoogle {
+    width: 18px;
+    height: 18px;
+}
