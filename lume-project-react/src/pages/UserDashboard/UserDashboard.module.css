@@ -1,0 +1,254 @@
+.dashboardContainer {
+    display: flex;
+    min-height: calc(100vh - 160px);
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar {
+    width: 16rem;
+    background-color: #161b22;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.sidebarHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebarHeader .logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(to right, #3771C8, #7A2ECB);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.sidebarHeader h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+}
+
+.sidebarHeader p {
+    color: #8b949e;
+}
+
+.sidebarNav {
+    flex-grow: 1;
+}
+
+.sidebarNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebarNav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebarNav button,
+.sidebarNav a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #8b949e;
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebarNav button:hover,
+.sidebarNav a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.sidebarNav .activeLink {
+    background-color: rgba(88, 166, 255, 0.1);
+    color: #58a6ff;
+    font-weight: 600;
+}
+
+.ctaButton {
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    color: white !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    margin-top: 1rem;
+}
+
+.sidebarFooter {
+    margin-top: auto;
+}
+
+.sidebarFooter button {
+    width: 100%;
+    text-align: left;
+    color: #f87171;
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.sidebarFooter button:hover {
+    background-color: rgba(248, 113, 113, 0.1);
+    border-radius: 0.5rem;
+}
+
+.mainContent {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.contentHeader h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+}
+
+.viewContainer {
+    width: 100%;
+}
+
+.placeholderText {
+    margin-top: 1rem;
+    color: #8b949e;
+    font-size: 1rem;
+}
+
+.settingsForm {
+    background-color: #161b22;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settingsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.formColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.topicTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #a78bfa;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #8b949e;
+}
+
+.formGroup input {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.formGroup input:disabled {
+    background-color: #222;
+    cursor: not-allowed;
+    color: #6e7681;
+}
+
+.saveButton {
+    align-self: flex-end;
+    background: #238636;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+}
+
+.saveButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.saveButton:hover:not(:disabled) {
+    background-color: #2ea043;
+}
+
+@media (max-width: 768px) {
+    .dashboardContainer {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .settingsGrid {
+        grid-template-columns: 1fr;
+    }
+}

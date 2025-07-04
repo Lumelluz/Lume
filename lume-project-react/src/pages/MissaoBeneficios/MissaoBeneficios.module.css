@@ -1,0 +1,203 @@
+.mainContent {
+    overflow: hidden;
+    color: var(--lume-text, #e0e0e0);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--lume-text-white, #ffffff);
+}
+
+.sectionSubtitle {
+    color: var(--lume-text-secondary, #a0aec0);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroSection {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    text-align: center;
+}
+
+.lumeGradientText {
+    background: linear-gradient(90deg, #8A2BE2, #4169E1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.mainTitle {
+    font-size: 3.75rem;
+    font-weight: 800;
+    color: var(--lume-text-white, #ffffff);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+    font-size: 1.25rem;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.heroButton,
+.ctaButton {
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    color: var(--lume-text-white, #ffffff);
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroButton:hover,
+.ctaButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.missionSection {
+    padding: 5rem 0;
+}
+
+.missionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.missionText p {
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.missionImage img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.benefitsSection {
+    padding: 5rem 0;
+    background-color: var(--lume-bg-darker, #111827);
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+}
+
+.beneficioCard {
+    background-color: var(--lume-bg-dark, #1a1a2e);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--lume-border, rgba(255, 255, 255, 0.1));
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.beneficioCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--lume-purple, #8A2BE2);
+}
+
+.iconWrapper {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficioTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--lume-text-white, #ffffff);
+    margin-bottom: 0.75rem;
+}
+
+.beneficioText {
+    font-size: 0.95rem;
+    color: var(--lume-text-secondary, #a0aec0);
+}
+
+.ctaSection {
+    padding: 8rem 0;
+    text-align: center;
+}
+
+.ctaSection .container {
+    max-width: 650px;
+}
+
+.ctaSection .sectionSubtitle {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.ctaButton {
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .mainTitle {
+        font-size: 3.75rem;
+    }
+
+    .missionGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .missionText {
+        order: 1;
+    }
+
+    .missionImage {
+        order: 2;
+    }
+
+    .benefitsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .benefitsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

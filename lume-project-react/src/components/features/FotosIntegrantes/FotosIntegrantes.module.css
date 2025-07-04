@@ -1,0 +1,131 @@
+.secaoAgrupaFotos {
+    max-width: 85%;
+    margin: 0 auto 60px auto;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cardIntegrantes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding: 10px 0;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.cardIntegrantes:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.layoutNormal {
+    flex-direction: row;
+}
+
+.layoutInvertido {
+    flex-direction: row-reverse;
+}
+
+.cardIntegrantes img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 12px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardIntegrantes img:hover,
+.cardIntegrantes img:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+    outline: none;
+}
+
+.textoIntegrantes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 700px;
+    text-align: left;
+    line-height: 1.3;
+    color: #f0f0f0;
+}
+
+.textoIntegrantes h2 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: 700;
+    color: #cf65ff;
+    text-shadow: 1px 1px 2px #5a0a74;
+}
+
+.textoIntegrantes p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 3px #ff00f2;
+}
+
+@media screen and (max-width: 900px) {
+    .secaoAgrupaFotos {
+        max-width: 95%;
+        padding: 0 10px;
+    }
+
+    .cardIntegrantes {
+        gap: 15px;
+        padding: 8px 0;
+    }
+
+    .cardIntegrantes img {
+        width: 160px;
+    }
+
+    .textoIntegrantes {
+        max-width: 60%;
+        gap: 6px;
+    }
+
+    .textoIntegrantes h2 {
+        font-size: 22px;
+    }
+
+    .textoIntegrantes p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cardIntegrantes {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 12px 0;
+    }
+
+    .cardIntegrantes img {
+        width: 130px;
+        margin: 0 auto;
+    }
+
+    .textoIntegrantes {
+        max-width: 100%;
+        gap: 6px;
+        align-items: center;
+    }
+
+    .textoIntegrantes h2 {
+        font-size: 20px;
+    }
+
+    .textoIntegrantes p {
+        font-size: 12px;
+    }
+}

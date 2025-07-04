@@ -1,0 +1,306 @@
+.btnCarrinho {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+}
+
+.badgeCarrinho {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(30%, -30%);
+}
+
+.header {
+    padding-block: 1rem;
+}
+
+.headerList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6vw;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.headerListItens {
+    display: flex;
+    align-items: center;
+}
+
+.headerListItens2 {
+    position: relative;
+}
+
+.headerListItens2 input {
+    border: none;
+    border-radius: 61.6px;
+    padding: 9.6px 48px 9.6px 16px;
+    outline: none;
+    box-shadow: 0 1.6px 0 var(--gray, #ccc);
+    font-size: 12.8px;
+    width: 100%;
+    color: black;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.headerListItens2 button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerListItens2 button img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    max-width: 8.8vw;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.headerListItens2 img:nth-child(2) {
+    position: absolute;
+    right: 18.4px;
+    width: 19.2px;
+    cursor: pointer;
+}
+
+.clubeComLoginRegistro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.clubeComLoginRegistroMobile {
+    display: none;
+}
+
+.clubeComLoginRegistroMobile img {
+    width: 5.6vw;
+}
+
+.headerListItens3 {
+    color: white;
+    background-color: #7709A3;
+    border-radius: 40px;
+    padding: 6.4px 20px;
+    font-size: 13.6px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.loginRegistro {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.loginRegistroLink {
+    background-color: rgba(255, 255, 255, 0.33);
+    border-radius: 56px;
+    padding: 1.6px 17.6px 4px;
+    font-size: 15.2px;
+    cursor: pointer;
+}
+
+.logo {
+    max-width: 8.8vw;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.menuHamburguerMobile {
+    display: none;
+    width: 6.4vw;
+}
+
+.nav {
+    margin-top: 20px;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    background-color: rgba(255, 255, 255, 0.33);
+    border-radius: 32.8px;
+    padding: 4px 1.44vw 6.4px 4.4vw;
+    font-size: 16px;
+}
+
+.nav ul li,
+.nav ul img {
+    cursor: pointer;
+}
+
+.nav ul li button {
+    display: flex;
+}
+
+.linkNavigation {
+    display: flex;
+    cursor: pointer;
+}
+
+.navComSearch ul img {
+    width: 20px;
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 5.6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navList2 {
+    gap: 12px;
+}
+
+.bolaPontilhada {
+    margin-top: -8px;
+}
+
+.linkPerfil {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.linkPerfil:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.linkPerfil img {
+    width: 24px;
+    height: 24px;
+}
+
+.logoutButton {
+    background: none;
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    font-size: 15.2px;
+    padding: 1.6px 17.6px 4px;
+    border-radius: 56px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.logoutButton:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+
+
+
+
+@media (max-width: 1220px) {
+    .clubeComLoginRegistro {
+        display: none;
+    }
+
+    .clubeComLoginRegistroMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1030px) {
+    .nav {
+        display: none;
+    }
+
+    .headerList {
+        gap: 2.4vw;
+    }
+
+    .headerListItens2 {
+        width: 56vw;
+        display: flex;
+    }
+
+    .headerListItens2 input {
+        padding: 1.6vw;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .menuHamburguerMobile {
+        display: block;
+        cursor: pointer;
+    }
+
+    .headerListItens2 img:nth-child(2) {
+        right: 12px;
+    }
+
+    .header {
+        background-color: rgba(217, 217, 217, 0.2);
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 530px) {
+    .headerListItens2 input {
+        font-size: 2.30vw;
+        padding: 2vw;
+    }
+
+    .headerListItens2 button img {
+        width: 4vw;
+    }
+}

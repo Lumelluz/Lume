@@ -1,0 +1,16 @@
+.fadeContainer {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.loadingMessage {
+  min-height: 60vh;
+}

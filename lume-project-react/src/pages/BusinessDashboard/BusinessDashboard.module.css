@@ -1,0 +1,721 @@
+.dashboardContainer {
+  display: flex;
+  height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  width: 16rem;
+  background-color: #161b22;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+}
+
+.sidebarHeader .logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #3771C8, #7A2ECB);
+  border-radius: 0.5rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.sidebarHeader h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.sidebarNav {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sidebarNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNav li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebarNav button,
+.sidebarNav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: #8b949e;
+  background: none;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebarNav button:hover,
+.sidebarNav a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.sidebarNav .activeLink {
+  background-color: rgba(88, 166, 255, 0.1);
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.ctaButton {
+  background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+  color: white !important;
+  font-weight: 600 !important;
+  justify-content: center !important;
+  margin-top: 1rem;
+}
+
+.ctaButton:hover {
+  background: linear-gradient(90deg, rgba(55, 113, 200, 0.9) 0%, rgba(122, 46, 203, 0.9) 100%);
+}
+
+.sidebarFooter {
+  margin-top: auto;
+}
+
+.sidebarFooter button {
+  width: 100%;
+  text-align: left;
+  color: #8b949e;
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.sidebarFooter button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.mobileHeader {
+  display: none;
+  width: 100%;
+  padding: 1rem;
+  background-color: #161b22;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.mobileMenuButton {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.mobileMenuButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.mobileLogo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.contentHeader h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.metricCard {
+  background-color: #161b22;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metricTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #8b949e;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.chartCard {
+  margin-top: 2rem;
+  background-color: #161b22;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chartCard h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.chartWrapper {
+  position: relative;
+  width: 100%;
+  max-height: 350px;
+  aspect-ratio: 16 / 9;
+}
+
+.tableCard {
+  margin-top: 2rem;
+  background-color: #161b22;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 0.75rem 1.5rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+}
+
+.table tbody tr.clickableRow:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.statusAprovado {
+  background-color: rgba(35, 134, 54, 0.2);
+  color: #3fb950;
+}
+
+.statusPendente {
+  background-color: rgba(250, 204, 21, 0.2);
+  color: #facc15;
+}
+
+.editButton {
+  font-size: 0.875rem;
+  color: #58a6ff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  text-decoration: underline;
+}
+
+.viewContainer {
+  width: 100%;
+}
+
+.placeholderText {
+  margin-top: 1rem;
+  color: #8b949e;
+  font-size: 1rem;
+}
+
+.settingsForm {
+  background-color: #161b22;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settingsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.topicTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #a78bfa;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #8b949e;
+}
+
+.formGroup input[type="text"],
+.formGroup textarea {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.saveButton {
+  align-self: flex-end;
+  background: #238636;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.saveButton:hover {
+  background-color: #2ea043;
+}
+
+.adminMessageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  min-height: 60vh;
+}
+
+.adminMessageContainer h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.adminMessageContainer p {
+  font-size: 1.1rem;
+  color: #8b949e;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.adminMessageContainer button {
+  background: linear-gradient(90deg, rgba(55, 113, 200, 1) 0%, rgba(122, 46, 203, 1) 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modalOverlay.open {
+  display: flex;
+  opacity: 1;
+}
+
+.modalContent {
+  background: #161b22;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.modalBody {
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.modalActions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.approveButton {
+  background-color: #238636;
+  color: white;
+}
+
+.rejectButton {
+  background-color: #da3633;
+  color: white;
+}
+
+.approveButton,
+.rejectButton {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.approveButton:hover,
+.rejectButton:hover {
+  opacity: 0.8;
+}
+
+.productDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.productImageColumn .topicTitle,
+.productInfoColumn .topicTitle {
+  font-size: 1.1rem;
+  color: #a78bfa;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.productImageColumn .topicTitle:first-child,
+.productInfoColumn .topicTitle:first-child {
+  margin-top: 0;
+}
+
+.productImagePreview img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.productInfoColumn label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #8b949e;
+  display: block;
+  margin-top: 1rem;
+}
+
+.modalInput,
+.modalTextarea {
+  width: 100%;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.modalInput:focus,
+.modalTextarea:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.modalTextarea {
+  resize: vertical;
+}
+
+.galleryThumbnails {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.thumbnailButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  padding: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  background: none;
+}
+
+.thumbnailButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.thumbnailButton.thumbnailActive {
+  border-color: #58a6ff;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modalOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navModalContent {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalHeader h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.modalCloseButton {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modalCloseButton:hover {
+  color: #e2e8f0;
+}
+
+.modalNav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalNav button {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s;
+  width: 100%;
+  cursor: pointer;
+}
+
+.modalNav button:hover {
+  background-color: #475569;
+  border-color: #64748b;
+}
+
+.ctaButton {
+  margin-top: 1.5rem !important;
+}
+
+@media (max-width: 400px) {
+  .navModalContent {
+    padding: 1.2rem;
+    max-width: 95%;
+  }
+
+  .modalHeader h3 {
+    font-size: 1.1rem;
+  }
+
+  .modalNav button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .ctaButton {
+    font-size: 0.85rem !important;
+    padding: 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobileHeader {
+    display: flex;
+  }
+
+  .mainContent {
+    padding: 1.5rem;
+  }
+
+  .settingsGrid {
+    grid-template-columns: 1fr;
+  }
+}
