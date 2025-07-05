@@ -7,7 +7,7 @@
 ## 📖 Descrição
 
 **LumeFrontEnd** é o repositório contendo a interface web do marketplace sustentável Lume, onde usuários podem navegar e comprar produtos ecológicos.  
-Construído com React, Vite e CSS Modules, além de um toque de Tailwind CSS para estilização rápida e responsiva.
+Prototipação construida com Figma e o sistema com React, Vite e CSS Modules, além de um toque de Tailwind CSS para estilização rápida e responsiva.
 
 ---
 
@@ -23,7 +23,7 @@ Construído com React, Vite e CSS Modules, além de um toque de Tailwind CSS par
 
 ## 🛠️ Tecnologias utilizadas
 
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![CSS Modules](https://img.shields.io/badge/CSS_Modules-0D2436?style=for-the-badge) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white) ![CSS Modules](https://img.shields.io/badge/CSS_Modules-0D2436?style=for-the-badge) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 
 
 ---
