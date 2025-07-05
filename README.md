@@ -6,7 +6,7 @@
 
 ## 📖 Descrição
 
-**LumeFrontEnd** é o repositório contendo a interface web do marketplace sustentável Lume, onde usuários podem navegar e comprar produtos ecológicos.  
+**Lume Front-end** é o repositório contendo a interface web do marketplace sustentável Lume, onde usuários podem navegar e comprar produtos ecológicos.  
 Prototipação construida com Figma e o sistema com React, Vite e CSS Modules, além de um toque de Tailwind CSS para estilização rápida e responsiva.
 
 ---
