@@ -11,12 +11,6 @@ export const useCart = () => {
   return context;
 };
 
-const sanitizeCartItem = (item) => ({
-    ...item,
-    currentPrice: item.currentPrice ?? 0,
-    quantity: item.quantity || 1,
-});
-
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -28,8 +22,7 @@ export const CartProvider = ({ children }) => {
       try {
         const storedCart = localStorage.getItem(userCartKey);
         if (storedCart) {
-          const sanitizedCart = JSON.parse(storedCart).map(sanitizeCartItem);
-          setCartItems(sanitizedCart);
+          setCartItems(JSON.parse(storedCart));
         } else {
           setCartItems([]);
         }
@@ -42,58 +35,58 @@ export const CartProvider = ({ children }) => {
     }
   }, [user]);
 
-  const saveCartToLocalStorage = (items, currentUser) => {
-    if (currentUser) {
-      const userCartKey = `lumeCart_${currentUser.id}`;
-      localStorage.setItem(userCartKey, JSON.stringify(items));
+  useEffect(() => {
+    if (user && cartItems) {
+      const userCartKey = `lumeCart_${user.id}`;
+      try {
+        localStorage.setItem(userCartKey, JSON.stringify(cartItems));
+      } catch (error) {
+        console.error("Erro ao salvar o carrinho no localStorage:", error);
+      }
     }
-  };
+  }, [cartItems, user]);
 
   const toggleCart = () => setIsCartOpen(prev => !prev);
 
   const addToCart = (productToAdd, quantity = 1) => {
     if (!user) {
-        alert("Por favor, faça login para adicionar itens ao carrinho.");
-        return;
+      alert("Por favor, faça login para adicionar itens ao carrinho.");
+      return;
     }
-    const sanitizedProduct = sanitizeCartItem(productToAdd);
-    
-    let updatedItems = [];
     setCartItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === sanitizedProduct.id);
+      const existingItem = prevItems.find(item => item.id === productToAdd.id);
       if (existingItem) {
-        updatedItems = prevItems.map(item =>
-          item.id === sanitizedProduct.id ? { ...item, quantity: item.quantity + quantity } : item
+        return prevItems.map(item =>
+          item.id === productToAdd.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
         );
-      } else {
-        updatedItems = [...prevItems, { ...sanitizedProduct, quantity }];
       }
-      saveCartToLocalStorage(updatedItems, user);
-      return updatedItems;
+      return [...prevItems, { ...productToAdd, quantity: quantity }];
     });
-    setIsCartOpen(true); 
-  };
-  
-  const removeFromCart = (productId) => {
-     setCartItems(prevItems => {
-        const updatedItems = prevItems.filter(item => item.id !== productId);
-        saveCartToLocalStorage(updatedItems, user);
-        return updatedItems;
-     });
+    setIsCartOpen(true);
   };
 
-  const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity <= 0) {
-        removeFromCart(productId);
-    } else {
-        setCartItems(prevItems => {
-            const updatedItems = prevItems.map(item =>
-                item.id === productId ? { ...item, quantity: newQuantity } : item
-            );
-            saveCartToLocalStorage(updatedItems, user);
-            return updatedItems;
-        });
-    }
+  const removeFromCart = (productId) => {
+    setCartItems(prevItems => prevItems.filter(item => item.id !== productId));
+  };
+
+  const increaseQuantity = (productId) => {
+    setCartItems(prevItems =>
+      prevItems.map(item =>
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (productId) => {
+    setCartItems(prevItems =>
+      prevItems
+        .map(item =>
+          item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+        )
+        .filter(item => item.quantity > 0)
+    );
   };
 
   const itemCount = useMemo(() => {
@@ -102,8 +95,8 @@ export const CartProvider = ({ children }) => {
 
   const subtotal = useMemo(() => {
     return cartItems.reduce((total, item) => {
-        const price = item.currentPrice || 0;
-        return total + (price * item.quantity);
+      const price = item.currentPrice || 0;
+      return total + (price * item.quantity);
     }, 0);
   }, [cartItems]);
 
@@ -113,7 +106,8 @@ export const CartProvider = ({ children }) => {
     cartItems,
     addToCart,
     removeFromCart,
-    updateQuantity,
+    increaseQuantity,
+    decreaseQuantity,
     itemCount,
     subtotal
   };
