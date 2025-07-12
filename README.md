@@ -36,8 +36,6 @@ Prototipação construida com Figma e o sistema com React, Vite e CSS Modules, a
 4. Acesse `http://localhost:5173` no navegador
 5. Garanta que o Java e o Node.js estejam rodando também.
 
-OBS: Front-end disponível na aba "Sobre" do repositório, porém, sem Back-end.
-
 ---
 
 ## 👨‍💻 Autores
