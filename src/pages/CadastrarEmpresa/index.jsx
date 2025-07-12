@@ -37,22 +37,22 @@ function CadastrarEmpresa() {
     const alertShown = useRef(false);
 
     useEffect(() => {
-    if (isAuthLoading || !user || alertShown.current) {
-        return;
-    }
-    const handleRedirect = (message, path) => {
+        if (isAuthLoading || !user || alertShown.current) {
+            return;
+        }
+        const handleRedirect = (message, path) => {
             alert(message);
             alertShown.current = true;
             navigate(path, { replace: true });
         };
-    if (user.role === 'ROLE_BUSINESS') {
-        handleRedirect('A sua conta já está associada a uma empresa.', '/');
-    } else if (user.role === 'ROLE_ADMIN') {
-        handleRedirect('Administradores não podem cadastrar empresas.', '/');
-    }
+        if (user.role === 'ROLE_BUSINESS') {
+            handleRedirect('A sua conta já está associada a uma empresa.', '/');
+        } else if (user.role === 'ROLE_ADMIN') {
+            handleRedirect('Administradores não podem cadastrar empresas.', '/');
+        }
 
 
-}, [user, isAuthLoading, navigate]);
+    }, [user, isAuthLoading, navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -82,8 +82,10 @@ function CadastrarEmpresa() {
                 telefoneWhatsApp: user.telefone || 'Não informado',
             };
 
+            const API_URL = import.meta.env.VITE_API_URL;
+
             try {
-                const response = await fetch('http://localhost:8080/api/business/register', {
+                const response = await fetch(`${API_URL}/api/business/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

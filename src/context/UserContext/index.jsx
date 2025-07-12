@@ -9,12 +9,14 @@ export const UserProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const { token, user, isLoggedIn } = useAuth();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
         const fetchAllUsers = async () => {
             if (user?.role === 'ROLE_ADMIN' && token) {
                 try {
                     console.log("Admin logado, a buscar lista de utilizadores...");
-                    const response = await fetch('http://localhost:8080/api/admin/users', {
+                    const response = await fetch(`${API_URL}/api/admin/users`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     if (response.ok) {
@@ -39,7 +41,7 @@ export const UserProvider = ({ children }) => {
     const updateBusinessByAdmin = async (businessId, updatedData) => {
         if (!token) throw new Error("Não autorizado");
 
-        const response = await fetch(`http://localhost:8080/api/admin/businesses/${businessId}`, {
+        const response = await fetch(`${API_URL}/api/admin/businesses/${businessId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +68,7 @@ export const UserProvider = ({ children }) => {
     const removeBusinessByAdmin = async (businessId) => {
         if (!token) throw new Error("Não autorizado");
 
-        const response = await fetch(`http://localhost:8080/api/admin/businesses/${businessId}`, {
+        const response = await fetch(`${API_URL}/api/admin/businesses/${businessId}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
         });

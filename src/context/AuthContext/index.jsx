@@ -67,8 +67,10 @@ export const AuthProvider = ({ children }) => {
         setIsLoading(false);
     }, [logout]);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const login = async (email, password) => {
-        const response = await fetch('http://localhost:8080/api/auth/login', {
+        const response = await fetch(`${API_URL}/api/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
@@ -96,7 +98,7 @@ export const AuthProvider = ({ children }) => {
             throw new Error("Utilizador não autenticado.");
         }
 
-        const response = await fetch('http://localhost:8080/api/users/profile', {
+        const response = await fetch(`${API_URL}/api/users/profile`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

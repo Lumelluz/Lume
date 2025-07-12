@@ -9,7 +9,7 @@ function ContainerFaleConosco() {
     subject: '',
     message: '',
   });
-  
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -28,8 +28,10 @@ function ContainerFaleConosco() {
     setError('');
     setSuccessMessage('');
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     try {
-      const response = await fetch('http://localhost:8080/api/contact', {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -10,14 +10,16 @@ export const ProductProvider = ({ children }) => {
     const [pendingProducts, setPendingProducts] = useState([]);
     const { token, user } = useAuth();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const fetchApprovedProducts = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/products');
+            const response = await fetch(`${API_URL}/api/products`);
             if (response.ok) {
                 const data = await response.json();
                 setProducts(data);
             } else {
-                 console.error("Falha ao buscar produtos aprovados:", response.statusText);
+                console.error("Falha ao buscar produtos aprovados:", response.statusText);
             }
         } catch (error) {
             console.error("Erro de rede ao buscar produtos aprovados:", error);
@@ -27,7 +29,7 @@ export const ProductProvider = ({ children }) => {
     const fetchPendingProducts = useCallback(async () => {
         if (user?.role === 'ROLE_ADMIN' && token) {
             try {
-                const response = await fetch('http://localhost:8080/api/admin/products/pending', {
+                const response = await fetch(`${API_URL}/api/admin/products/pending`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (response.ok) {
@@ -52,7 +54,7 @@ export const ProductProvider = ({ children }) => {
     const addProductToVerification = async (productData) => {
         if (!token) throw new Error("Apenas empresas logadas podem cadastrar produtos.");
 
-        const response = await fetch('http://localhost:8080/api/products/register', {
+        const response = await fetch(`${API_URL}/api/products/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -65,14 +67,14 @@ export const ProductProvider = ({ children }) => {
             const errorText = await response.text();
             throw new Error(errorText || 'Falha ao cadastrar produto.');
         }
-        
+
         fetchPendingProducts();
     };
 
     const updateProductByBusiness = async (productId, productData) => {
         if (!token) throw new Error("Apenas empresas logadas podem editar produtos.");
 
-        const response = await fetch(`http://localhost:8080/api/products/${productId}`, {
+        const response = await fetch(`${API_URL}/api/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -93,7 +95,7 @@ export const ProductProvider = ({ children }) => {
     const updatePendingProduct = async (productId, updatedData) => {
         if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
 
-        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}`, {
+        const response = await fetch(`${API_URL}/api/admin/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -106,16 +108,16 @@ export const ProductProvider = ({ children }) => {
             const errorText = await response.text();
             throw new Error(errorText || 'Falha ao atualizar dados do produto.');
         }
-        
+
         fetchPendingProducts();
     };
 
     const approveProduct = async (productId, finalData) => {
         if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
-        
+
         await updatePendingProduct(productId, finalData);
 
-        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}/approve`, {
+        const response = await fetch(`${API_URL}/api/admin/products/${productId}/approve`, {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -132,7 +134,7 @@ export const ProductProvider = ({ children }) => {
     const rejectProduct = async (productId) => {
         if (!token || user?.role !== 'ROLE_ADMIN') throw new Error("Não autorizado.");
 
-        const response = await fetch(`http://localhost:8080/api/admin/products/${productId}/reject`, {
+        const response = await fetch(`${API_URL}/api/admin/products/${productId}/reject`, {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -141,16 +143,16 @@ export const ProductProvider = ({ children }) => {
             const errorText = await response.text();
             throw new Error(errorText || 'Falha ao remover produto.');
         }
-        
+
         fetchPendingProducts();
     };
 
-    const value = { 
-        products, 
-        pendingProducts, 
-        addProductToVerification, 
-        approveProduct, 
-        rejectProduct, 
+    const value = {
+        products,
+        pendingProducts,
+        addProductToVerification,
+        approveProduct,
+        rejectProduct,
         updatePendingProduct,
         updateProductByBusiness
     };

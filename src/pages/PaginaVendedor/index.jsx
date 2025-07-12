@@ -10,11 +10,13 @@ function PaginaVendedor() {
     const [companyData, setCompanyData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
         const fetchCompanyData = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch(`http://localhost:8080/api/business/${companyId}`);
+                const response = await fetch(`${API_URL}/api/business/${companyId}`);
                 if (response.ok) {
                     const data = await response.json();
                     setCompanyData(data);

@@ -17,13 +17,15 @@ const QuestionModal = ({ isOpen, onClose, productId, onQuestionPosted }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { token } = useAuth();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!questionText.trim() || !token) return;
 
         setIsSubmitting(true);
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${productId}/questions`, {
+            const response = await fetch(`${API_URL}api/products/${productId}/questions`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,13 +83,15 @@ const AnswerForm = ({ questionId, onAnswerPosted }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { token } = useAuth();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!answerText.trim() || !token) return;
 
         setIsSubmitting(true);
         try {
-            const response = await fetch(`http://localhost:8080/api/questions/${questionId}/answer`, {
+            const response = await fetch(`${API_URL}/api/questions/${questionId}/answer`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ answerText })
@@ -136,10 +140,12 @@ function ProdutoEspecifico() {
     const [questions, setQuestions] = useState([]);
     const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false);
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const fetchQuestions = useCallback(async () => {
         if (!productId) return;
         try {
-            const response = await fetch(`http://localhost:8080/api/products/${productId}/questions`);
+            const response = await fetch(`${API_URL}/api/products/${productId}/questions`);
             if (response.ok) {
                 setQuestions(await response.json());
             }

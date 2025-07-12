@@ -8,11 +8,12 @@ export const useTickets = () => useContext(TicketContext);
 export const TicketProvider = ({ children }) => {
     const [tickets, setTickets] = useState([]);
     const { token, user } = useAuth();
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const fetchTickets = useCallback(async () => {
         if (user?.role === 'ROLE_ADMIN' && token) {
             try {
-                const response = await fetch('http://localhost:8080/api/admin/tickets', {
+                const response = await fetch(`${API_URL}/api/admin/tickets`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (response.ok) {
